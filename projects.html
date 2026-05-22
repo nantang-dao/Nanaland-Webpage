@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Product Overview - nanaland</title>
@@ -130,19 +130,26 @@
             from { transform: translateX(30px); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
+        @keyframes pageIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-page-in {
+            animation: pageIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
     </style>
 </head>
-<body class="bg-background text-on-surface font-body-md overflow-x-hidden min-h-screen flex flex-col bg-gradient-soft">
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden min-h-screen flex flex-col bg-gradient-soft animate-page-in">
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-on-background/85 backdrop-blur-xl backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] shadow-sm dark:shadow-none">
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
                 nanaland
             </div>
-<div class="hidden md:flex items-center gap-8"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="#">Overview</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="{{DATA:SCREEN:SCREEN_5}}">Project</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">About</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="#">Join</a></div>
+<div class="hidden md:flex items-center gap-8"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="index.html">Overview</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="projects.html">Projects</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="about.html">About</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="join.html">Join</a></div>
 <div class="flex items-center gap-4">
 <button class="text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-colors">中/EN</button>
-<button class="gradient-btn text-white px-6 py-2 rounded-xl font-label-lg text-label-lg">Connect</button>
+<a class="gradient-btn text-white px-6 py-2 rounded-xl font-label-lg text-label-lg" href="join.html">Connect</a>
 </div>
 </div>
 </nav>
@@ -170,7 +177,7 @@
                             你的通用社区身份。唯一、可追溯、自我掌控的数字身份标识，支持个人独立管理与多人共管。<br><br>
                             Your universal community identity. A unique, traceable, self-sovereign digital identifier with solo and multi-sig management.
                         </p>
-<button class="gradient-btn text-white px-8 py-3 rounded-xl font-label-lg text-label-lg shadow-[0_8px_24px_rgba(255,107,53,0.2)]">了解详情 / Learn More</button>
+<button class="gradient-btn text-white px-8 py-3 rounded-xl font-label-lg text-label-lg shadow-[0_8px_24px_rgba(255,107,53,0.2)]" onclick="window.location.href='semi.html'">了解详情 / Learn More</button>
 </div>
 </div>
 <!-- Product 2: bai -->
@@ -181,7 +188,7 @@
                             互助即游戏。在社区广场接任务、交凭证、赚积分，让协作像游戏一样有趣。<br><br>
                             Helping is playing. Take tasks, submit proofs, earn points, making collaboration a fun game.
                         </p>
-<button class="bg-secondary text-white px-8 py-3 rounded-xl font-label-lg text-label-lg shadow-[0_8px_24px_rgba(0,107,92,0.2)] hover:scale-105 transition-transform duration-300">了解详情 / Learn More</button>
+<button class="bg-secondary text-white px-8 py-3 rounded-xl font-label-lg text-label-lg shadow-[0_8px_24px_rgba(0,107,92,0.2)] hover:scale-105 transition-transform duration-300" onclick="window.location.href='bai.html'">了解详情 / Learn More</button>
 </div>
 <div class="w-full md:w-1/2 flex justify-center order-2">
 <img alt="" class="w-full max-w-[500px] h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500 rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAubXRBZ0frduHdU-Z0tz3mQGXmI5urdWbw2qBOZ70HP8QowATn18hQ-qp74jCczyF1NciNTWjZ-KU5fP2a6lYIqFzqlMK9rXx3_CZdAHuPtwqj9cmPo7cYmMOI8iDOFDqIqEEUcs6Kj5ZRMPdlzQ-l4POAj27tz73y4FrsMH2huLLNVLQOp1gAE_W_v8e4KRhpAtwxPTl03b8ffKs6e3pJqSj40ewgM1xsXR_SOgqVDfyMu3bufN-LU073nfquwqNZ-SJHRCYJmufI">
@@ -205,7 +212,7 @@
                             让决策上链。白名单治理、灵活提案、结果验证，为社区透明决策量身打造。（开发中）<br><br>
                             Decision-making on-chain. Allowlist governance, flexible proposals, verifiable results. (In Development)
                         </p>
-<button class="border-2 border-outline-variant text-on-surface-variant px-8 py-3 rounded-xl font-label-lg text-label-lg cursor-not-allowed opacity-70">敬请期待 / Stay Tuned</button>
+<button class="border-2 border-outline-variant text-on-surface-variant px-8 py-3 rounded-xl font-label-lg text-label-lg opacity-70 cursor-pointer" onclick="window.location.href='vote.html'">了解详情 / Learn More</button>
 </div>
 </div>
 </div>

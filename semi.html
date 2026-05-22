@@ -299,9 +299,16 @@
         #qr-canvas {
             image-rendering: pixelated;
         }
+        @keyframes pageIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-page-in {
+            animation: pageIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
     </style>
 </head>
-<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-x-hidden">
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-x-hidden animate-page-in">
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-on-background/85 backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] transition-all duration-300 cubic-bezier(0.2, 0.8, 0.2, 1)">
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
@@ -309,16 +316,16 @@
             nanaland
         </a>
 <div class="hidden md:flex items-center space-x-8">
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Overview</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Project</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">About</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Join</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="index.html">Overview</a>
+<a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 transition-all duration-300" href="projects.html">Projects</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="about.html">About</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="join.html">Join</a>
 </div>
 <div class="flex items-center space-x-4">
 <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300">中/EN</button>
-<button class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-on-primary font-label-lg text-label-lg px-6 py-2 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] hover:scale-105 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)">
+<a class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-on-primary font-label-lg text-label-lg px-6 py-2 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] hover:scale-105 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="join.html">
                 Connect
-            </button>
+            </a>
 </div>
 </div>
 </nav>
@@ -329,13 +336,15 @@
 <p class="font-body-lg text-body-lg text-text-muted max-w-2xl mb-6">
             你的通用社区身份。唯一、可追溯、自我掌控的数字身份标识，让积分流转安全又自由。
         </p>
-<a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit" href="#">
+<div class="flex flex-col gap-3 mt-6">
+<a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit" href="projects.html">
 <span class="material-symbols-outlined text-sm">arrow_back</span>返回 Back
         </a>
-<a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit" href="#">
-  下一个产品 Next
+<a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit" href="bai.html">
+  Next 下一个产品
   <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
+</div>
 </div>
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative min-h-[700px]">
 <!-- Left: Feature Navigation -->

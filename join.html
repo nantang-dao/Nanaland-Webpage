@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh" style=""><head>
+<!DOCTYPE html><html class="scroll-smooth" lang="zh" style=""><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>加入 nanaland</title>
@@ -123,9 +123,16 @@
                         radial-gradient(circle at 90% 80%, var(--tw-colors-bg-soft-green) 0%, transparent 40%);
             background-color: var(--tw-colors-background);
         }
+        @keyframes pageIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-page-in {
+            animation: pageIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
     </style>
 </head>
-<body class="bg-gradient-mesh text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<body class="bg-gradient-mesh text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden animate-page-in">
 <!-- TopNavBar -->
 <nav class="bg-white/85 dark:bg-on-background/85 backdrop-blur-xl fixed top-0 w-full z-50 backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] shadow-sm dark:shadow-none transition-all duration-300 cubic-bezier(0.2, 0.8, 0.2, 1)">
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
@@ -135,17 +142,17 @@
             </div>
 <!-- Links (Desktop) -->
 <div class="hidden md:flex gap-8 items-center">
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="#">Overview</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="#">Project</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="#">About</a>
-<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">Join</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="index.html">Overview</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="projects.html">Projects</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="about.html">About</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="join.html">Join</a>
 </div>
 <!-- Actions -->
 <div class="flex items-center gap-4">
 <span class="font-label-lg text-label-lg text-on-surface-variant cursor-pointer hover:text-primary transition-colors">中/EN</span>
-<button class="hidden md:block bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white px-6 py-2 rounded-[12px] font-label-lg text-label-lg hover:scale-105 transition-transform duration-300 shadow-[0_8px_24px_rgba(255,107,53,0.12)]">
+<a class="hidden md:block bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white px-6 py-2 rounded-[12px] font-label-lg text-label-lg hover:scale-105 transition-transform duration-300 shadow-[0_8px_24px_rgba(255,107,53,0.12)]" href="join.html">
                     Connect
-                </button>
+                </a>
 </div>
 </div>
 </nav>

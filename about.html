@@ -36,6 +36,13 @@
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
+        @keyframes pageIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-page-in {
+            animation: pageIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
     </style>
 <script id="tailwind-config">
         tailwind.config = {
@@ -192,7 +199,7 @@
         }
       </script>
 </head>
-<body class="bg-background text-on-background antialiased overflow-x-hidden min-h-screen flex flex-col">
+<body class="bg-background text-on-background antialiased overflow-x-hidden min-h-screen flex flex-col animate-page-in">
 <!-- TopNavBar -->
 <nav class="bg-white/85 dark:bg-on-background/85 backdrop-blur-xl fixed top-0 w-full z-50 backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] transition-all duration-300 cubic-bezier(0.2, 0.8, 0.2, 1)">
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
@@ -201,13 +208,13 @@
                 nanaland
             </a>
 <!-- Navigation Links (Desktop) -->
-<div class="hidden md:flex items-center space-x-8 font-label-lg text-label-lg"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="#">Overview</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="#">Project</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">About</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="#">Join</a></div>
+<div class="hidden md:flex items-center space-x-8 font-label-lg text-label-lg"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="index.html">Overview</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="projects.html">Projects</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="about.html">About</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="join.html">Join</a></div>
 <!-- Actions -->
 <div class="flex items-center space-x-6">
 <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300">中/EN</button>
-<button class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white font-label-lg text-label-lg px-6 py-2 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] hover:scale-105 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)">
+<a class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white font-label-lg text-label-lg px-6 py-2 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] hover:scale-105 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="join.html">
                     Connect
-                </button>
+                </a>
 </div>
 </div>
 </nav>

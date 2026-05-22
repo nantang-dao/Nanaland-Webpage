@@ -256,21 +256,28 @@ body {
   100% { transform: translateY(0); opacity: 1; }
 }
 .comment-pop { animation: commentPop 0.4s ease-out forwards; }
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-page-in {
+  animation: pageIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
 </style>
 </head>
-<body class="text-on-surface overflow-x-hidden font-body-md">
+<body class="text-on-surface overflow-x-hidden font-body-md animate-page-in">
 <nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-on-background/85 backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)]">
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">nanaland</div>
 <div class="hidden md:flex gap-8 items-center">
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">Overview</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">Project</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">About</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">Join</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="index.html">Overview</a>
+<a class="text-primary border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg" href="projects.html">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="about.html">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="join.html">Join</a>
 </div>
 <div class="flex items-center gap-6">
 <span class="font-label-lg text-label-lg cursor-pointer hover:text-primary transition-colors">中/EN</span>
-<button class="btn-primary px-6 py-2 rounded-xl font-label-lg text-label-lg hidden md:block">Connect</button>
+<a class="btn-primary px-6 py-2 rounded-xl font-label-lg text-label-lg hidden md:block" href="join.html">Connect</a>
 </div>
 </div>
 </nav>
@@ -281,6 +288,15 @@ body {
 把社区互助变成一场游戏。<br/>接任务、交凭证、晒贡献，用积分串联每一个行动。
 </h1>
 <p class="font-body-lg text-body-lg text-text-muted">bai 任务系统，让每一次社区参与都充满乐趣与回报。</p>
+<div class="flex flex-col gap-3 mt-6">
+<a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit mx-auto" href="projects.html">
+<span class="material-symbols-outlined text-sm">arrow_back</span>返回 Back
+</a>
+<a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit mx-auto" href="vote.html">
+  Next → 下一个产品
+  <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
 </div>
 
 <div class="flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">

@@ -127,9 +127,16 @@
         .bg-gradient-organic {
             background: linear-gradient(135deg, #FFF3EF 0%, #E6FAF5 100%);
         }
+        @keyframes pageIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-page-in {
+            animation: pageIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
     </style>
 </head>
-<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container animate-page-in">
 <!-- TopNavBar Component -->
 <nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-on-background/85 backdrop-blur-xl backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] shadow-sm dark:shadow-none" id="main-nav">
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
@@ -138,19 +145,19 @@
                 nanaland
             </a>
 <!-- Navigation Links (Desktop) -->
-<ul class="hidden md:flex items-center gap-8"><li class=""><a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">Overview</a></li>
-<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="{{DATA:SCREEN:SCREEN_5}}">Project</a></li>
-<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">About</a></li>
-<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Join</a></li></ul>
+<ul class="hidden md:flex items-center gap-8"><li class=""><a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="index.html">Overview</a></li>
+<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="projects.html">Projects</a></li>
+<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="about.html">About</a></li>
+<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="join.html">Join</a></li></ul>
 <!-- Actions -->
 <div class="flex items-center gap-4">
 <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1" id="lang-toggle">
 <span class="material-symbols-outlined text-[18px]">language</span>
 <span data-lang-cn="EN/中" data-lang-en="中/EN" class="">中/EN</span>
 </button>
-<button class="btn-primary text-white font-label-lg text-label-lg px-6 py-2.5 rounded-xl hidden md:block">
+<a class="btn-primary text-white font-label-lg text-label-lg px-6 py-2.5 rounded-xl hidden md:block" href="join.html">
                     Connect
-                </button>
+                </a>
 </div>
 </div>
 </nav>
@@ -180,9 +187,9 @@
                                 Join a vibrant ecosystem balancing the organic warmth of community-driven rural construction with the precision of blockchain technology. Empowering localized DAOs through programmable trust.
                             </p>
 <div class="flex flex-wrap items-center gap-4 pt-4">
-<button class="btn-primary text-white font-label-lg text-label-lg px-8 py-4 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)]">
+<a class="btn-primary text-white font-label-lg text-label-lg px-8 py-4 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)]" href="projects.html">
                                     探索我们的产品 / Explore Products
-                                </button>
+                                </a>
 <button class="px-8 py-4 rounded-xl font-label-lg text-label-lg text-on-surface border-[1.5px] border-outline-variant/50 hover:border-primary/50 hover:bg-white/50 transition-all duration-300">
                                     Read Documentation
                                 </button>
@@ -252,7 +259,7 @@
 
 </div>
 </div><div class="flex justify-center mt-12">
-    <a href="{{DATA:SCREEN:SCREEN_5}}" class="btn-primary text-white font-label-lg text-label-lg px-10 py-3 rounded-full shadow-[0_8px_24px_rgba(255,107,53,0.12)]">
+    <a href="projects.html" class="btn-primary text-white font-label-lg text-label-lg px-10 py-3 rounded-full shadow-[0_8px_24px_rgba(255,107,53,0.12)]">
         查看详情 See Details
     </a>
 </div>
