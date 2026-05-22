@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>bai Task System - nanaland</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "error": "#ba1a1a",
+                "surface": "#fcf8ff",
+                "on-error-container": "#93000a",
+                "on-secondary-fixed": "#00201b",
+                "on-secondary-container": "#007262",
+                "background": "#fcf8ff",
+                "on-tertiary-fixed": "#001f28",
+                "text-muted": "#5B5B6C",
+                "error-container": "#ffdad6",
+                "on-tertiary-container": "#003744",
+                "surface-variant": "#e2e0fc",
+                "surface-bright": "#fcf8ff",
+                "surface-container-lowest": "#ffffff",
+                "secondary": "#006b5c",
+                "outline-variant": "#e1bfb5",
+                "on-tertiary-fixed-variant": "#004e60",
+                "accent-gradient-start": "#FF6B35",
+                "accent-gradient-end": "#FF8C69",
+                "on-primary-fixed": "#390c00",
+                "tertiary-fixed": "#b5ebff",
+                "surface-container-low": "#f5f2ff",
+                "on-surface-variant": "#594139",
+                "bg-soft-orange": "#FFF3EF",
+                "bg-soft-green": "#E6FAF5",
+                "inverse-primary": "#ffb59d",
+                "surface-dim": "#dad7f3",
+                "secondary-fixed": "#65fade",
+                "surface-container-high": "#e8e5ff",
+                "secondary-fixed-dim": "#41ddc2",
+                "primary-container": "#ff6b35",
+                "on-primary-container": "#5f1900",
+                "primary": "#ab3500",
+                "on-secondary": "#ffffff",
+                "on-surface": "#1a1a2e",
+                "outline": "#8d7168",
+                "surface-container": "#efecff",
+                "secondary-container": "#65fade",
+                "on-primary": "#ffffff",
+                "on-error": "#ffffff",
+                "tertiary-fixed-dim": "#59d5fb",
+                "inverse-surface": "#2f2e43",
+                "tertiary": "#00677e",
+                "on-tertiary": "#ffffff",
+                "primary-fixed-dim": "#ffb59d",
+                "on-primary-fixed-variant": "#832600",
+                "tertiary-container": "#00a7cb",
+                "on-background": "#1a1a2e",
+                "primary-fixed": "#ffdbd0",
+                "inverse-on-surface": "#f2efff",
+                "surface-tint": "#ab3500",
+                "surface-container-highest": "#e2e0fc",
+                "on-secondary-fixed-variant": "#005045"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-mobile": "20px",
+                "gutter": "24px",
+                "section-gap": "120px",
+                "container-max": "1280px",
+                "unit": "4px"
+        },
+        "fontFamily": {
+                "headline-md": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "headline-xl": ["Plus Jakarta Sans"],
+                "headline-xl-mobile": ["Plus Jakarta Sans"],
+                "body-md": ["Inter"],
+                "label-lg": ["Inter"],
+                "body-lg": ["Inter"]
+        },
+        "fontSize": {
+                "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                "headline-lg": ["36px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+body {
+  background: linear-gradient(135deg, #FFF3EF 0%, #E6FAF5 100%);
+  min-height: 100vh;
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(255, 107, 53, 0.12);
+}
+.btn-primary {
+  background: linear-gradient(135deg, #FF6B35, #FF8C69);
+  color: white;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 32px rgba(255, 107, 53, 0.18);
+}
+.btn-functional {
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: left center;
+}
+.btn-functional.active {
+  transform: scale(1.15);
+  background: #FF6B35;
+  color: white;
+  box-shadow: 0 12px 32px rgba(255, 107, 53, 0.25);
+}
+.phone-mockup { transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.anim-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseStep {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+.step-active { color: #006b5c; font-weight: bold; animation: pulseStep 2s infinite; }
+.step-icon { transition: all 0.4s ease; }
+.step-label { transition: all 0.4s ease; }
+.step-done .step-icon { color: #006b5c; }
+.step-done .step-label { color: #006b5c; }
+.step-points .step-icon { color: #f59e0b; }
+.step-points .step-label { color: #f59e0b; font-weight: bold; }
+.step-pending .step-icon { color: #5B5B6C; opacity: 0.6; }
+.step-pending .step-label { color: #5B5B6C; opacity: 0.6; }
+@keyframes stepDone {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.step-done, .step-points { animation: stepDone 0.5s ease-out; }
+.progress-line-wrap { height: 16px; width: 2px; position: relative; }
+.progress-line { width: 100%; height: 0; background: #5B5B6C; opacity: 0.3; border-radius: 1px; transition: height 0.4s ease, background 0.4s ease, opacity 0.4s ease; }
+.progress-line.line-done { height: 100%; background: #006b5c; opacity: 1; }
+.progress-line.line-points { height: 100%; background: #f59e0b; opacity: 1; }
+@keyframes lineGrow {
+  0% { height: 0; }
+  100% { height: 100%; }
+}
+.progress-line.line-animating { animation: lineGrow 0.4s ease forwards; }
+.phone-header {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.task-card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.02);
+  transition: transform 0.3s ease;
+}
+.bottom-nav {
+  background: white;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.03);
+}
+.hidden-screen { display: none !important; }
+.active-screen { display: flex !important; }
+.sub-view {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+}
+.hidden-sub {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.active-sub {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+.exit-sub {
+  transform: translateX(-30%);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+@keyframes cursorPulse {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.8; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.4; }
+  100% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.8; }
+}
+#auto-cursor {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 107, 53, 0.3);
+  border: 3px solid #FF6B35;
+  pointer-events: none;
+  z-index: 100;
+  display: none;
+  animation: cursorPulse 1s ease-in-out infinite;
+  transform: translate(-50%, -50%);
+}
+#auto-cursor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FF6B35;
+}
+@keyframes flipIn {
+  0% { transform: rotateY(90deg); opacity: 0; }
+  100% { transform: rotateY(0deg); opacity: 1; }
+}
+.flip-in { animation: flipIn 0.5s ease forwards; }
+@keyframes flipOut {
+  0% { transform: rotateY(0deg); opacity: 1; }
+  100% { transform: rotateY(-90deg); opacity: 0; }
+}
+.flip-out { animation: flipOut 0.5s ease forwards; }
+@keyframes commentPop {
+  0% { transform: translateY(8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.comment-pop { animation: commentPop 0.4s ease-out forwards; }
+</style>
+</head>
+<body class="text-on-surface overflow-x-hidden font-body-md">
+<nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-on-background/85 backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)]">
+<div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">nanaland</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">Overview</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">Project</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">Join</a>
+</div>
+<div class="flex items-center gap-6">
+<span class="font-label-lg text-label-lg cursor-pointer hover:text-primary transition-colors">中/EN</span>
+<button class="btn-primary px-6 py-2 rounded-xl font-label-lg text-label-lg hidden md:block">Connect</button>
+</div>
+</div>
+</nav>
+
+<main class="pt-32 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-gutter min-h-screen flex flex-col justify-center relative">
+<div class="text-center mb-20 max-w-4xl mx-auto anim-fade-in">
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-6 leading-tight">
+把社区互助变成一场游戏。<br/>接任务、交凭证、晒贡献，用积分串联每一个行动。
+</h1>
+<p class="font-body-lg text-body-lg text-text-muted">bai 任务系统，让每一次社区参与都充满乐趣与回报。</p>
+</div>
+
+<div class="flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+<div class="flex flex-col gap-6 w-full md:w-1/3 z-20">
+<button class="btn-functional active glass-card rounded-[24px] py-6 px-8 text-left group" id="btn-social" onclick="switchFeature('social')">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">forum</span>
+<span class="font-headline-md text-headline-md">社区圈互动</span>
+</div>
+<p class="mt-2 font-body-md text-body-md opacity-80">分享动态，点赞评论，建立社区连接。</p>
+</button>
+<button class="btn-functional glass-card rounded-[24px] py-6 px-8 text-left group" id="btn-task" onclick="switchFeature('task')">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">task_alt</span>
+<span class="font-headline-md text-headline-md">任务与审核</span>
+</div>
+<p class="mt-2 font-body-md text-body-md opacity-80">领取社区任务，上传凭证，获取积分奖励。</p>
+</button>
+<button class="btn-functional glass-card rounded-[24px] py-6 px-8 text-left group" id="btn-calendar" onclick="switchFeature('calendar')">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">calendar_month</span>
+<span class="font-headline-md text-headline-md">活动日历</span>
+</div>
+<p class="mt-2 font-body-md text-body-md opacity-80">查看并报名社区活动，不错过精彩瞬间。</p>
+</button>
+<button class="btn-functional glass-card rounded-[24px] py-6 px-8 text-left group" id="btn-store" onclick="switchFeature('store')">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">storefront</span>
+<span class="font-headline-md text-headline-md">积分商城</span>
+</div>
+<p class="mt-2 font-body-md text-body-md opacity-80">使用积分兑换社区专属商品与权益。</p>
+</button>
+</div>
+
+<div class="absolute left-1/3 top-1/2 -translate-y-1/2 -translate-x-1/2 z-30 opacity-0 pointer-events-none transition-all duration-500 glass-card p-6 rounded-2xl w-64 transform scale-95" id="dialog-task-progress">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">任务进度</h3>
+<div class="flex flex-col font-body-md text-body-md" id="progress-steps">
+<div class="flex items-start gap-2" id="step-1">
+<span class="material-symbols-outlined text-sm mt-0.5 step-icon">radio_button_unchecked</span>
+<span class="step-label">任务创建</span>
+</div>
+<div class="progress-line-wrap ml-[7px]"><div class="progress-line" id="line-1"></div></div>
+<div class="flex items-start gap-2" id="step-2">
+<span class="material-symbols-outlined text-sm mt-0.5 step-icon">radio_button_unchecked</span>
+<span class="step-label">领取任务</span>
+</div>
+<div class="progress-line-wrap ml-[7px]"><div class="progress-line" id="line-2"></div></div>
+<div class="flex items-start gap-2" id="step-3">
+<span class="material-symbols-outlined text-sm mt-0.5 step-icon">radio_button_unchecked</span>
+<span class="step-label">上传凭证</span>
+</div>
+<div class="progress-line-wrap ml-[7px]"><div class="progress-line" id="line-3"></div></div>
+<div class="flex items-start gap-2" id="step-4">
+<span class="material-symbols-outlined text-sm mt-0.5 step-icon">radio_button_unchecked</span>
+<span class="step-label">审核通过</span>
+</div>
+<div class="progress-line-wrap ml-[7px]"><div class="progress-line" id="line-4"></div></div>
+<div class="flex items-start gap-2" id="step-5">
+<span class="material-symbols-outlined text-sm mt-0.5 step-icon">radio_button_unchecked</span>
+<span class="step-label">+15 积分</span>
+</div>
+</div>
+</div>
+
+<div class="w-full md:w-2/3 flex justify-center md:justify-end relative phone-mockup" id="phone-container">
+<div class="relative w-[340px] h-[680px] bg-white rounded-[48px] shadow-[0_24px_64px_rgba(255,107,53,0.15)] border-[8px] border-surface-container-highest overflow-hidden" id="phone-frame">
+<div id="auto-cursor"></div>
+
+<!-- ===== SCREEN: TASK ===== -->
+<div class="absolute inset-0 w-full h-full bg-surface-container-low flex flex-col hidden-screen" id="screen-task">
+<div class="h-full w-full relative overflow-hidden">
+<div class="sub-view active-sub bg-surface-container-low flex flex-col no-scrollbar" id="task-home">
+<div class="phone-header px-4 pt-10 pb-4 flex justify-between items-center z-10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xs">南塘</div>
+<div class="text-sm font-bold">南塘<br/><span class="text-xs text-secondary font-normal">切换社区 &gt;</span></div>
+</div>
+<div class="flex gap-2">
+<div class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">shopping_cart</span> 商城</div>
+<div class="w-8 h-8 rounded-full bg-secondary/10 text-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[16px]">notifications</span></div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-20 no-scrollbar">
+<div class="flex justify-end mb-4">
+<button class="bg-secondary text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-1 shadow-md" id="btn-create-task" onclick="taskGoSub('task-publish')">
+<span class="material-symbols-outlined text-[16px]">add_circle</span> 创建任务
+</button>
+</div>
+<div class="flex gap-2 mb-4 overflow-x-auto pb-2 no-scrollbar">
+<div class="bg-secondary text-white px-4 py-1.5 rounded-full text-xs whitespace-nowrap">全部</div>
+<div class="bg-white text-text-muted px-4 py-1.5 rounded-full text-xs whitespace-nowrap border border-outline-variant/30">可领取</div>
+<div class="bg-white text-text-muted px-4 py-1.5 rounded-full text-xs whitespace-nowrap border border-outline-variant/30">待审核</div>
+<div class="bg-white text-text-muted px-4 py-1.5 rounded-full text-xs whitespace-nowrap border border-outline-variant/30">已完成</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="task-card cursor-pointer" onclick="taskGoSub('task-detail')">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-6 h-6 rounded-full bg-tertiary-container flex items-center justify-center text-[10px] text-on-tertiary-container">展</div>
+<div><div class="text-[10px] font-bold">展</div><div class="text-[8px] text-text-muted">发布于 54天前</div></div>
+</div>
+<div class="font-bold text-sm mb-1 line-clamp-1">下午好！</div>
+<div class="text-[10px] text-text-muted mb-3 line-clamp-2">下午的天气也很好！</div>
+<div class="flex justify-between items-center mt-auto">
+<div class="text-secondary text-xs font-bold">● 1 积分</div>
+<div class="w-5 h-5 rounded-full bg-secondary flex items-center justify-center text-white"><span class="material-symbols-outlined text-[12px]">chevron_right</span></div>
+</div>
+</div>
+<div class="task-card cursor-pointer" onclick="taskGoSub('task-detail')">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-[10px] text-white">蓝莓</div>
+<div><div class="text-[10px] font-bold">野生蓝莓</div><div class="text-[8px] text-text-muted">发布于 54天前</div></div>
+</div>
+<div class="font-bold text-sm mb-1 line-clamp-1">开发者社区例会</div>
+<div class="text-[10px] text-text-muted mb-3 line-clamp-2">每周同步开始尝试用meeting开会</div>
+<div class="flex justify-between items-center mt-auto">
+<div class="text-secondary text-xs font-bold">● 125 积分</div>
+<div class="w-5 h-5 rounded-full bg-secondary flex items-center justify-center text-white"><span class="material-symbols-outlined text-[12px]">chevron_right</span></div>
+</div>
+</div>
+<div class="task-card cursor-pointer" onclick="taskGoSub('task-detail')">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-6 h-6 rounded-full bg-surface-variant flex items-center justify-center text-[10px] text-on-surface">CC</div>
+<div><div class="text-[10px] font-bold">CC</div><div class="text-[8px] text-text-muted">发布于 76天前</div></div>
+</div>
+<div class="font-bold text-sm mb-1 line-clamp-1">大家新年好</div>
+<div class="text-[10px] text-text-muted mb-3 line-clamp-2">新年快乐，抢红包10nt</div>
+<div class="flex justify-between items-center mt-auto">
+<div class="text-secondary text-xs font-bold">● 10 积分</div>
+<div class="w-5 h-5 rounded-full bg-secondary flex items-center justify-center text-white"><span class="material-symbols-outlined text-[12px]">chevron_right</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bottom-nav absolute bottom-0 w-full flex justify-around py-3 px-2 z-20">
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">home</span><span class="text-[10px]">社区</span></div>
+<div class="flex flex-col items-center gap-1 text-primary"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="text-[10px]">任务</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">event</span><span class="text-[10px]">活动</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">person</span><span class="text-[10px]">我的</span></div>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col no-scrollbar" id="task-publish">
+<div class="phone-header px-4 pt-10 pb-4 flex items-center z-10">
+<button onclick="taskGoHome()" class="mr-3"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-lg">发布任务</span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-24 no-scrollbar">
+<div class="mb-4">
+<label class="text-xs text-text-muted mb-1 block">任务标题</label>
+<input class="w-full border border-outline-variant/50 rounded-xl px-3 py-2 text-sm bg-surface-container-low focus:outline-none focus:border-primary" id="input-task-title" value="" />
+</div>
+<div class="mb-4">
+<label class="text-xs text-text-muted mb-1 block">任务描述</label>
+<textarea class="w-full border border-outline-variant/50 rounded-xl px-3 py-2 text-sm bg-surface-container-low focus:outline-none focus:border-primary h-20 resize-none" id="input-task-desc"></textarea>
+</div>
+<div class="grid grid-cols-2 gap-3 mb-4">
+<div>
+<label class="text-xs text-text-muted mb-1 block">需要人数</label>
+<input class="w-full border border-outline-variant/50 rounded-xl px-3 py-2 text-sm bg-surface-container-low focus:outline-none focus:border-primary" id="input-task-people" value="" />
+</div>
+<div>
+<label class="text-xs text-text-muted mb-1 block">奖励积分</label>
+<input class="w-full border border-outline-variant/50 rounded-xl px-3 py-2 text-sm bg-surface-container-low focus:outline-none focus:border-primary" id="input-task-points" value="" />
+</div>
+</div>
+<div class="mb-4">
+<label class="text-xs text-text-muted mb-1 block">截止时间</label>
+<input type="date" class="w-full border border-outline-variant/50 rounded-xl px-3 py-2 text-sm bg-surface-container-low focus:outline-none focus:border-primary" id="input-task-deadline" value="" />
+</div>
+<div class="mb-4">
+<label class="text-xs text-text-muted mb-1 block">审核要求</label>
+<textarea class="w-full border border-outline-variant/50 rounded-xl px-3 py-2 text-sm bg-surface-container-low focus:outline-none focus:border-primary h-16 resize-none" id="input-task-review"></textarea>
+</div>
+<button class="w-full bg-secondary text-white py-3 rounded-2xl font-bold text-sm shadow-lg active:scale-95 transition-transform" id="btn-publish-task" onclick="taskGoSub('task-publish-success')">发布任务</button>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col items-center justify-center no-scrollbar" id="task-publish-success">
+<span class="material-symbols-outlined text-secondary text-7xl mb-4" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-bold text-2xl text-on-surface mb-2">发布成功</span>
+<span class="text-sm text-text-muted mb-8">任务已发布至社区任务板</span>
+<button class="bg-secondary text-white px-8 py-3 rounded-full font-bold text-sm" id="btn-back-home-publish" onclick="taskGoHome()">返回任务列表</button>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col no-scrollbar" id="task-detail">
+<div class="phone-header px-4 pt-10 pb-4 flex items-center z-10">
+<button onclick="taskGoHome()" class="mr-3"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-lg">任务详情</span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-24 no-scrollbar">
+<div class="w-full h-36 bg-gradient-to-br from-secondary-container to-tertiary-container rounded-2xl mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-white/60">volunteer_activism</span>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold">蓝莓</div>
+<div>
+<div class="font-bold text-sm">野生蓝莓</div>
+<div class="text-[10px] text-text-muted">发布于 54天前</div>
+</div>
+</div>
+<h2 class="text-xl font-bold mb-2">开发者社区例会</h2>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary text-sm">schedule</span>
+<span class="text-sm text-text-muted">截止时间: 2026/06/15</span>
+</div>
+<div class="flex gap-3 mb-4">
+<div class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">group</span> 需要 5 人
+</div>
+<div class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">stars</span> 125 积分
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl mb-4">
+<h4 class="font-bold text-sm mb-2">任务描述</h4>
+<p class="text-sm text-text-muted leading-relaxed">每周同步开始尝试用meeting开会，讨论社区开发进度与协作方向。</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl mb-4">
+<h4 class="font-bold text-sm mb-2">审核要求</h4>
+<p class="text-sm text-text-muted leading-relaxed">上传参会截图凭证，由社区管理员审核确认。</p>
+</div>
+<div class="flex items-center gap-2 mb-4 text-text-muted text-xs">
+<span class="material-symbols-outlined text-sm">person</span>
+<span>已有 2 人领取</span>
+<span class="mx-1">·</span>
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>剩余 3 个名额</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-md border-t border-outline-variant/20 z-20">
+<button class="w-full bg-secondary text-white py-3 rounded-2xl font-bold text-sm shadow-lg active:scale-95 transition-transform flex justify-center items-center gap-2" id="btn-claim-task" onclick="claimTask()">
+<span class="material-symbols-outlined">assignment_turned_in</span> 领取任务
+</button>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col no-scrollbar" id="task-claim">
+<div class="phone-header px-4 pt-10 pb-4 flex items-center z-10">
+<button onclick="taskGoSub('task-detail')" class="mr-3"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-lg">提交凭证</span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-24 no-scrollbar">
+<div class="bg-white rounded-2xl p-4 shadow-sm border border-outline-variant/30 mb-4">
+<div class="flex items-center gap-2 mb-3">
+<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold">蓝莓</div>
+<div><div class="font-bold text-sm">开发者社区例会</div><div class="text-[10px] text-secondary font-bold">● 125 积分</div></div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-xl text-xs mb-2">
+<div class="font-bold mb-1">审核要求：</div>
+<div class="text-text-muted">上传参会截图凭证，由社区管理员审核确认。</div>
+</div>
+</div>
+<div class="mb-4">
+<label class="text-xs text-text-muted mb-2 block font-bold">图片凭证</label>
+<div class="bg-surface-container-low rounded-2xl h-20 border-2 border-dashed border-primary/50 flex flex-col items-center justify-center text-primary/70" id="evidence-image-area">
+<span class="material-symbols-outlined text-xl mb-0.5">cloud_upload</span>
+<span class="text-sm font-bold" id="evidence-image-text">点击上传图片凭证</span>
+</div>
+</div>
+<div class="mb-4">
+<label class="text-xs text-text-muted mb-2 block font-bold">文字凭证</label>
+<div class="bg-surface-container-low rounded-2xl h-14 border-2 border-dashed border-primary/50 flex items-center gap-2 px-3 text-primary/70" id="evidence-text-area">
+<span class="material-symbols-outlined text-xl flex-shrink-0">edit_note</span>
+<span class="text-sm font-bold text-primary/70" id="evidence-text-placeholder">点击输入文字凭证</span>
+<textarea class="absolute opacity-0 w-0 h-0" id="input-evidence-text"></textarea>
+</div>
+</div>
+<div class="mb-4">
+<label class="text-xs text-text-muted mb-2 block font-bold">位置凭证</label>
+<div class="bg-surface-container-low rounded-2xl border-2 border-dashed border-primary/50 p-3 flex items-center gap-2" id="evidence-location-area">
+<span class="material-symbols-outlined text-primary/70 text-xl">location_on</span>
+<span class="text-sm text-text-muted" id="evidence-location-text">点击获取当前位置</span>
+</div>
+</div>
+<button class="w-full bg-secondary text-white py-3 rounded-2xl font-bold text-sm shadow-lg active:scale-95 transition-transform" id="btn-submit-evidence" onclick="taskGoSub('task-claim-success')">提交凭证</button>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col items-center justify-center no-scrollbar" id="task-claim-success">
+<div class="flex flex-col items-center transition-all duration-500" id="review-state">
+<span class="material-symbols-outlined text-secondary text-7xl mb-4" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-bold text-2xl text-on-surface mb-2">审核完成</span>
+<span class="text-sm text-text-muted">凭证已通过审核</span>
+</div>
+<div class="flex flex-col items-center opacity-0 absolute transition-all duration-500" id="points-state">
+<span class="material-symbols-outlined text-amber-400 text-7xl mb-4" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-bold text-2xl text-amber-400 mb-2">积分已到账</span>
+<span class="text-amber-400 font-bold text-2xl mb-8">+15 积分</span>
+<button class="bg-secondary text-white px-8 py-3 rounded-full font-bold text-sm" id="btn-back-home-claim" onclick="taskGoHome()">返回任务列表</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ===== SCREEN: SOCIAL ===== -->
+<div class="absolute inset-0 w-full h-full bg-surface-container-low flex flex-col active-screen" id="screen-social">
+<div class="h-full w-full relative overflow-hidden">
+<div class="sub-view active-sub bg-surface-container-low flex flex-col no-scrollbar" id="social-intro">
+<div class="phone-header px-4 pt-10 pb-4 flex justify-between items-center z-10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xs">南塘</div>
+<div class="text-sm font-bold">南塘<br/><span class="text-xs text-secondary font-normal">切换社区 &gt;</span></div>
+</div>
+<div class="flex gap-2">
+<div class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">shopping_cart</span> 商城</div>
+<div class="w-8 h-8 rounded-full bg-secondary/10 text-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[16px]">notifications</span></div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-20 no-scrollbar">
+<div class="w-full h-36 rounded-2xl bg-gradient-to-br from-secondary-container via-tertiary-container to-primary-container mb-4 flex items-center justify-center overflow-hidden relative">
+<div class="absolute inset-0 bg-black/5"></div>
+<span class="material-symbols-outlined text-6xl text-white/40 z-10" style="font-variation-settings: 'FILL' 1;">landscape</span>
+</div>
+<div class="bg-white p-4 rounded-2xl shadow-sm mb-4 border border-outline-variant/30">
+<div class="flex gap-4">
+<div class="flex-1">
+<h3 class="font-bold text-lg mb-2">南塘社区</h3>
+<p class="text-xs text-text-muted leading-relaxed">素食提供乡村民宿餐饮，体验乡村生活，感受自然之美。在这里与志同道合的伙伴一起，共建美好社区~</p>
+<div class="flex gap-4 mt-3">
+<div class="text-center"><span class="text-sm font-bold text-secondary">128</span><span class="text-[10px] text-text-muted ml-1">成员</span></div>
+<div class="text-center"><span class="text-sm font-bold text-secondary">36</span><span class="text-[10px] text-text-muted ml-1">动态</span></div>
+</div>
+</div>
+<div class="flex flex-col justify-start mt-[36px]">
+<div class="grid grid-cols-3 gap-1.5">
+<div class="w-9 h-9 rounded-full bg-secondary/20 flex items-center justify-center text-[10px] font-bold text-secondary">张</div>
+<div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">李</div>
+<div class="w-9 h-9 rounded-full bg-tertiary/20 flex items-center justify-center text-[10px] font-bold text-tertiary">王</div>
+<div class="w-9 h-9 rounded-full bg-amber-100 flex items-center justify-center text-[10px] font-bold text-amber-600">赵</div>
+<div class="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-[10px] font-bold text-emerald-600">陈</div>
+<div class="w-9 h-9 rounded-full bg-rose-100 flex items-center justify-center text-[10px] font-bold text-rose-600">周</div>
+<div class="w-9 h-9 rounded-full bg-sky-100 flex items-center justify-center text-[10px] font-bold text-sky-600">吴</div>
+<div class="w-9 h-9 rounded-full bg-violet-100 flex items-center justify-center text-[10px] font-bold text-violet-600">郑</div>
+<div class="w-9 h-9 rounded-full bg-surface-variant flex items-center justify-center text-[10px] text-text-muted">+120</div>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full bg-secondary text-white py-3 rounded-2xl font-bold text-sm shadow-lg active:scale-95 transition-transform mb-4" id="btn-enter-community" onclick="socialGoSub('social-trends')">进入社区圈</button>
+</div>
+<div class="bottom-nav absolute bottom-0 w-full flex justify-around py-3 px-2 z-20">
+<div class="flex flex-col items-center gap-1 text-primary"><span class="material-symbols-outlined text-[20px]">home</span><span class="text-[10px]">社区</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="text-[10px]">任务</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">event</span><span class="text-[10px]">活动</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">person</span><span class="text-[10px]">我的</span></div>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-surface-container-low flex flex-col no-scrollbar" id="social-trends">
+<div class="phone-header px-4 pt-10 pb-4 flex items-center justify-between z-10">
+<button onclick="socialGoSub('social-intro')" class="mr-3"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-lg">社区圈</span>
+<button class="bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold" id="btn-social-post" onclick="socialGoSub('social-post')">发动态</button>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-20 no-scrollbar" id="social-trends-scroll">
+<div class="bg-white p-4 rounded-2xl shadow-sm border border-outline-variant/30 mb-4">
+<div class="flex items-center gap-2 mb-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-xs font-bold text-primary">林</div>
+<div><div class="text-xs font-bold">林小青</div><div class="text-[10px] text-text-muted">15分钟前</div></div>
+</div>
+<p class="text-sm leading-relaxed mb-3">今天参加了社区花园的种植活动，和邻居们一起种下了好多花苗！看着大家齐心协力把荒地变成花园，真的很感动。社区的力量就是这样，每个人出一点力，就能让生活环境变得更美好。期待花开的那一天！🌸</p>
+<div class="flex items-center gap-4 pt-2 border-t border-outline-variant/20">
+<div class="flex items-center gap-1 text-text-muted">
+<span class="material-symbols-outlined text-[18px]">favorite_border</span>
+<span class="text-xs">8</span>
+</div>
+<div class="flex items-center gap-1 text-text-muted">
+<span class="material-symbols-outlined text-[18px]">chat_bubble_outline</span>
+<span class="text-xs">2</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-4 rounded-2xl shadow-sm border border-outline-variant/30 mb-4">
+<div class="flex items-center gap-2 mb-3">
+<div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-xs font-bold text-amber-600">赵</div>
+<div><div class="text-xs font-bold">赵大厨</div><div class="text-[10px] text-text-muted">1小时前</div></div>
+</div>
+<p class="text-sm mb-3">今晚社区厨房又开饭啦！新鲜蔬菜全来自自家菜园 🥬</p>
+<div class="w-full h-44 rounded-xl mb-3 overflow-hidden bg-gradient-to-br from-emerald-100 via-amber-50 to-orange-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-amber-400/60" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div class="flex items-center gap-4 pt-2 border-t border-outline-variant/20">
+<div class="flex items-center gap-1 text-text-muted">
+<span class="material-symbols-outlined text-[18px]">favorite_border</span>
+<span class="text-xs">15</span>
+</div>
+<div class="flex items-center gap-1 text-text-muted">
+<span class="material-symbols-outlined text-[18px]">chat_bubble_outline</span>
+<span class="text-xs">5</span>
+</div>
+</div>
+</div>
+<div id="new-post-area"></div>
+</div>
+<div class="bottom-nav absolute bottom-0 w-full flex justify-around py-3 px-2 z-20">
+<div class="flex flex-col items-center gap-1 text-primary"><span class="material-symbols-outlined text-[20px]">home</span><span class="text-[10px]">社区</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="text-[10px]">任务</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">event</span><span class="text-[10px]">活动</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">person</span><span class="text-[10px]">我的</span></div>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col no-scrollbar" id="social-post">
+<div class="phone-header px-4 pt-10 pb-4 flex items-center justify-between z-10">
+<button onclick="socialGoSub('social-trends')" class="mr-3"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-lg">发布动态</span>
+<button class="text-secondary font-bold text-sm" id="btn-do-post" onclick="doPost()">发布</button>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-24 no-scrollbar">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-9 h-9 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold">志</div>
+<div class="text-sm font-bold">nana志愿者</div>
+</div>
+<textarea class="w-full border-none outline-none text-sm bg-transparent resize-none h-28 placeholder-text-muted" id="input-social-post" placeholder="分享你的想法..."></textarea>
+<div class="w-full h-36 bg-surface-container-low rounded-xl mb-4 flex items-center justify-center text-text-muted border-2 border-dashed border-outline-variant/30">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-3xl">add_photo_alternate</span>
+<span class="text-xs">添加图片</span>
+</div>
+</div>
+<div class="flex items-center gap-3 text-text-muted">
+<div class="flex items-center gap-1 text-xs"><span class="material-symbols-outlined text-[18px]">location_on</span> 添加位置</div>
+<div class="flex items-center gap-1 text-xs"><span class="material-symbols-outlined text-[18px]">tag</span> 添加标签</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ===== SCREEN: CALENDAR ===== -->
+<div class="absolute inset-0 w-full h-full bg-surface-container-low flex flex-col hidden-screen" id="screen-calendar">
+<div class="h-full w-full relative overflow-hidden">
+<div class="sub-view active-sub bg-white flex flex-col no-scrollbar" id="calendar-home">
+<div class="phone-header px-4 pt-10 pb-4 flex justify-between items-center z-10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xs">南塘</div>
+<div class="text-sm font-bold">南塘<br/><span class="text-xs text-secondary font-normal">切换社区 &gt;</span></div>
+</div>
+<div class="flex gap-2">
+<div class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">shopping_cart</span> 商城</div>
+<div class="w-8 h-8 rounded-full bg-secondary/10 text-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[16px]">notifications</span></div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-20 no-scrollbar">
+<div class="flex justify-between items-center mb-4">
+</div>
+<div class="flex gap-2 mb-4 overflow-x-auto pb-2 no-scrollbar text-[10px]">
+<span class="font-bold text-xs mr-2">标签</span>
+<div class="bg-secondary text-white px-3 py-1 rounded-full whitespace-nowrap">全部</div>
+<div class="bg-error-container text-on-error-container px-3 py-1 rounded-full whitespace-nowrap">户外活动</div>
+<div class="bg-primary-container text-white px-3 py-1 rounded-full whitespace-nowrap">晚餐</div>
+<div class="bg-tertiary-container text-white px-3 py-1 rounded-full whitespace-nowrap">课程</div>
+</div>
+<div class="flex justify-center mb-4" id="view-mode-tabs-wrap">
+<div class="bg-surface-container-high rounded-full p-1 flex" id="view-mode-tabs">
+<div class="px-4 py-1 text-xs font-bold bg-white rounded-full shadow-sm cursor-pointer" id="tab-month" onclick="switchViewMode('month')">月</div>
+<div class="px-4 py-1 text-xs text-text-muted cursor-pointer" id="tab-week" onclick="switchViewMode('week')">周</div>
+<div class="px-4 py-1 text-xs text-text-muted cursor-pointer" id="tab-day" onclick="switchViewMode('day')">日</div>
+</div>
+</div>
+<div id="calendar-content">
+<div id="calendar-view">
+<div class="text-center font-bold mb-4">2026年5月</div>
+<div class="grid grid-cols-7 gap-1 text-center text-xs mb-2 text-text-muted">
+<div>日</div><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center text-xs border-t border-l border-outline-variant/30">
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 text-outline/50"></div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 text-outline/50"></div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 text-outline/50"></div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 text-outline/50"></div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 text-outline/50"></div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">1</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">2</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">3</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">4</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">5</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">6</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">7</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">8</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">9</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">10</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end relative">11<div class="w-full h-2 bg-blue-400 rounded-sm mt-auto"></div></div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end relative bg-secondary/5">12<div class="w-full h-2 bg-blue-400 rounded-sm mt-auto mb-1"></div><div class="w-full h-2 bg-secondary rounded-sm"></div></div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">13</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">14</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">15</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end relative">16<div class="w-full h-2 bg-blue-400 rounded-sm mt-auto"></div></div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">17</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">18</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">19</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">20</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end relative bg-secondary/5">21<div class="w-full h-2 bg-secondary rounded-sm mt-auto"></div></div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end relative bg-primary/5">22<div class="w-full h-2 bg-primary rounded-sm mt-auto"></div></div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">23</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">24</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">25</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">26</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">27</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">28</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">29</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">30</div>
+<div class="aspect-square border-b border-r border-outline-variant/30 flex flex-col p-1 items-end">31</div>
+</div>
+</div>
+<div id="week-view" style="display:none;">
+<div class="text-center font-bold mb-4">2026年5月 第4周</div>
+<div class="grid grid-cols-7 gap-1 text-center text-xs mb-2 text-text-muted">
+<div>日</div><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center text-xs border-t border-l border-outline-variant/30">
+<div class="border-b border-r border-outline-variant/30 flex flex-col p-1 items-end min-h-[120px]">17</div>
+<div class="border-b border-r border-outline-variant/30 flex flex-col p-1 items-end min-h-[120px]">18</div>
+<div class="border-b border-r border-outline-variant/30 flex flex-col p-1 items-end min-h-[120px]">19</div>
+<div class="border-b border-r border-outline-variant/30 flex flex-col p-1 items-end min-h-[120px]">20</div>
+<div class="border-b border-r border-outline-variant/30 flex flex-col p-1 items-end min-h-[120px] relative bg-secondary/5">21<div class="w-full mt-1 p-0.5 bg-secondary text-white text-[8px] rounded text-left">田野调查</div></div>
+<div class="border-b border-r border-outline-variant/30 flex flex-col p-1 items-end min-h-[120px] relative bg-primary/5">22<div class="w-full mt-1 p-0.5 bg-primary text-white text-[8px] rounded text-left">共创晚餐</div></div>
+<div class="border-b border-r border-outline-variant/30 flex flex-col p-1 items-end min-h-[120px]">23</div>
+</div>
+</div>
+<div id="day-view" style="display:none;">
+<div class="text-center font-bold mb-4">2026年5月22日 周五</div>
+<div class="space-y-2">
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">08:00</div>
+<div class="flex-1 h-8 border-b border-outline-variant/20"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">09:00</div>
+<div class="flex-1 h-8 border-b border-outline-variant/20"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">10:00</div>
+<div class="flex-1 h-8 border-b border-outline-variant/20"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">11:00</div>
+<div class="flex-1 h-8 border-b border-outline-variant/20"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">12:00</div>
+<div class="flex-1 h-8 border-b border-outline-variant/20"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">13:00</div>
+<div class="flex-1 h-8 border-b border-outline-variant/20"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">14:00</div>
+<div class="flex-1 h-8 border-b border-outline-variant/20"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">15:00</div>
+<div class="flex-1 h-8 border-b border-outline-variant/20"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">16:00</div>
+<div class="flex-1 h-8 border-b border-outline-variant/20"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">17:00</div>
+<div class="flex-1 h-8 border-b border-outline-variant/20"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">18:00</div>
+<div class="flex-1 bg-primary/10 border border-primary/30 rounded-lg p-2">
+<div class="text-xs font-bold text-primary">共创晚餐</div>
+<div class="text-[10px] text-text-muted">18:00 - 20:00 · 社区厨房</div>
+</div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">19:00</div>
+<div class="flex-1 h-8 border-b border-outline-variant/20"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 text-xs text-text-muted pt-1 text-right flex-shrink-0">20:00</div>
+<div class="flex-1 h-8 border-b border-outline-variant/20"></div>
+</div>
+</div>
+</div>
+<div id="list-view" style="display:none;">
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 shadow-sm mb-4 cursor-pointer" id="btn-activity-detail" onclick="calendarGoSub('calendar-detail')">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-secondary">社区田野调查</h3>
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded text-[10px]">户外</span>
+</div>
+<p class="text-xs text-text-muted mb-3">时间: 2026/5/21 09:00 - 12:00</p>
+<div class="flex justify-between items-center">
+<span class="text-xs text-text-muted" id="list-status-1"></span>
+<button class="bg-secondary text-white px-4 py-1.5 rounded-full text-xs font-bold">查看详情</button>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 shadow-sm mb-4 cursor-pointer" id="btn-dinner-detail" onclick="calendarGoSub('calendar-dinner-detail')">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-primary">共创晚餐</h3>
+<span class="bg-primary-container text-white px-2 py-0.5 rounded text-[10px]">晚餐</span>
+</div>
+<p class="text-xs text-text-muted mb-3">时间: 2026/5/22 18:00 - 20:00</p>
+<div class="flex justify-between items-center">
+<span class="text-xs text-text-muted" id="list-status-2"></span>
+<button class="bg-secondary text-white px-4 py-1.5 rounded-full text-xs font-bold">查看详情</button>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute left-0 right-0 flex justify-center z-10" style="bottom:72px;" id="calendar-list-toggle-wrap">
+<div class="bg-white rounded-full shadow-lg p-1 flex border border-outline-variant/30 relative" id="calendar-list-toggle">
+<div class="absolute top-1 bottom-1 bg-secondary rounded-full transition-all duration-300" id="toggle-slider" style="left:4px;width:calc(50% - 4px);"></div>
+<div class="px-5 py-2 text-xs font-bold text-white rounded-full transition-colors duration-300 relative z-10 cursor-pointer" id="toggle-calendar" onclick="switchCalendarView('calendar')">日历</div>
+<div class="px-5 py-2 text-xs font-bold text-text-muted rounded-full transition-colors duration-300 relative z-10 cursor-pointer" id="toggle-list" onclick="switchCalendarView('list')">列表</div>
+</div>
+</div>
+</div>
+<div class="bottom-nav absolute bottom-0 w-full flex justify-around py-3 px-2 z-20">
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">home</span><span class="text-[10px]">社区</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="text-[10px]">任务</span></div>
+<div class="flex flex-col items-center gap-1 text-primary"><span class="material-symbols-outlined text-[20px]">event</span><span class="text-[10px]">活动</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">person</span><span class="text-[10px]">我的</span></div>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col no-scrollbar" id="calendar-detail">
+<div class="phone-header px-4 pt-10 pb-4 flex items-center z-10">
+<button onclick="calendarGoHome()" class="mr-3"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-lg">活动详情</span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-24 no-scrollbar relative">
+<div class="w-full h-40 bg-tertiary-container rounded-2xl mb-4 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-5xl opacity-50">landscape</span>
+</div>
+<h2 class="text-xl font-bold mb-2 text-on-surface">社区田野调查</h2>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-text-muted text-sm">schedule</span>
+<p class="text-sm text-text-muted">2026/5/21 09:00 - 12:00</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl mb-4">
+<h4 class="font-bold text-sm mb-2">活动详情</h4>
+<p class="text-sm text-text-muted leading-relaxed">深入周边乡村，了解在地文化与生态，为后续的社区建设项目收集第一手资料。需要步行较多，请穿着舒适的鞋子。</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl mb-4">
+<h4 class="font-bold text-sm mb-2">报名信息</h4>
+<div class="text-sm text-text-muted">姓名：小南</div>
+<div class="text-sm text-text-muted">手机：138****5678</div>
+</div>
+<button class="w-full bg-secondary text-white py-3 rounded-2xl font-bold text-sm shadow-lg active:scale-95 transition-transform flex justify-center items-center gap-2" id="btn-register" onclick="calendarRegister()">
+<span class="material-symbols-outlined">how_to_reg</span> 报名参与
+</button>
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-md p-8 rounded-3xl shadow-2xl flex flex-col items-center opacity-0 pointer-events-none scale-90 transition-all duration-300 border border-secondary/20 z-50" id="register-success">
+<span class="material-symbols-outlined text-secondary text-6xl mb-4" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-bold text-xl text-on-surface">报名成功</span>
+<span class="text-sm text-text-muted mt-2">已加入您的日程</span>
+</div>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col no-scrollbar" id="calendar-dinner-detail">
+<div class="phone-header px-4 pt-10 pb-4 flex items-center z-10">
+<button onclick="calendarGoHome()" class="mr-3"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-lg">活动详情</span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-24 no-scrollbar">
+<div class="w-full h-40 bg-gradient-to-br from-primary-container to-primary rounded-2xl mb-4 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-5xl opacity-50" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<h2 class="text-xl font-bold mb-2 text-on-surface">共创晚餐</h2>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-text-muted text-sm">schedule</span>
+<p class="text-sm text-text-muted">2026/5/22 18:00 - 20:00</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl mb-4">
+<h4 class="font-bold text-sm mb-2">活动详情</h4>
+<p class="text-sm text-text-muted leading-relaxed">社区厨房共创晚餐，使用自家菜园新鲜食材，一起动手烹饪美味佳肴。欢迎带上你的拿手菜谱，与邻居们共享美好夜晚！</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl mb-4">
+<h4 class="font-bold text-sm mb-2">报名信息</h4>
+<div class="text-sm text-text-muted">姓名：小南</div>
+<div class="text-sm text-text-muted">手机：138****5678</div>
+</div>
+<button class="w-full bg-gray-300 text-gray-500 py-3 rounded-2xl font-bold text-sm flex justify-center items-center gap-2 cursor-not-allowed">
+<span class="material-symbols-outlined">block</span> 活动报名已截止
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ===== SCREEN: STORE ===== -->
+<div class="absolute inset-0 w-full h-full bg-surface-container-low flex flex-col hidden-screen" id="screen-store">
+<div class="h-full w-full relative overflow-hidden">
+<div class="sub-view active-sub bg-surface-container-low flex flex-col no-scrollbar" id="store-mall">
+<div class="phone-header px-4 pt-10 pb-4 flex justify-between items-center z-10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xs">南塘</div>
+<div class="text-sm font-bold">南塘<br/><span class="text-xs text-secondary font-normal">切换社区 &gt;</span></div>
+</div>
+<div class="flex gap-2">
+<div class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">shopping_cart</span> 商城</div>
+<div class="w-8 h-8 rounded-full bg-secondary/10 text-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[16px]">notifications</span></div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-20 no-scrollbar">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-bold">商城</h2>
+<button class="bg-secondary text-white px-4 py-1.5 rounded-full text-xs font-bold" id="btn-store-publish" onclick="storeGoSub('store-publish')">发布</button>
+</div>
+<div class="bg-white rounded-full flex items-center px-4 py-2 shadow-sm border border-outline-variant/30 mb-4">
+<span class="material-symbols-outlined text-text-muted text-[18px] mr-2">search</span>
+<input class="bg-transparent border-none outline-none text-xs flex-1 text-text-muted placeholder-text-muted/50" placeholder="搜索标题、描述、卖家、标签..." type="text"/>
+<button class="text-xs font-bold pl-2 border-l border-outline-variant/30">搜索</button>
+</div>
+<div class="flex gap-2 mb-4 overflow-x-auto pb-2 no-scrollbar text-[10px]">
+<div class="bg-secondary text-white px-3 py-1.5 rounded-full whitespace-nowrap">全部</div>
+<div class="bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-full whitespace-nowrap">农产品</div>
+<div class="bg-error-container text-on-error-container px-3 py-1.5 rounded-full whitespace-nowrap">闲置物品</div>
+<div class="bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full whitespace-nowrap">技能服务</div>
+<div class="bg-purple-100 text-purple-800 px-3 py-1.5 rounded-full whitespace-nowrap">珍藏好物</div>
+</div>
+<div class="grid grid-cols-2 gap-3" id="store-items-grid">
+<div class="bg-white rounded-2xl p-3 shadow-sm border border-outline-variant/30 flex flex-col cursor-pointer" id="btn-store-item" onclick="storeGoSub('store-detail')">
+<div class="bg-emerald-100 text-emerald-800 text-[10px] px-2 py-0.5 rounded w-fit mb-2">农产品</div>
+<div class="w-full aspect-square bg-emerald-50 rounded-xl mb-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-emerald-400" style="font-variation-settings: 'FILL' 1;">nutrition</span>
+</div>
+<div class="font-bold text-sm mb-1">有机蔬菜礼盒</div>
+<div class="text-[10px] text-text-muted mb-1">5斤装 · 当季时令</div>
+<div class="text-secondary font-bold text-sm mt-auto">200 积分</div>
+</div>
+<div class="bg-white rounded-2xl p-3 shadow-sm border border-outline-variant/30 flex flex-col cursor-pointer" onclick="storeGoSub('store-detail-idle')">
+<div class="bg-error-container text-on-error-container text-[10px] px-2 py-0.5 rounded w-fit mb-2">闲置物品</div>
+<div class="w-full aspect-square bg-amber-50 rounded-xl mb-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-amber-400">chair</span>
+</div>
+<div class="font-bold text-sm mb-1">实木书架</div>
+<div class="text-[10px] text-text-muted mb-1">九成新 · 自提</div>
+<div class="text-secondary font-bold text-sm mt-auto">850 积分</div>
+</div>
+<div class="bg-white rounded-2xl p-3 shadow-sm border border-outline-variant/30 flex flex-col cursor-pointer" onclick="storeGoSub('store-detail-dao')">
+<div class="bg-purple-100 text-purple-800 text-[10px] px-2 py-0.5 rounded w-fit mb-2">珍藏好物</div>
+<div class="w-full aspect-square bg-purple-50 rounded-xl mb-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-purple-300">diamond</span>
+</div>
+<div class="font-bold text-sm mb-1">Nantang DAO</div>
+<div class="text-[10px] text-text-muted mb-1">社区治理代币</div>
+<div class="text-secondary font-bold text-sm mt-auto">¥ 99,999,999.5</div>
+</div>
+<div class="bg-white rounded-2xl p-3 shadow-sm border border-outline-variant/30 flex flex-col opacity-60 cursor-pointer" onclick="storeGoSub('store-detail-code')">
+<div class="bg-blue-100 text-blue-800 text-[10px] px-2 py-0.5 rounded w-fit mb-2">技能服务</div>
+<div class="w-full aspect-square bg-sky-50 rounded-xl mb-2 flex items-center justify-center text-text-muted relative">
+<span class="material-symbols-outlined text-3xl text-sky-400">code</span>
+<div class="absolute top-1 right-1 bg-black/50 text-white text-[10px] px-1.5 py-0.5 rounded">已卖出</div>
+</div>
+<div class="font-bold text-sm mb-1">Vote代码咨询</div>
+<div class="text-[10px] text-text-muted mb-1">全栈开发 · 1次</div>
+<div class="text-text-muted font-bold text-sm mt-auto line-through">5,000 积分</div>
+</div>
+</div>
+</div>
+<div class="bottom-nav absolute bottom-0 w-full flex justify-around py-3 px-2 z-20">
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">home</span><span class="text-[10px]">社区</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="text-[10px]">任务</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">event</span><span class="text-[10px]">活动</span></div>
+<div class="flex flex-col items-center gap-1 text-text-muted"><span class="material-symbols-outlined text-[20px]">person</span><span class="text-[10px]">我的</span></div>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col no-scrollbar" id="store-detail">
+<div class="phone-header px-4 pt-10 pb-4 flex items-center z-10">
+<button onclick="storeGoHome()" class="mr-3"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-lg">商品详情</span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-24 no-scrollbar relative">
+<div class="w-full h-36 bg-emerald-50 rounded-2xl mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-emerald-400" style="font-variation-settings: 'FILL' 1;">nutrition</span>
+</div>
+<div class="bg-emerald-100 text-emerald-800 text-[10px] px-2 py-0.5 rounded w-fit mb-2">农产品</div>
+<h2 class="text-xl font-bold mb-1">有机蔬菜礼盒</h2>
+<div class="text-xs text-text-muted mb-3">5斤装 · 当季时令蔬菜</div>
+<div class="text-secondary font-bold text-2xl mb-4">200 积分</div>
+<div class="bg-surface-container-low p-4 rounded-xl mb-4">
+<h4 class="font-bold text-sm mb-2">商品描述</h4>
+<p class="text-sm text-text-muted leading-relaxed">南塘社区自家菜园种植的有机蔬菜，不使用农药化肥，新鲜采摘当日配送。包含时令蔬菜5斤，品种随季节变化。</p>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary text-sm">verified</span>
+<span class="text-sm text-secondary">社区认证农产品</span>
+</div>
+<button class="w-full bg-secondary text-white py-3 rounded-2xl font-bold text-sm shadow-lg active:scale-95 transition-transform flex justify-center items-center gap-2" id="btn-buy" onclick="storeBuy()">
+<span class="material-symbols-outlined">shopping_cart</span> 积分兑换
+</button>
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-md p-8 rounded-3xl shadow-2xl flex flex-col items-center opacity-0 pointer-events-none scale-90 transition-all duration-300 border border-secondary/20 z-50" id="store-buy-success">
+<span class="material-symbols-outlined text-secondary text-6xl mb-4" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-bold text-xl text-on-surface">兑换成功</span>
+<span class="text-sm text-text-muted mt-2 text-center">感谢支持，<br/>共建美好社区 🌱</span>
+</div>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col no-scrollbar" id="store-detail-idle">
+<div class="phone-header px-4 pt-10 pb-4 flex items-center z-10">
+<button onclick="storeGoHome()" class="mr-3"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-lg">商品详情</span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-24 no-scrollbar">
+<div class="w-full h-36 bg-amber-50 rounded-2xl mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-amber-400">chair</span>
+</div>
+<div class="bg-error-container text-on-error-container text-[10px] px-2 py-0.5 rounded w-fit mb-2">闲置物品</div>
+<h2 class="text-xl font-bold mb-1">实木书架</h2>
+<div class="text-xs text-text-muted mb-3">九成新 · 需自提</div>
+<div class="text-secondary font-bold text-2xl mb-4">850 积分</div>
+<div class="bg-surface-container-low p-4 rounded-xl mb-4">
+<h4 class="font-bold text-sm mb-2">商品描述</h4>
+<p class="text-sm text-text-muted leading-relaxed">搬家出闲置实木书架，九成新，尺寸80×30×120cm，承重力好，适合放书和绿植。需自提，南塘社区内可帮忙搬运。</p>
+</div>
+<button class="w-full bg-secondary text-white py-3 rounded-2xl font-bold text-sm shadow-lg active:scale-95 transition-transform flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">shopping_cart</span> 积分兑换
+</button>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col no-scrollbar" id="store-detail-dao">
+<div class="phone-header px-4 pt-10 pb-4 flex items-center z-10">
+<button onclick="storeGoHome()" class="mr-3"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-lg">商品详情</span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-24 no-scrollbar">
+<div class="w-full h-36 bg-purple-50 rounded-2xl mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-purple-300">diamond</span>
+</div>
+<div class="bg-purple-100 text-purple-800 text-[10px] px-2 py-0.5 rounded w-fit mb-2">珍藏好物</div>
+<h2 class="text-xl font-bold mb-1">Nantang DAO</h2>
+<div class="text-xs text-text-muted mb-3">社区治理代币</div>
+<div class="text-secondary font-bold text-2xl mb-4">¥ 99,999,999.5</div>
+<div class="bg-surface-container-low p-4 rounded-xl mb-4">
+<h4 class="font-bold text-sm mb-2">商品描述</h4>
+<p class="text-sm text-text-muted leading-relaxed">南塘DAO社区治理代币，持有者可参与社区决策投票，享受专属权益。</p>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary text-sm">verified</span>
+<span class="text-sm text-secondary">官方认证商品</span>
+</div>
+<button class="w-full bg-secondary text-white py-3 rounded-2xl font-bold text-sm shadow-lg active:scale-95 transition-transform flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">shopping_cart</span> 立即购买
+</button>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col no-scrollbar" id="store-detail-code">
+<div class="phone-header px-4 pt-10 pb-4 flex items-center z-10">
+<button onclick="storeGoHome()" class="mr-3"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-lg">商品详情</span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-24 no-scrollbar">
+<div class="w-full h-36 bg-sky-50 rounded-2xl mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-sky-400">code</span>
+</div>
+<div class="bg-blue-100 text-blue-800 text-[10px] px-2 py-0.5 rounded w-fit mb-2">技能服务</div>
+<h2 class="text-xl font-bold mb-1">Vote代码咨询</h2>
+<div class="text-xs text-text-muted mb-3">全栈开发 · 1次服务</div>
+<div class="text-text-muted font-bold text-2xl mb-4 line-through">5,000 积分</div>
+<div class="bg-surface-container-low p-4 rounded-xl mb-4">
+<h4 class="font-bold text-sm mb-2">商品描述</h4>
+<p class="text-sm text-text-muted leading-relaxed">资深全栈工程师，帮你从零搭建Vote投票系统。前端后端数据库一条龙，代码规范有注释，包部署上线。（Vote还在开发中，敬请期待~）</p>
+</div>
+<div class="bg-gray-100 p-3 rounded-xl mb-4 border border-outline-variant/30">
+<div class="text-xs font-bold text-text-muted mb-2">买家评价</div>
+<div class="flex items-start gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center text-[10px] font-bold text-secondary flex-shrink-0">林</div>
+<div>
+<div class="text-xs font-bold">林小青</div>
+<p class="text-xs text-text-muted">代码写得超棒！Vote系统跑得很稳，社区投票终于不用纸质了 🎉</p>
+</div>
+</div>
+</div>
+<button class="w-full bg-gray-300 text-gray-500 py-3 rounded-2xl font-bold text-sm flex justify-center items-center gap-2 cursor-not-allowed">
+<span class="material-symbols-outlined">block</span> 已卖出
+</button>
+</div>
+</div>
+
+<div class="sub-view hidden-sub bg-white flex flex-col no-scrollbar" id="store-publish">
+<div class="phone-header px-4 pt-10 pb-4 flex items-center justify-between z-10">
+<button onclick="storeGoHome()" class="mr-3"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-lg">发布商品</span>
+<button class="text-secondary font-bold text-sm" id="btn-do-publish" onclick="doPublish()">发布</button>
+</div>
+<div class="flex-1 overflow-y-auto p-4 pb-24 no-scrollbar">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-9 h-9 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold">志</div>
+<div class="text-sm font-bold">nana志愿者</div>
+</div>
+<div class="mb-4">
+<label class="text-xs font-bold text-text-muted mb-1 block">商品名称</label>
+<input class="w-full border border-outline-variant/30 rounded-xl px-3 py-2 text-sm bg-transparent outline-none" id="input-publish-name" placeholder="输入商品名称"/>
+</div>
+<div class="mb-4">
+<label class="text-xs font-bold text-text-muted mb-1 block">商品描述</label>
+<textarea class="w-full border border-outline-variant/30 rounded-xl px-3 py-2 text-sm bg-transparent outline-none resize-none h-20" id="input-publish-desc" placeholder="描述你的商品..."></textarea>
+</div>
+<div class="mb-4">
+<label class="text-xs font-bold text-text-muted mb-1 block">积分价格</label>
+<input class="w-full border border-outline-variant/30 rounded-xl px-3 py-2 text-sm bg-transparent outline-none" id="input-publish-price" placeholder="输入积分数量"/>
+</div>
+<div class="w-full h-28 bg-surface-container-low rounded-xl mb-4 flex items-center justify-center text-text-muted border-2 border-dashed border-outline-variant/30" id="btn-publish-photo">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-3xl">add_photo_alternate</span>
+<span class="text-xs">添加图片</span>
+</div>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 no-scrollbar text-[10px]">
+<div class="bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-full whitespace-nowrap">农产品</div>
+<div class="bg-error-container text-on-error-container px-3 py-1.5 rounded-full whitespace-nowrap">闲置物品</div>
+<div class="bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full whitespace-nowrap">技能服务</div>
+<div class="bg-purple-100 text-purple-800 px-3 py-1.5 rounded-full whitespace-nowrap">珍藏好物</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</main>
+
+<script>
+const featureButtons = document.querySelectorAll('.btn-functional');
+const phoneFrame = document.getElementById('phone-frame');
+const autoCursor = document.getElementById('auto-cursor');
+const dialogProgress = document.getElementById('dialog-task-progress');
+const screenMap = {
+  task: document.getElementById('screen-task'),
+  social: document.getElementById('screen-social'),
+  calendar: document.getElementById('screen-calendar'),
+  store: document.getElementById('screen-store')
+};
+let currentFeature = 'social';
+let autoPlayTimers = [];
+let socialLiked = false;
+let newSocialLiked = false;
+let taskProgressStep = 0;
+
+function clearAutoPlay() {
+  autoPlayTimers.forEach(t => clearTimeout(t));
+  autoPlayTimers = [];
+  autoCursor.style.display = 'none';
+}
+
+function showCursor(targetEl, callback, delay) {
+  if (!targetEl) { if (callback) autoPlayTimers.push(setTimeout(callback, delay || 500)); return; }
+  autoPlayTimers.push(setTimeout(function() {
+    var phoneRect = phoneFrame.getBoundingClientRect();
+    var elRect = targetEl.getBoundingClientRect();
+    var cx = elRect.left - phoneRect.left + elRect.width / 2;
+    var cy = elRect.top - phoneRect.top + elRect.height / 2;
+    autoCursor.style.display = 'block';
+    autoCursor.style.left = cx + 'px';
+    autoCursor.style.top = cy + 'px';
+    autoPlayTimers.push(setTimeout(function() {
+      autoCursor.style.display = 'none';
+      if (callback) callback();
+    }, delay || 1200));
+  }, 200));
+}
+
+function typeText(el, text, speed, callback) {
+  if (!el) { if (callback) autoPlayTimers.push(setTimeout(callback, 300)); return; }
+  el.value = '';
+  el.focus();
+  var i = 0;
+  function typeChar() {
+    if (i < text.length) {
+      el.value += text.charAt(i);
+      i++;
+      autoPlayTimers.push(setTimeout(typeChar, speed || 60));
+    } else {
+      el.blur();
+      if (callback) autoPlayTimers.push(setTimeout(callback, 300));
+    }
+  }
+  typeChar();
+}
+
+function clearTaskForms() {
+  var ids = ['input-task-title', 'input-task-desc', 'input-task-people', 'input-task-points', 'input-task-deadline', 'input-task-review'];
+  ids.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  var imgArea = document.getElementById('evidence-image-area');
+  if (imgArea) {
+    imgArea.innerHTML = '<span class="material-symbols-outlined text-xl mb-0.5">cloud_upload</span><span class="text-sm font-bold" id="evidence-image-text">点击上传图片凭证</span>';
+    imgArea.className = 'bg-surface-container-low rounded-2xl h-20 border-2 border-dashed border-primary/50 flex flex-col items-center justify-center text-primary/70';
+  }
+  var textArea = document.getElementById('input-evidence-text');
+  if (textArea) textArea.value = '';
+  var textAreaWrap = document.getElementById('evidence-text-area');
+  if (textAreaWrap) {
+    textAreaWrap.innerHTML = '<span class="material-symbols-outlined text-xl flex-shrink-0">edit_note</span><span class="text-sm font-bold text-primary/70" id="evidence-text-placeholder">点击输入文字凭证</span><textarea class="absolute opacity-0 w-0 h-0" id="input-evidence-text"></textarea>';
+    textAreaWrap.className = 'bg-surface-container-low rounded-2xl h-14 border-2 border-dashed border-primary/50 flex items-center gap-2 px-3 text-primary/70';
+  }
+  var locArea = document.getElementById('evidence-location-area');
+  if (locArea) {
+    locArea.className = 'bg-surface-container-low rounded-2xl border-2 border-dashed border-primary/50 p-3 flex items-center gap-2';
+    var locText = document.getElementById('evidence-location-text');
+    if (locText) locText.textContent = '点击获取当前位置';
+  }
+  var reviewState = document.getElementById('review-state');
+  if (reviewState) {
+    reviewState.style.display = '';
+    reviewState.classList.remove('flip-out');
+  }
+  var pointsState = document.getElementById('points-state');
+  if (pointsState) {
+    pointsState.classList.add('opacity-0', 'absolute');
+    pointsState.classList.remove('flip-in');
+  }
+}
+
+function switchFeature(name) {
+  clearAutoPlay();
+  resetStoreState();
+  dialogProgress.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+  dialogProgress.classList.remove('opacity-100', 'scale-100');
+  featureButtons.forEach(btn => btn.classList.remove('active'));
+  var activeBtn = document.getElementById('btn-' + name);
+  if (activeBtn) activeBtn.classList.add('active');
+  Object.entries(screenMap).forEach(function(entry) {
+    if (entry[0] === name) { entry[1].classList.remove('hidden-screen'); entry[1].classList.add('active-screen'); }
+    else { entry[1].classList.add('hidden-screen'); entry[1].classList.remove('active-screen'); }
+  });
+  resetSubViews('screen-' + name);
+  currentFeature = name;
+  if (name === 'task') autoPlayTask();
+  else if (name === 'social') autoPlaySocial();
+  else if (name === 'calendar') autoPlayCalendar();
+  else if (name === 'store') autoPlayStore();
+}
+
+function resetSubViews(screenId) {
+  var screen = document.getElementById(screenId);
+  if (!screen) return;
+  var subs = screen.querySelectorAll('.sub-view');
+  subs.forEach(function(sub, i) {
+    if (i === 0) { sub.classList.remove('hidden-sub', 'exit-sub'); sub.classList.add('active-sub'); }
+    else { sub.classList.remove('active-sub', 'exit-sub'); sub.classList.add('hidden-sub'); }
+  });
+}
+
+function goSub(screenId, subId) {
+  var screen = document.getElementById(screenId);
+  if (!screen) return;
+  var subs = screen.querySelectorAll('.sub-view');
+  subs.forEach(function(sub) {
+    if (sub.id === subId) { sub.classList.remove('hidden-sub', 'exit-sub'); sub.classList.add('active-sub'); }
+    else if (sub.classList.contains('active-sub')) { sub.classList.remove('active-sub', 'hidden-sub'); sub.classList.add('exit-sub'); }
+  });
+}
+
+function taskGoHome() {
+  clearAutoPlay();
+  clearTaskForms();
+  resetSubViews('screen-task');
+  dialogProgress.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+  dialogProgress.classList.remove('opacity-100', 'scale-100');
+}
+
+function taskGoSub(subId) {
+  clearAutoPlay();
+  goSub('screen-task', subId);
+}
+
+function showTaskProgress() {
+  dialogProgress.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+  dialogProgress.classList.add('opacity-100', 'scale-100');
+}
+
+function resetTaskProgress() {
+  taskProgressStep = 0;
+  var steps = ['step-1', 'step-2', 'step-3', 'step-4', 'step-5'];
+  steps.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.className = 'flex items-start gap-2 step-pending';
+      var icon = el.querySelector('.step-icon');
+      if (icon) icon.textContent = 'radio_button_unchecked';
+    }
+  });
+  for (var i = 1; i <= 4; i++) {
+    var line = document.getElementById('line-' + i);
+    if (line) {
+      line.className = 'progress-line';
+      line.style.height = '0';
+    }
+  }
+}
+
+function advanceTaskProgress() {
+  taskProgressStep++;
+  var steps = ['step-1', 'step-2', 'step-3', 'step-4', 'step-5'];
+  if (taskProgressStep > steps.length) return;
+  var prevLineIdx = taskProgressStep - 1;
+  if (prevLineIdx >= 1 && prevLineIdx <= 4) {
+    var prevLine = document.getElementById('line-' + prevLineIdx);
+    if (prevLine) {
+      var lineClass = taskProgressStep === 5 ? 'progress-line line-animating line-points' : 'progress-line line-animating line-done';
+      prevLine.className = lineClass;
+    }
+  }
+  var currentStep = taskProgressStep;
+  setTimeout(function() {
+    var el = document.getElementById(steps[currentStep - 1]);
+    if (!el) return;
+    var icon = el.querySelector('.step-icon');
+    if (currentStep < 5) {
+      el.className = 'flex items-start gap-2 step-done';
+      if (icon) icon.textContent = 'check_circle';
+    } else {
+      el.className = 'flex items-start gap-2 step-points';
+      if (icon) icon.textContent = 'stars';
+    }
+  }, 400);
+}
+
+function claimTask() {
+  taskGoSub('task-claim');
+  advanceTaskProgress();
+}
+
+function showPointsState() {
+  var reviewState = document.getElementById('review-state');
+  var pointsState = document.getElementById('points-state');
+  if (reviewState) {
+    reviewState.classList.add('flip-out');
+  }
+  autoPlayTimers.push(setTimeout(function() {
+    if (reviewState) {
+      reviewState.style.display = 'none';
+      reviewState.classList.remove('flip-out');
+    }
+    if (pointsState) {
+      pointsState.classList.remove('opacity-0', 'absolute');
+      pointsState.classList.add('flip-in');
+    }
+  }, 500));
+}
+
+function socialGoSub(subId) {
+  clearAutoPlay();
+  if (subId === 'social-post') {
+    var input = document.getElementById('input-social-post');
+    if (input) input.value = '';
+  }
+  goSub('screen-social', subId);
+}
+
+function doPost() {
+  socialGoSub('social-trends');
+  autoPlayTimers.push(setTimeout(function() {
+    var newPostArea = document.getElementById('new-post-area');
+    if (newPostArea) {
+      newPostArea.innerHTML = '<div class="bg-white p-4 rounded-2xl shadow-sm border border-outline-variant/30 mb-4" id="new-post-card">' +
+        '<div class="flex items-center gap-2 mb-3">' +
+        '<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold">志</div>' +
+        '<div><div class="text-xs font-bold">nana志愿者</div><div class="text-[10px] text-text-muted">刚刚</div></div>' +
+        '</div>' +
+        '<p class="text-sm mb-3">nanaland让协作看得见！社区的力量真伟大 ✨</p>' +
+        '<div class="flex items-center gap-4 pt-2 border-t border-outline-variant/20">' +
+        '<div class="flex items-center gap-1 text-text-muted" id="new-like-area">' +
+        '<span class="material-symbols-outlined text-[18px]" id="new-like-icon">favorite_border</span>' +
+        '<span class="text-xs" id="new-like-count">0</span>' +
+        '</div>' +
+        '<div class="flex items-center gap-1 text-text-muted">' +
+        '<span class="material-symbols-outlined text-[18px]">chat_bubble_outline</span>' +
+        '<span class="text-xs" id="new-comment-count">0</span>' +
+        '</div>' +
+        '</div>' +
+        '<div id="new-comment-area"></div>' +
+        '</div>';
+    }
+    var scroll = document.getElementById('social-trends-scroll');
+    if (scroll) scroll.scrollTop = scroll.scrollHeight;
+    autoPlayTimers.push(setTimeout(function() {
+      var likeIcon = document.getElementById('new-like-icon');
+      var likeCount = document.getElementById('new-like-count');
+      var likeArea = document.getElementById('new-like-area');
+      if (likeIcon) {
+        likeIcon.textContent = 'favorite';
+        likeIcon.style.fontVariationSettings = "'FILL' 1";
+        likeIcon.style.color = '#e74c3c';
+        likeIcon.style.transition = 'transform 0.3s ease';
+        likeIcon.style.transform = 'scale(1.6)';
+      }
+      if (likeCount) likeCount.textContent = '1';
+      if (likeArea) likeArea.classList.remove('text-text-muted');
+      if (likeArea) likeArea.classList.add('text-primary');
+      setTimeout(function() {
+        if (likeIcon) likeIcon.style.transform = 'scale(1)';
+      }, 300);
+      autoPlayTimers.push(setTimeout(function() {
+        var commentArea = document.getElementById('new-comment-area');
+        var commentCount = document.getElementById('new-comment-count');
+        if (commentArea) {
+          commentArea.innerHTML = '<div class="mt-3 pt-3 border-t border-outline-variant/20 comment-pop">' +
+            '<div class="flex items-start gap-2">' +
+            '<div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary flex-shrink-0">林</div>' +
+            '<div><div class="text-xs font-bold">林小青</div><p class="text-xs text-text-muted">继续加油！💪</p></div>' +
+            '</div></div>';
+        }
+        if (commentCount) commentCount.textContent = '1';
+      }, 1000));
+    }, 1500));
+  }, 500));
+}
+
+function socialLike() {
+  var icon = document.getElementById('social-like-icon');
+  var count = document.getElementById('social-like-count');
+  if (!socialLiked) {
+    icon.textContent = 'favorite';
+    icon.style.fontVariationSettings = "'FILL' 1";
+    icon.style.color = '#e74c3c';
+    count.textContent = '13';
+    socialLiked = true;
+  } else {
+    icon.textContent = 'favorite_border';
+    icon.style.fontVariationSettings = '';
+    icon.style.color = '';
+    count.textContent = '12';
+    socialLiked = false;
+  }
+}
+
+function socialLikeNew() {
+  var count = document.getElementById('new-like-count');
+  if (count && !newSocialLiked) { count.textContent = '2'; newSocialLiked = true; }
+}
+
+function calendarGoSub(subId) {
+  clearAutoPlay();
+  resetCalendarRegisterState();
+  goSub('screen-calendar', subId);
+}
+
+function calendarGoHome() {
+  clearAutoPlay();
+  resetCalendarRegisterState();
+  resetSubViews('screen-calendar');
+  if (calendarCurrentView === 'list') {
+    switchCalendarView('list');
+  }
+}
+
+var calendarCurrentView = 'calendar';
+
+function switchCalendarView(view) {
+  var calView = document.getElementById('calendar-view');
+  var weekView = document.getElementById('week-view');
+  var dayView = document.getElementById('day-view');
+  var listView = document.getElementById('list-view');
+  var toggleCal = document.getElementById('toggle-calendar');
+  var toggleList = document.getElementById('toggle-list');
+  var slider = document.getElementById('toggle-slider');
+  var tabsWrap = document.getElementById('view-mode-tabs-wrap');
+  if (view === 'list') {
+    if (calView) calView.style.display = 'none';
+    if (weekView) weekView.style.display = 'none';
+    if (dayView) dayView.style.display = 'none';
+    if (listView) listView.style.display = 'block';
+    if (toggleCal) { toggleCal.classList.remove('text-white'); toggleCal.classList.add('text-text-muted'); }
+    if (toggleList) { toggleList.classList.remove('text-text-muted'); toggleList.classList.add('text-white'); }
+    if (slider) { slider.style.left = 'calc(50% + 0px)'; }
+    if (tabsWrap) tabsWrap.style.display = 'none';
+    calendarCurrentView = 'list';
+  } else {
+    if (calView) calView.style.display = 'block';
+    if (weekView) weekView.style.display = 'none';
+    if (dayView) dayView.style.display = 'none';
+    if (listView) listView.style.display = 'none';
+    if (toggleCal) { toggleCal.classList.remove('text-text-muted'); toggleCal.classList.add('text-white'); }
+    if (toggleList) { toggleList.classList.remove('text-white'); toggleList.classList.add('text-text-muted'); }
+    if (slider) { slider.style.left = '4px'; }
+    if (tabsWrap) tabsWrap.style.display = 'flex';
+    switchViewMode('month');
+    calendarCurrentView = 'calendar';
+  }
+}
+
+function switchViewMode(mode) {
+  var tabMonth = document.getElementById('tab-month');
+  var tabWeek = document.getElementById('tab-week');
+  var tabDay = document.getElementById('tab-day');
+  var calView = document.getElementById('calendar-view');
+  var weekView = document.getElementById('week-view');
+  var dayView = document.getElementById('day-view');
+  [tabMonth, tabWeek, tabDay].forEach(function(t) {
+    if (t) { t.classList.remove('font-bold', 'bg-white', 'rounded-full', 'shadow-sm'); t.classList.add('text-text-muted'); }
+  });
+  if (calView) calView.style.display = 'none';
+  if (weekView) weekView.style.display = 'none';
+  if (dayView) dayView.style.display = 'none';
+  if (mode === 'month') {
+    var el = tabMonth;
+    if (el) { el.classList.remove('text-text-muted'); el.classList.add('font-bold', 'bg-white', 'rounded-full', 'shadow-sm'); }
+    if (calView) calView.style.display = 'block';
+  } else if (mode === 'week') {
+    var el = tabWeek;
+    if (el) { el.classList.remove('text-text-muted'); el.classList.add('font-bold', 'bg-white', 'rounded-full', 'shadow-sm'); }
+    if (weekView) weekView.style.display = 'block';
+  } else {
+    var el = tabDay;
+    if (el) { el.classList.remove('text-text-muted'); el.classList.add('font-bold', 'bg-white', 'rounded-full', 'shadow-sm'); }
+    if (dayView) dayView.style.display = 'block';
+  }
+}
+
+function resetCalendarRegisterState() {
+  var btn = document.getElementById('btn-register');
+  var success = document.getElementById('register-success');
+  if (btn) { btn.innerHTML = '<span class="material-symbols-outlined">how_to_reg</span> 报名参与'; btn.disabled = false; btn.classList.remove('opacity-50'); }
+  if (success) { success.classList.add('opacity-0', 'pointer-events-none', 'scale-90'); success.classList.remove('opacity-100', 'scale-100'); }
+  var s1 = document.getElementById('list-status-1');
+  var s2 = document.getElementById('list-status-2');
+  if (s1) { s1.textContent = ''; s1.classList.remove('text-secondary', 'font-bold'); s1.classList.add('text-text-muted'); }
+  if (s2) { s2.textContent = ''; s2.classList.remove('text-secondary', 'font-bold'); s2.classList.add('text-text-muted'); }
+}
+
+function resetCalendarState() {
+  resetCalendarRegisterState();
+  switchCalendarView('calendar');
+}
+
+function calendarRegister() {
+  var btn = document.getElementById('btn-register');
+  var success = document.getElementById('register-success');
+  if (btn) { btn.innerHTML = '<span class="material-symbols-outlined">how_to_reg</span> ✓ 已报名'; btn.disabled = true; btn.classList.add('opacity-50'); }
+  if (success) { success.classList.remove('opacity-0', 'pointer-events-none', 'scale-90'); success.classList.add('opacity-100', 'scale-100'); }
+  autoPlayTimers.push(setTimeout(function() {
+    if (success) { success.classList.add('opacity-0', 'pointer-events-none', 'scale-90'); success.classList.remove('opacity-100', 'scale-100'); }
+  }, 2500));
+}
+
+function storeGoHome() {
+  clearAutoPlay();
+  resetStoreState();
+  resetSubViews('screen-store');
+}
+
+function storeGoSub(subId) {
+  clearAutoPlay();
+  resetStoreState();
+  goSub('screen-store', subId);
+}
+
+function resetStoreState() {
+  var success = document.getElementById('store-buy-success');
+  if (success) { success.classList.add('opacity-0', 'pointer-events-none', 'scale-90'); success.classList.remove('opacity-100', 'scale-100'); }
+  var newCard = document.getElementById('store-new-card');
+  if (newCard) newCard.remove();
+  var nameInput = document.getElementById('input-publish-name');
+  var descInput = document.getElementById('input-publish-desc');
+  var priceInput = document.getElementById('input-publish-price');
+  if (nameInput) nameInput.value = '';
+  if (descInput) descInput.value = '';
+  if (priceInput) priceInput.value = '';
+}
+
+function storeBuy() {
+  var success = document.getElementById('store-buy-success');
+  if (success) { success.classList.remove('opacity-0', 'pointer-events-none', 'scale-90'); success.classList.add('opacity-100', 'scale-100'); }
+  autoPlayTimers.push(setTimeout(function() {
+    if (success) { success.classList.add('opacity-0', 'pointer-events-none', 'scale-90'); success.classList.remove('opacity-100', 'scale-100'); }
+  }, 2500));
+}
+
+function doPublish() {
+  storeGoHome();
+  autoPlayTimers.push(setTimeout(function() {
+    var grid = document.getElementById('store-items-grid');
+    if (grid) {
+      var newCard = document.createElement('div');
+      newCard.className = 'bg-white rounded-2xl p-3 shadow-sm border border-secondary/30 flex flex-col cursor-pointer';
+      newCard.id = 'store-new-card';
+      newCard.innerHTML = '<div class="bg-emerald-100 text-emerald-800 text-[10px] px-2 py-0.5 rounded w-fit mb-2">农产品</div>' +
+        '<div class="w-full aspect-square bg-emerald-50 rounded-xl mb-2 flex items-center justify-center">' +
+        '<span class="material-symbols-outlined text-3xl text-emerald-400" style="font-variation-settings: \'FILL\' 1;">eco</span>' +
+        '</div>' +
+        '<div class="font-bold text-sm mb-1">土鸡蛋 30枚</div>' +
+        '<div class="text-[10px] text-text-muted mb-1">散养土鸡 · 当日新鲜</div>' +
+        '<div class="text-secondary font-bold text-sm mt-auto">150 积分</div>';
+      grid.insertBefore(newCard, grid.firstChild);
+    }
+  }, 500));
+}
+
+function autoPlayTask() {
+  resetTaskProgress();
+  clearTaskForms();
+  var steps = [];
+  function next(fn) { steps.push(fn); }
+  function run() {
+    if (steps.length === 0) return;
+    var fn = steps.shift();
+    fn(run);
+  }
+  next(function(r) {
+    showCursor(document.getElementById('btn-create-task'), function() { r(); });
+  });
+  next(function(r) {
+    taskGoSub('task-publish');
+    autoPlayTimers.push(setTimeout(r, 400));
+  });
+  next(function(r) {
+    typeText(document.getElementById('input-task-title'), '社区清洁行动', 80, r);
+  });
+  next(function(r) {
+    typeText(document.getElementById('input-task-desc'), '组织社区志愿者进行公共区域清洁，保持环境整洁。', 40, r);
+  });
+  next(function(r) {
+    typeText(document.getElementById('input-task-people'), '5', 120, r);
+  });
+  next(function(r) {
+    typeText(document.getElementById('input-task-points'), '15', 120, r);
+  });
+  next(function(r) {
+    var el = document.getElementById('input-task-deadline');
+    el.value = '2026-06-15';
+    autoPlayTimers.push(setTimeout(r, 500));
+  });
+  next(function(r) {
+    typeText(document.getElementById('input-task-review'), '上传清洁前后对比照片，由社区管理员审核确认。', 40, r);
+  });
+  next(function(r) {
+    showCursor(document.getElementById('btn-publish-task'), function() { r(); });
+  });
+  next(function(r) {
+    taskGoSub('task-publish-success');
+    autoPlayTimers.push(setTimeout(r, 1500));
+  });
+  next(function(r) {
+    showCursor(document.getElementById('btn-back-home-publish'), function() { r(); });
+  });
+  next(function(r) {
+    taskGoHome();
+    autoPlayTimers.push(setTimeout(r, 600));
+  });
+  next(function(r) {
+    showTaskProgress();
+    advanceTaskProgress();
+    autoPlayTimers.push(setTimeout(r, 600));
+  });
+  next(function(r) {
+    var firstCard = document.querySelector('#task-home .task-card');
+    showCursor(firstCard, function() { r(); });
+  });
+  next(function(r) {
+    taskGoSub('task-detail');
+    autoPlayTimers.push(setTimeout(r, 800));
+  });
+  next(function(r) {
+    showCursor(document.getElementById('btn-claim-task'), function() { r(); });
+  });
+  next(function(r) {
+    claimTask();
+    autoPlayTimers.push(setTimeout(r, 1000));
+  });
+  next(function(r) {
+    var imgAreaEl = document.getElementById('evidence-image-area');
+    showCursor(imgAreaEl, function() {
+      imgAreaEl.innerHTML = '<span class="material-symbols-outlined text-secondary text-xl mb-0.5" style="font-variation-settings:\'FILL\' 1;">image</span><span class="text-sm font-bold text-secondary">清洁前后对比.jpg</span>';
+      imgAreaEl.classList.remove('border-dashed', 'border-primary/50');
+      imgAreaEl.classList.add('border-solid', 'border-secondary/30', 'bg-secondary/5');
+      autoPlayTimers.push(setTimeout(r, 600));
+    });
+  });
+  next(function(r) {
+    var textAreaWrap = document.getElementById('evidence-text-area');
+    var textPlaceholder = document.getElementById('evidence-text-placeholder');
+    showCursor(textAreaWrap, function() {
+      if (textPlaceholder) textPlaceholder.textContent = '已完成社区公共区域清洁任务';
+      textAreaWrap.classList.remove('border-dashed', 'border-primary/50');
+      textAreaWrap.classList.add('border-solid', 'border-secondary/30', 'bg-secondary/5');
+      autoPlayTimers.push(setTimeout(r, 600));
+    });
+  });
+  next(function(r) {
+    var locArea = document.getElementById('evidence-location-area');
+    showCursor(locArea, function() {
+      var locText = document.getElementById('evidence-location-text');
+      if (locText) locText.textContent = '23.1291\u00b0 N, 113.2644\u00b0 E';
+      locArea.classList.remove('border-dashed', 'border-primary/50');
+      locArea.classList.add('border-solid', 'border-secondary/30', 'bg-secondary/5');
+      autoPlayTimers.push(setTimeout(r, 600));
+    });
+  });
+  next(function(r) {
+    showCursor(document.getElementById('btn-submit-evidence'), function() {
+      advanceTaskProgress();
+      taskGoSub('task-claim-success');
+      autoPlayTimers.push(setTimeout(r, 1200));
+    });
+  });
+  next(function(r) {
+    advanceTaskProgress();
+    autoPlayTimers.push(setTimeout(r, 1500));
+  });
+  next(function(r) {
+    showPointsState();
+    advanceTaskProgress();
+    autoPlayTimers.push(setTimeout(r, 2500));
+  });
+  next(function(r) {
+    showCursor(document.getElementById('btn-back-home-claim'), function() { r(); });
+  });
+  next(function(r) {
+    taskGoHome();
+  });
+  autoPlayTimers.push(setTimeout(run, 1000));
+}
+
+function autoPlaySocial() {
+  autoPlayTimers.push(setTimeout(function() {
+    showCursor(document.getElementById('btn-enter-community'), function() {
+      socialGoSub('social-trends');
+      autoPlayTimers.push(setTimeout(function() {
+        showCursor(document.getElementById('btn-social-post'), function() {
+          socialGoSub('social-post');
+          autoPlayTimers.push(setTimeout(function() {
+            typeText(document.getElementById('input-social-post'), 'nanaland让协作看得见！社区的力量真伟大 ✨', 60, function() {
+              autoPlayTimers.push(setTimeout(function() {
+                showCursor(document.getElementById('btn-do-post'), function() {
+                  doPost();
+                });
+              }, 500));
+            });
+          }, 800));
+        });
+      }, 1500));
+    });
+  }, 1000));
+}
+
+function autoPlayCalendar() {
+  switchCalendarView('calendar');
+  autoPlayTimers.push(setTimeout(function() {
+    showCursor(document.getElementById('toggle-list'), function() {
+      switchCalendarView('list');
+      autoPlayTimers.push(setTimeout(function() {
+        showCursor(document.getElementById('btn-activity-detail'), function() {
+          calendarGoSub('calendar-detail');
+          autoPlayTimers.push(setTimeout(function() {
+            showCursor(document.getElementById('btn-register'), function() {
+              calendarRegister();
+              autoPlayTimers.push(setTimeout(function() {
+                calendarGoHome();
+                autoPlayTimers.push(setTimeout(function() {
+                  var s1 = document.getElementById('list-status-1');
+                  if (s1) { s1.textContent = '✓ 已报名'; s1.classList.remove('text-text-muted'); s1.classList.add('text-secondary', 'font-bold'); }
+                }, 500));
+              }, 3000));
+            });
+          }, 1000));
+        });
+      }, 1500));
+    });
+  }, 1000));
+}
+
+function autoPlayStore() {
+  autoPlayTimers.push(setTimeout(function() {
+    showCursor(document.getElementById('btn-store-item'), function() {
+      storeGoSub('store-detail');
+      autoPlayTimers.push(setTimeout(function() {
+        showCursor(document.getElementById('btn-buy'), function() {
+          storeBuy();
+          autoPlayTimers.push(setTimeout(function() {
+            storeGoHome();
+            autoPlayTimers.push(setTimeout(function() {
+              showCursor(document.getElementById('btn-store-publish'), function() {
+                storeGoSub('store-publish');
+                autoPlayTimers.push(setTimeout(function() {
+                  var nameInput = document.getElementById('input-publish-name');
+                  var descInput = document.getElementById('input-publish-desc');
+                  var priceInput = document.getElementById('input-publish-price');
+                  typeText(nameInput, '土鸡蛋 30枚', 60, function() {
+                    typeText(descInput, '散养土鸡当日新鲜', 60, function() {
+                      typeText(priceInput, '150', 60, function() {
+                        showCursor(document.getElementById('btn-publish-photo'), function() {
+                          showCursor(document.getElementById('btn-do-publish'), function() {
+                            doPublish();
+                          });
+                        });
+                      });
+                    });
+                  });
+                }, 800));
+              });
+            }, 1500));
+          }, 3000));
+        });
+      }, 1000));
+    });
+  }, 1000));
+}
+
+window.addEventListener('scroll', function() {
+  var nav = document.querySelector('nav');
+  if (window.scrollY > 80) {
+    nav.classList.add('shadow-[0_8px_24px_rgba(255,107,53,0.12)]');
+    nav.classList.remove('bg-white/50');
+    nav.classList.add('bg-white/85');
+  } else {
+    nav.classList.remove('shadow-[0_8px_24px_rgba(255,107,53,0.12)]');
+    nav.classList.remove('bg-white/85');
+    nav.classList.add('bg-white/50');
+  }
+});
+</script>
+</body></html>

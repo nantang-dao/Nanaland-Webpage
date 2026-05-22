@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Product Overview - nanaland</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#00677e",
+                        "surface": "#fcf8ff",
+                        "on-secondary-fixed-variant": "#005045",
+                        "accent-gradient-start": "#FF6B35",
+                        "bg-soft-orange": "#FFF3EF",
+                        "tertiary-fixed": "#b5ebff",
+                        "surface-dim": "#dad7f3",
+                        "surface-container-low": "#f5f2ff",
+                        "bg-soft-green": "#E6FAF5",
+                        "background": "#fcf8ff",
+                        "primary-container": "#ff6b35",
+                        "on-secondary-container": "#007262",
+                        "surface-bright": "#fcf8ff",
+                        "on-tertiary-container": "#003744",
+                        "surface-container-highest": "#e2e0fc",
+                        "secondary": "#006b5c",
+                        "secondary-fixed": "#65fade",
+                        "on-background": "#1a1a2e",
+                        "surface-container-high": "#e8e5ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#ab3500",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#ab3500",
+                        "surface-variant": "#e2e0fc",
+                        "on-secondary-fixed": "#00201b",
+                        "inverse-surface": "#2f2e43",
+                        "inverse-on-surface": "#f2efff",
+                        "outline-variant": "#e1bfb5",
+                        "on-primary-fixed": "#390c00",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#65fade",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "primary-fixed-dim": "#ffb59d",
+                        "on-error-container": "#93000a",
+                        "outline": "#8d7168",
+                        "on-primary-fixed-variant": "#832600",
+                        "text-muted": "#5B5B6C",
+                        "secondary-fixed-dim": "#41ddc2",
+                        "on-tertiary-fixed": "#001f28",
+                        "on-surface": "#1a1a2e",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#ffdbd0",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-primary-container": "#5f1900",
+                        "accent-gradient-end": "#FF8C69",
+                        "surface-container": "#efecff",
+                        "inverse-primary": "#ffb59d",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#00a7cb",
+                        "on-surface-variant": "#594139"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "section-gap": "120px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-xl-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-xl-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["36px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.05);
+        }
+        .glass-card:hover {
+            box-shadow: 0 12px 32px rgba(255, 107, 53, 0.12);
+            transform: scale(1.01);
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .gradient-btn {
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C69 100%);
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .gradient-btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        .bg-gradient-soft {
+            background: linear-gradient(135deg, #FFF3EF 0%, #E6FAF5 100%);
+        }
+        .page-transition {
+            animation: slideIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden min-h-screen flex flex-col bg-gradient-soft">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-on-background/85 backdrop-blur-xl backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                nanaland
+            </div>
+<div class="hidden md:flex items-center gap-8"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="#">Overview</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="{{DATA:SCREEN:SCREEN_5}}">Project</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">About</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="#">Join</a></div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-colors">中/EN</button>
+<button class="gradient-btn text-white px-6 py-2 rounded-xl font-label-lg text-label-lg">Connect</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-section-gap page-transition">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-gutter">
+<!-- Header Section -->
+<div class="text-center mb-24 max-w-3xl mx-auto">
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-6">产品生态 / Product Ecosystem</h1>
+<p class="font-body-lg text-body-lg text-text-muted">
+                    从身份、协作到治理，nanaland 为社区铺设完整数字基建。<br>
+                    From identity to collaboration to governance, nanaland builds the complete digital infrastructure.
+                </p>
+</div>
+<!-- Product Matrix -->
+<div class="flex flex-col gap-32">
+<!-- Product 1: SEMI -->
+<div class="flex flex-col md:flex-row items-center gap-16 relative">
+<div class="w-full md:w-1/2 flex justify-center order-2 md:order-1">
+<img alt="" class="w-[300px] h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAysRxuyHNqYq9G70-Pbc7XSih-_w6glaMGVuEnmiJgrrOkSW0mFJkWqCPEGR8mTzOU17_KQDDZYSzd58lGOysjrMXDvJWG6aaSeQXSiv1E6u_vEG7_eqvz1o5ZfZVCG5C3F_hxzgD1q2IpCz8a8EJKJzL_mC4UHiuAPhhRR3fPuPKpvG2KcZUu3wV7K8yZuLVlFgxgE-RgihXP4JZFmZWEqYRThRlB9G7lqNzUheh6TayeP80BnE2bnPY9dYDDuMqoH5fcaLtThD47">
+</div>
+<div class="w-full md:w-1/2 order-1 md:order-2 glass-card p-12 rounded-[24px]">
+<h2 class="font-headline-lg text-headline-lg text-primary-container mb-4">SEMI Digital Identity</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                            你的通用社区身份。唯一、可追溯、自我掌控的数字身份标识，支持个人独立管理与多人共管。<br><br>
+                            Your universal community identity. A unique, traceable, self-sovereign digital identifier with solo and multi-sig management.
+                        </p>
+<button class="gradient-btn text-white px-8 py-3 rounded-xl font-label-lg text-label-lg shadow-[0_8px_24px_rgba(255,107,53,0.2)]">了解详情 / Learn More</button>
+</div>
+</div>
+<!-- Product 2: bai -->
+<div class="flex flex-col md:flex-row items-center gap-16 relative">
+<div class="w-full md:w-1/2 glass-card p-12 rounded-[24px] order-1">
+<h2 class="font-headline-lg text-headline-lg text-secondary mb-4">bai Task System</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                            互助即游戏。在社区广场接任务、交凭证、赚积分，让协作像游戏一样有趣。<br><br>
+                            Helping is playing. Take tasks, submit proofs, earn points, making collaboration a fun game.
+                        </p>
+<button class="bg-secondary text-white px-8 py-3 rounded-xl font-label-lg text-label-lg shadow-[0_8px_24px_rgba(0,107,92,0.2)] hover:scale-105 transition-transform duration-300">了解详情 / Learn More</button>
+</div>
+<div class="w-full md:w-1/2 flex justify-center order-2">
+<img alt="" class="w-full max-w-[500px] h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500 rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAubXRBZ0frduHdU-Z0tz3mQGXmI5urdWbw2qBOZ70HP8QowATn18hQ-qp74jCczyF1NciNTWjZ-KU5fP2a6lYIqFzqlMK9rXx3_CZdAHuPtwqj9cmPo7cYmMOI8iDOFDqIqEEUcs6Kj5ZRMPdlzQ-l4POAj27tz73y4FrsMH2huLLNVLQOp1gAE_W_v8e4KRhpAtwxPTl03b8ffKs6e3pJqSj40ewgM1xsXR_SOgqVDfyMu3bufN-LU073nfquwqNZ-SJHRCYJmufI">
+</div>
+</div>
+<!-- Product 3: vote -->
+<div class="flex flex-col md:flex-row items-center gap-16 relative">
+<div class="w-full md:w-1/2 flex justify-center order-2 md:order-1">
+<div class="w-64 h-64 bg-surface-variant/50 rounded-full blur-3xl absolute -z-10"></div>
+<div class="glass-card w-64 h-80 rounded-[24px] flex items-center justify-center flex-col gap-4 border-dashed border-2 border-outline-variant">
+<span class="material-symbols-outlined text-6xl text-text-muted">how_to_vote</span>
+<span class="font-label-lg text-label-lg text-text-muted">Building...</span>
+</div>
+</div>
+<div class="w-full md:w-1/2 order-1 md:order-2 glass-card p-12 rounded-[24px]">
+<div class="flex items-center gap-4 mb-4">
+<h2 class="font-headline-lg text-headline-lg text-tertiary">vote Voting Platform</h2>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-lg text-[12px]">Coming Soon</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                            让决策上链。白名单治理、灵活提案、结果验证，为社区透明决策量身打造。（开发中）<br><br>
+                            Decision-making on-chain. Allowlist governance, flexible proposals, verifiable results. (In Development)
+                        </p>
+<button class="border-2 border-outline-variant text-on-surface-variant px-8 py-3 rounded-xl font-label-lg text-label-lg cursor-not-allowed opacity-70">敬请期待 / Stay Tuned</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20">
+<div class="max-w-[1280px] mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">nanaland</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 nanaland community. All rights reserved.</p>
+</div>
+<div class="col-span-1 md:col-span-3 flex flex-wrap gap-8 md:justify-end">
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">Product Overview</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">About Us</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">Join Us</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">GitHub</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+
+
+</body></html>

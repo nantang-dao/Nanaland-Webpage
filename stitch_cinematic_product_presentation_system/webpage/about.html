@@ -1,0 +1,336 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>关于 nanaland - nanaland community</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        /* Fallback for Chinese fonts */
+        body { font-family: 'Inter', system-ui, -apple-system, 'PingFang SC', 'HarmonyOS Sans SC', 'Microsoft YaHei', sans-serif; }
+        .font-headline-xl, .font-headline-xl-mobile, .font-headline-lg, .font-headline-md {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'PingFang SC', 'HarmonyOS Sans SC', sans-serif;
+        }
+        
+        /* Custom Animations */
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-slide-in {
+            animation: slideInRight 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .animate-float {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+        
+        /* Glassmorphism utilities */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#ab3500",
+                      "bg-soft-green": "#E6FAF5",
+                      "surface-container": "#efecff",
+                      "surface-container-highest": "#e2e0fc",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#001f28",
+                      "on-primary-fixed-variant": "#832600",
+                      "on-error-container": "#93000a",
+                      "surface": "#fcf8ff",
+                      "text-muted": "#5B5B6C",
+                      "on-error": "#ffffff",
+                      "accent-gradient-start": "#FF6B35",
+                      "tertiary-fixed-dim": "#59d5fb",
+                      "on-primary-fixed": "#390c00",
+                      "primary-container": "#ff6b35",
+                      "secondary-fixed-dim": "#41ddc2",
+                      "on-surface-variant": "#594139",
+                      "surface-dim": "#dad7f3",
+                      "on-background": "#1a1a2e",
+                      "on-surface": "#1a1a2e",
+                      "secondary-container": "#65fade",
+                      "on-primary-container": "#5f1900",
+                      "background": "#fcf8ff",
+                      "primary": "#ab3500",
+                      "outline-variant": "#e1bfb5",
+                      "on-secondary-fixed-variant": "#005045",
+                      "inverse-on-surface": "#f2efff",
+                      "secondary-fixed": "#65fade",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#e8e5ff",
+                      "accent-gradient-end": "#FF8C69",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#003744",
+                      "surface-bright": "#fcf8ff",
+                      "on-tertiary-fixed-variant": "#004e60",
+                      "tertiary-fixed": "#b5ebff",
+                      "tertiary": "#00677e",
+                      "primary-fixed-dim": "#ffb59d",
+                      "on-secondary-fixed": "#00201b",
+                      "inverse-surface": "#2f2e43",
+                      "bg-soft-orange": "#FFF3EF",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f5f2ff",
+                      "surface-variant": "#e2e0fc",
+                      "on-primary": "#ffffff",
+                      "outline": "#8d7168",
+                      "tertiary-container": "#00a7cb",
+                      "secondary": "#006b5c",
+                      "on-secondary-container": "#007262",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#ffdbd0",
+                      "inverse-primary": "#ffb59d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "2xl": "1.5rem",
+                      "3xl": "2rem"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "unit": "4px",
+                      "section-gap": "120px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-xl": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-lg": [
+                              "Inter"
+                      ],
+                      "headline-xl-mobile": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background antialiased overflow-x-hidden min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-white/85 dark:bg-on-background/85 backdrop-blur-xl fixed top-0 w-full z-50 backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] transition-all duration-300 cubic-bezier(0.2, 0.8, 0.2, 1)">
+<div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">
+                nanaland
+            </a>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex items-center space-x-8 font-label-lg text-label-lg"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="#">Overview</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="#">Project</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">About</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="#">Join</a></div>
+<!-- Actions -->
+<div class="flex items-center space-x-6">
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300">中/EN</button>
+<button class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white font-label-lg text-label-lg px-6 py-2 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] hover:scale-105 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)">
+                    Connect
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 animate-slide-in">
+<!-- Hero Section -->
+<section class="relative max-w-[1280px] mx-auto px-margin-mobile md:px-gutter pt-16 pb-24 overflow-hidden rounded-3xl mt-8">
+<!-- Neo-Natural Gradient Background -->
+<div class="absolute inset-0 bg-gradient-to-br from-bg-soft-orange via-background to-bg-soft-green opacity-80 -z-10 rounded-3xl"></div>
+<!-- Decorative floating orb -->
+<div class="absolute -top-20 -right-20 w-96 h-96 bg-primary-fixed rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-float"></div>
+<div class="absolute -bottom-20 -left-20 w-80 h-80 bg-secondary-fixed rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-float" style="animation-delay: 2s;"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-6 z-10">
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background">
+                        关于 <span class="bg-clip-text text-transparent bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end">nanaland</span>
+</h1>
+<p class="font-body-lg text-body-lg text-text-muted leading-relaxed max-w-xl">
+                        我们是 nanaland，一群相信技术能让社区更美好的开发者和创造者。我们专注于为乡建组织、DAO、Web3 社区提供数字化协作工具，从身份到任务到治理。
+                    </p>
+</div>
+<div class="z-10 flex justify-center relative">
+<div class="w-full max-w-md aspect-square rounded-full overflow-hidden border-8 border-white/50 shadow-[0_12px_32px_rgba(0,107,92,0.1)] relative">
+<img alt="Team Collaboration" class="object-cover w-full h-full hover:scale-105 transition-transform duration-700" data-alt="A bright, optimistic neo-natural scene of a diverse group of young creators and developers collaborating around a wooden table in a sunlit, airy workspace. Soft, organic sunlight filters through large windows, illuminating a modern digital light-mode aesthetic. The color palette features soft whites, warm subtle oranges, and gentle mint greens. The mood is highly collaborative, rooted in practice, and warmly technological." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoNwTs_OxS0uta2B_WS-COXagY403Oh0cWGHWAxPsdgVVKH1hCVU4PsdcH2YwLu7hN0dLYvk9YiBFsGJ4yDuXDg9ORVLSe8mGKLF8WnNd0kQXTHLrXpq1EN0gSMotV198tMoipGFZM7gEpL2Uy5k1GGIReqHF6PgmRefQlL7wR5NesRZJL8-nfks0uPICMZ77birebjsb17Z30KLphUOI9LVRWrziYnBGjbY7PkPPUlkhP6lfU4_3ivUkCfz_PTuZ42cCf5xfrtHTi">
+</div>
+</div>
+</div>
+</section>
+<!-- Mission Statement (Bento style highlight) -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-gutter py-section-gap">
+<div class="glass-panel rounded-3xl p-12 md:p-20 text-center shadow-[0_8px_24px_rgba(255,107,53,0.08)] relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-50"></div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6 animate-float" style="font-variation-settings: 'FILL' 1;">
+                    home_iot_device
+                </span>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-8 leading-tight">
+                    使命是让每个社区都能拥有自己的<br class="hidden md:block">
+<span class="text-primary relative inline-block">
+                        “数字家园”
+                        <svg class="absolute w-full h-3 -bottom-1 left-0 text-primary-fixed-dim" preserveAspectRatio="none" viewBox="0 0 100 10"><path d="M0 5 Q 50 10 100 5" fill="transparent" stroke="currentColor" stroke-width="3"></path></svg>
+</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">
+                    让贡献被看见，让决策被信任。我们扎根实践，持续迭代。
+                </p>
+</div>
+</section>
+<!-- Values Grid (Asymmetric) -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-gutter pb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+<!-- Card 1 -->
+<div class="glass-panel rounded-2xl p-8 hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-[0_12px_32px_rgba(255,107,53,0.12)] group">
+<div class="w-12 h-12 rounded-full bg-bg-soft-orange flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">code</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">开发者</h3>
+<p class="font-body-md text-body-md text-text-muted">
+                        用优雅的代码构建稳健的去中心化基础设施，连接虚拟与现实。
+                    </p>
+</div>
+<!-- Card 2 (Offset slightly) -->
+<div class="glass-panel rounded-2xl p-8 hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-[0_12px_32px_rgba(0,107,92,0.12)] md:mt-12 group">
+<div class="w-12 h-12 rounded-full bg-bg-soft-green flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary">palette</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">创造者</h3>
+<p class="font-body-md text-body-md text-text-muted">
+                        设计直观、温暖的用户体验，让复杂的 Web3 工具像日常工具一样简单易用。
+                    </p>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel rounded-2xl p-8 hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-[0_12px_32px_rgba(0,167,203,0.12)] group">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary">diversity_3</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">社区实践者</h3>
+<p class="font-body-md text-body-md text-text-muted">
+                        深入乡建现场与DAO组织的日常，倾听真实需求，让技术真正在泥土中扎根。
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20">
+<div class="max-w-[1280px] mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-2">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">
+                    nanaland
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant max-w-sm mb-6">
+                    © 2024 nanaland community. All rights reserved.
+                </p>
+</div>
+<!-- Links Column 1 -->
+<div class="col-span-1 flex flex-col space-y-4">
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 transform hover:scale-105 origin-left" href="#">Product Overview</a>
+<a class="font-label-lg text-label-lg text-primary font-semibold transform hover:scale-105 origin-left" href="#">About Us</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 transform hover:scale-105 origin-left" href="#">Join Us</a>
+</div>
+<!-- Links Column 2 -->
+<div class="col-span-1 flex flex-col space-y-4">
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 transform hover:scale-105 origin-left" href="#">GitHub</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 transform hover:scale-105 origin-left" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+<!-- Simple Scroll Script for Nav blur effect (optional enhancement) -->
+<script>
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 80) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('bg-white/85');
+                nav.classList.add('bg-white/95');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('bg-white/85');
+                nav.classList.remove('bg-white/95');
+            }
+        });
+    </script>
+
+
+</body></html>

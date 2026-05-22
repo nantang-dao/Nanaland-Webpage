@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="zh" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>加入 nanaland</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#65fade",
+                        "accent-gradient-end": "#FF8C69",
+                        "secondary": "#006b5c",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "accent-gradient-start": "#FF6B35",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f2efff",
+                        "secondary-fixed-dim": "#41ddc2",
+                        "text-muted": "#5B5B6C",
+                        "surface": "#fcf8ff",
+                        "surface-container-highest": "#e2e0fc",
+                        "on-secondary": "#ffffff",
+                        "bg-soft-orange": "#FFF3EF",
+                        "surface-bright": "#fcf8ff",
+                        "on-surface-variant": "#594139",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-tertiary-fixed": "#001f28",
+                        "tertiary-fixed": "#b5ebff",
+                        "tertiary": "#00677e",
+                        "on-primary-container": "#5f1900",
+                        "inverse-primary": "#ffb59d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#390c00",
+                        "primary-fixed": "#ffdbd0",
+                        "outline": "#8d7168",
+                        "surface-container-high": "#e8e5ff",
+                        "surface-container": "#efecff",
+                        "on-background": "#1a1a2e",
+                        "surface-variant": "#e2e0fc",
+                        "on-surface": "#1a1a2e",
+                        "inverse-surface": "#2f2e43",
+                        "primary": "#ab3500",
+                        "on-secondary-fixed-variant": "#005045",
+                        "surface-container-low": "#f5f2ff",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "primary-container": "#ff6b35",
+                        "on-primary-fixed-variant": "#832600",
+                        "secondary-container": "#65fade",
+                        "on-secondary-container": "#007262",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#ab3500",
+                        "outline-variant": "#e1bfb5",
+                        "surface-dim": "#dad7f3",
+                        "primary-fixed-dim": "#ffb59d",
+                        "background": "#fcf8ff",
+                        "bg-soft-green": "#E6FAF5",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#003744",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#00201b",
+                        "tertiary-container": "#00a7cb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-lg": ["Inter"],
+                        "headline-xl-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["36px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.12);
+        }
+        .page-transition {
+            animation: slideIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .bg-gradient-mesh {
+            background: radial-gradient(circle at 10% 20%, var(--tw-colors-bg-soft-orange) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, var(--tw-colors-bg-soft-green) 0%, transparent 40%);
+            background-color: var(--tw-colors-background);
+        }
+    </style>
+</head>
+<body class="bg-gradient-mesh text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-white/85 dark:bg-on-background/85 backdrop-blur-xl fixed top-0 w-full z-50 backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] shadow-sm dark:shadow-none transition-all duration-300 cubic-bezier(0.2, 0.8, 0.2, 1)">
+<div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
+<!-- Brand -->
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                nanaland
+            </div>
+<!-- Links (Desktop) -->
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="#">Overview</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="#">Project</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="#">About</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">Join</a>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<span class="font-label-lg text-label-lg text-on-surface-variant cursor-pointer hover:text-primary transition-colors">中/EN</span>
+<button class="hidden md:block bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white px-6 py-2 rounded-[12px] font-label-lg text-label-lg hover:scale-105 transition-transform duration-300 shadow-[0_8px_24px_rgba(255,107,53,0.12)]">
+                    Connect
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[120px] pb-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto w-full page-transition relative">
+<!-- Floating Elements Background -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden -z-10">
+<span class="material-symbols-outlined absolute top-20 left-10 text-[120px] text-tertiary-fixed-dim/20 rotate-12 blur-sm">code</span>
+<span class="material-symbols-outlined absolute top-40 right-20 text-[80px] text-primary-fixed-dim/20 -rotate-12 blur-[2px]">brush</span>
+<span class="material-symbols-outlined absolute bottom-40 left-1/4 text-[100px] text-secondary-fixed-dim/20 rotate-45 blur-sm">groups</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Hero Text Block -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary">
+                    加入 nanaland
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                    我们永远欢迎有想法的伙伴。不论你是开发者、设计师、社区运营者，还是只想聊聊，都欢迎联系。
+                </p>
+<div class="w-16 h-1 bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end rounded-full mt-4"></div>
+</div>
+<!-- Contact Form Component -->
+<div class="lg:col-span-7">
+<div class="glass-panel rounded-[32px] p-8 md:p-12 relative overflow-hidden group hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] transition-shadow duration-500">
+<form class="flex flex-col gap-6 relative z-10 transition-opacity duration-500" id="contact-form">
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface-variant mb-2">你的称呼</label>
+<input class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" placeholder="aaa" required="" type="text">
+</div>
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface-variant mb-2">你的邮箱</label>
+<input class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" placeholder="bbb" required="" type="email">
+</div>
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface-variant mb-2">想说的话</label>
+<textarea class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all resize-none" placeholder="aaaa" required="" rows="4"></textarea>
+</div>
+<button class="mt-4 bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white py-4 rounded-[12px] font-label-lg text-label-lg flex justify-center items-center gap-2 hover:scale-[1.02] transition-transform duration-300 shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)]" type="submit">
+<span class="">发送</span>
+<span class="material-symbols-outlined">send</span>
+</button>
+</form>
+<!-- Success Message Overlay -->
+<div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500 z-20 bg-white/90 backdrop-blur-sm rounded-[32px]" id="success-message">
+<span class="material-symbols-outlined text-[80px] text-secondary mb-6 scale-50 transition-transform duration-500 delay-100" id="success-icon">check_circle</span>
+<p class="font-headline-md text-headline-md text-on-surface font-semibold text-center px-4">已成功发送，感谢您的联系</p>
+</div>
+<!-- Decorative Blob -->
+<div class="absolute -bottom-20 -right-20 w-64 h-64 bg-primary-fixed-dim/30 rounded-full blur-[40px] z-0"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20">
+<div class="max-w-[1280px] mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1 flex flex-col gap-4">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">
+                    nanaland
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    © 2024 nanaland community. All rights reserved.
+                </p>
+</div>
+<div class="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
+<div class="flex flex-col gap-4">
+<h4 class="font-label-lg text-label-lg text-primary font-semibold">Links</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">Product Overview</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">About Us</a>
+<a class="font-body-md text-body-md text-primary font-semibold hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Join Us</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-lg text-label-lg text-primary font-semibold">Social</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">GitHub</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">Twitter</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const successMsg = document.getElementById('success-message');
+            const successIcon = document.getElementById('success-icon');
+            
+            // Hide form, show success message
+            form.classList.add('opacity-0', 'pointer-events-none');
+            successMsg.classList.remove('opacity-0', 'pointer-events-none');
+            
+            // Animate icon
+            setTimeout(() => {
+                successIcon.classList.remove('scale-50');
+                successIcon.classList.add('scale-100');
+            }, 50);
+
+            // Reset after 3 seconds
+            setTimeout(() => {
+                successMsg.classList.add('opacity-0', 'pointer-events-none');
+                successIcon.classList.remove('scale-100');
+                successIcon.classList.add('scale-50');
+                
+                setTimeout(() => {
+                    form.classList.remove('opacity-0', 'pointer-events-none');
+                    form.reset();
+                }, 500); // Wait for fade out before showing form again
+            }, 3000);
+        });
+    </script>
+
+
+</body></html>

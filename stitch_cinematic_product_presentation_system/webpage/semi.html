@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SEMI 数字身份 - nanaland</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "accent-gradient-end": "#FF8C69",
+                        "tertiary": "#00677e",
+                        "secondary-fixed": "#65fade",
+                        "outline": "#8d7168",
+                        "tertiary-fixed": "#b5ebff",
+                        "secondary-container": "#65fade",
+                        "on-surface": "#1a1a2e",
+                        "on-secondary-container": "#007262",
+                        "surface-container-low": "#f5f2ff",
+                        "on-secondary-fixed-variant": "#005045",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e2e0fc",
+                        "primary": "#ab3500",
+                        "on-primary-container": "#5f1900",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "tertiary-container": "#00a7cb",
+                        "surface-container": "#efecff",
+                        "outline-variant": "#e1bfb5",
+                        "accent-gradient-start": "#FF6B35",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e8e5ff",
+                        "primary-container": "#ff6b35",
+                        "background": "#fcf8ff",
+                        "primary-fixed-dim": "#ffb59d",
+                        "on-surface-variant": "#594139",
+                        "inverse-on-surface": "#f2efff",
+                        "surface-bright": "#fcf8ff",
+                        "bg-soft-green": "#E6FAF5",
+                        "on-primary-fixed-variant": "#832600",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#ab3500",
+                        "surface-variant": "#e2e0fc",
+                        "secondary": "#006b5c",
+                        "primary-fixed": "#ffdbd0",
+                        "on-background": "#1a1a2e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#001f28",
+                        "text-muted": "#5B5B6C",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "bg-soft-orange": "#FFF3EF",
+                        "secondary-fixed-dim": "#41ddc2",
+                        "on-tertiary-container": "#003744",
+                        "surface-dim": "#dad7f3",
+                        "on-secondary-fixed": "#00201b",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#ffb59d",
+                        "surface": "#fcf8ff",
+                        "inverse-surface": "#2f2e43",
+                        "on-primary-fixed": "#390c00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "unit": "4px",
+                        "container-max": "1280px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "headline-xl-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["36px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .transition-interactive {
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+
+        .phone-mockup-container {
+            perspective: 1000px;
+        }
+
+        .phone-mockup {
+            transform-style: preserve-3d;
+            box-shadow: -20px 20px 40px rgba(0,0,0,0.1), 0 0 0 10px #f0f0f0, inset 0 0 0 12px #fff;
+            border-radius: 40px;
+            overflow: hidden;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        #screen-content {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            backface-visibility: hidden;
+        }
+        #screen-content * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .feature-btn {
+            transform-origin: left center;
+        }
+
+        .feature-btn.active {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C69 100%);
+            color: white;
+            box-shadow: 0 12px 32px rgba(255, 107, 53, 0.3);
+            border-color: transparent;
+            z-index: 10;
+        }
+        
+        .feature-btn.active .icon-container {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+        
+        .feature-btn.active p, .feature-btn.active h3 {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .phone-shift-left {
+            transform: translateX(-15%) rotateY(8deg);
+        }
+        
+        .phone-shift-center {
+            transform: translateX(0) rotateY(0deg);
+        }
+
+        .phone-shift-right {
+            transform: translateX(15%) rotateY(-8deg);
+        }
+
+        .bg-pattern {
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 107, 53, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 107, 92, 0.05) 0%, transparent 40%);
+        }
+        
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @keyframes pulse-fingerprint {
+            0% { transform: scale(0.95); opacity: 0.5; box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7); }
+            70% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 20px rgba(255, 107, 53, 0); }
+            100% { transform: scale(0.95); opacity: 0.5; box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+        }
+        .animate-fingerprint {
+            animation: pulse-fingerprint 2s infinite;
+        }
+        @keyframes cursorPulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.8; }
+        }
+        #auto-cursor {
+            position: absolute;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 107, 53, 0.3);
+            border: 3px solid #FF6B35;
+            pointer-events: none;
+            z-index: 100;
+            display: none;
+            animation: cursorPulse 1s ease-in-out infinite;
+            transform: translate(-50%, -50%);
+        }
+        #auto-cursor::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #FF6B35;
+        }
+        @keyframes verifyDigitIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            60% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .verify-digit-in {
+            animation: verifyDigitIn 0.3s ease-out forwards;
+        }
+
+        @keyframes checkmark {
+            0% { stroke-dashoffset: 24; }
+            100% { stroke-dashoffset: 0; }
+        }
+        .path-check {
+            stroke-dasharray: 24;
+            stroke-dashoffset: 24;
+            animation: checkmark 0.5s ease-in-out forwards;
+        }
+
+        .floating-dialog {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* UI Elements Styles */
+        .ui-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .ui-btn {
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C69 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .ui-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .nft-badge {
+            aspect-ratio: 1;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .nft-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.2);
+            border-color: #FF6B35;
+        }
+        #qr-canvas {
+            image-rendering: pixelated;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-on-background/85 backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] transition-all duration-300 cubic-bezier(0.2, 0.8, 0.2, 1)">
+<div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">
+            nanaland
+        </a>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Overview</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Project</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">About</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Join</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300">中/EN</button>
+<button class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-on-primary font-label-lg text-label-lg px-6 py-2 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] hover:scale-105 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)">
+                Connect
+            </button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-24 relative bg-pattern">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter mb-12 z-10 relative">
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary mb-4 transition-interactive">SEMI 数字身份</h1>
+<p class="font-body-lg text-body-lg text-text-muted max-w-2xl mb-6">
+            你的通用社区身份。唯一、可追溯、自我掌控的数字身份标识，让积分流转安全又自由。
+        </p>
+<a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit" href="#">
+<span class="material-symbols-outlined text-sm">arrow_back</span>返回 Back
+        </a>
+<a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit" href="#">
+  下一个产品 Next
+  <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative min-h-[700px]">
+<!-- Left: Feature Navigation -->
+<div class="md:col-span-4 flex flex-col space-y-6 z-20 order-2 md:order-1">
+<button class="feature-btn active group text-left glass-panel p-6 rounded-[24px] cursor-pointer transition-interactive border border-outline-variant/30 flex items-start space-x-4 w-full" onclick="activateFeature(0)">
+<div class="icon-container w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary transition-interactive shrink-0">
+<span class="material-symbols-outlined" data-weight="fill">send_money</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 transition-interactive">发送积分</h3>
+<p class="font-body-md text-body-md text-text-muted transition-interactive">快速、安全、可追溯的链上流转。</p>
+</div>
+</button>
+<button class="feature-btn group text-left glass-panel p-6 rounded-[24px] cursor-pointer transition-interactive border border-outline-variant/30 flex items-start space-x-4 w-full opacity-60 scale-95" onclick="activateFeature(1)">
+<div class="icon-container w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary transition-interactive shrink-0">
+<span class="material-symbols-outlined">group</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 transition-interactive">多签管理</h3>
+<p class="font-body-md text-body-md text-text-muted transition-interactive">集体信任编码，多人共管资产。</p>
+</div>
+</button>
+<button class="feature-btn group text-left glass-panel p-6 rounded-[24px] cursor-pointer transition-interactive border border-outline-variant/30 flex items-start space-x-4 w-full opacity-60 scale-95" onclick="activateFeature(2)">
+<div class="icon-container w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary transition-interactive shrink-0">
+<span class="material-symbols-outlined">workspace_premium</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 transition-interactive">NFT徽章</h3>
+<p class="font-body-md text-body-md text-text-muted transition-interactive">记录每一次贡献，点亮社区荣誉。</p>
+</div>
+</button>
+</div>
+<!-- Right: 3D Phone Mockup -->
+<div class="md:col-span-8 flex justify-center items-center phone-mockup-container z-10 order-1 md:order-2 h-full py-12 md:py-0 relative">
+<div class="absolute top-20 right-4 glass-panel p-4 rounded-2xl hidden items-center space-x-3 shadow-xl z-30 transition-all duration-500 opacity-0 translate-y-4 floating-dialog" id="multisig-dialog">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary mb-1">链上签名中</span>
+<div class="flex items-center space-x-2">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-blue-100 border border-white flex items-center justify-center text-[10px] font-bold text-blue-700 z-20">2</div>
+<div class="w-6 h-6 rounded-full bg-green-100 border border-white flex items-center justify-center text-[10px] font-bold text-green-700 z-10">/</div>
+<div class="w-6 h-6 rounded-full bg-gray-100 border border-white flex items-center justify-center text-[10px] font-bold text-gray-500">3</div>
+</div>
+<span class="text-sm text-text-muted" id="dialog-status">等待确认...</span>
+</div>
+</div>
+</div>
+<div class="phone-mockup w-[340px] h-[700px] relative transition-interactive phone-shift-left shadow-[0_24px_64px_rgba(0,0,0,0.15)] flex flex-col bg-[#f8fafc]" id="phone-container">
+<div class="h-14 w-full absolute top-0 flex justify-center z-50 pointer-events-none">
+<div class="w-32 h-6 bg-black rounded-b-[16px] mt-2"></div>
+</div>
+<div id="auto-cursor"></div>
+<div class="w-full h-full overflow-y-auto no-scrollbar pt-16 pb-8 relative" id="screen-content">
+<!-- Screen 1: Send Tokens -->
+<div class="screen-view absolute w-full h-full px-4 transition-all duration-500 ease-in-out opacity-100 translate-x-0 flex flex-col" id="screen-send">
+<!-- Step 1: Home -->
+<div class="transition-all duration-500 w-full absolute top-0 left-0 h-full px-4 pt-14 pb-4 bg-[#f8fafc] overflow-y-auto no-scrollbar" id="send-step-1">
+<div class="flex justify-between items-center mb-5">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">N</div>
+<span class="font-bold text-gray-800 text-lg">Nana Pioneer</span>
+</div>
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-gray-600 text-[22px]" id="btn-ledger">receipt_long</span>
+<span class="material-symbols-outlined text-gray-600 text-[22px]" id="btn-settings">settings</span>
+</div>
+</div>
+<div class="ui-card bg-gradient-to-br from-primary to-accent-gradient-end text-white border-0 shadow-lg mb-5 min-h-[120px]">
+<div class="flex justify-between items-start mb-3">
+<div>
+<p class="text-xs opacity-80 mb-1">Total Balance</p>
+<h2 class="text-xl font-bold">1,250 <span class="text-sm font-normal">NANA</span></h2>
+</div>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex space-x-2 text-xs opacity-90 bg-white/20 p-2 rounded-lg w-fit">
+<span>0x123...abc</span>
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-3 mb-5">
+<button class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow" id="btn-receive" onclick="goReceiveStep()">
+<div class="w-10 h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[20px]">qr_code_2</span>
+</div>
+<span class="text-[11px] font-semibold text-gray-700">接收</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow" id="btn-send" onclick="goSendStep2()">
+<div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</div>
+<span class="text-[11px] font-semibold text-gray-700">发送</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow" id="btn-activity">
+<div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[20px]">local_activity</span>
+</div>
+<span class="text-[11px] font-semibold text-gray-700">活动</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow" id="btn-badges">
+<div class="w-10 h-10 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+</div>
+<span class="text-[11px] font-semibold text-gray-700">徽章</span>
+</button>
+</div>
+<h3 class="font-bold text-gray-800 mb-3 text-sm">资产</h3>
+<div class="space-y-2">
+<div class="ui-card flex items-center justify-between p-3">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 font-bold text-xs">NT</div>
+<div>
+<p class="font-semibold text-gray-800 text-sm">NanaToken</p>
+<p class="text-[10px] text-gray-400">NT</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-gray-800 text-sm">1,250</p>
+</div>
+</div>
+<div class="ui-card flex items-center justify-between p-3">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 font-bold text-xs">ETH</div>
+<div>
+<p class="font-semibold text-gray-800 text-sm">Ethereum</p>
+<p class="text-[10px] text-gray-400">ETH</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-gray-800 text-sm">0.05</p>
+</div>
+</div>
+<div class="ui-card flex items-center justify-between p-3">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-purple-50 flex items-center justify-center text-purple-500 font-bold text-xs">US</div>
+<div>
+<p class="font-semibold text-gray-800 text-sm">USDC</p>
+<p class="text-[10px] text-gray-400">USDC</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-gray-800 text-sm">200</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 2: Send Details -->
+<div class="transition-all duration-500 w-full absolute top-0 left-0 h-full bg-[#f8fafc] opacity-0 translate-x-full pointer-events-none flex flex-col px-4 pt-16 pb-4 overflow-y-auto no-scrollbar" id="send-step-2">
+<div class="flex items-center mb-4">
+<button class="mr-3" onclick="goSendStep1()">
+<span class="material-symbols-outlined text-gray-600">arrow_back</span>
+</button>
+<h2 class="font-bold text-gray-800 text-lg">发送积分</h2>
+</div>
+<div class="bg-white rounded-2xl shadow-sm p-4 mb-3">
+<p class="text-[11px] text-gray-400 mb-2 font-medium">代币</p>
+<div class="flex items-center space-x-3 cursor-pointer" id="token-selector" onclick="toggleTokenDropdown()">
+<div class="w-9 h-9 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 font-bold text-xs" id="token-icon">NT</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-gray-800" id="token-name">NanaToken</p>
+<p class="text-[10px] text-gray-400" id="token-balance">可用: 1,250 NT</p>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+</div>
+<div class="hidden mt-3 border border-gray-100 rounded-xl overflow-hidden bg-gray-50" id="token-dropdown">
+<div class="flex items-center space-x-3 p-3 hover:bg-gray-100 cursor-pointer transition-colors" onclick="selectToken('NT','NanaToken','1,250')">
+<div class="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 font-bold text-[10px]">NT</div>
+<div class="flex-1">
+<p class="text-sm text-gray-800 font-medium">NanaToken</p>
+<p class="text-[10px] text-gray-400">NT</p>
+</div>
+<span class="text-xs text-gray-500 font-semibold">1,250</span>
+</div>
+<div class="flex items-center space-x-3 p-3 hover:bg-gray-100 cursor-pointer transition-colors" onclick="selectToken('ETH','Ethereum','0.05')">
+<div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 font-bold text-[10px]">ETH</div>
+<div class="flex-1">
+<p class="text-sm text-gray-800 font-medium">Ethereum</p>
+<p class="text-[10px] text-gray-400">ETH</p>
+</div>
+<span class="text-xs text-gray-500 font-semibold">0.05</span>
+</div>
+<div class="flex items-center space-x-3 p-3 hover:bg-gray-100 cursor-pointer transition-colors" onclick="selectToken('USDC','USDC','200')">
+<div class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center text-purple-500 font-bold text-[10px]">US</div>
+<div class="flex-1">
+<p class="text-sm text-gray-800 font-medium">USDC</p>
+<p class="text-[10px] text-gray-400">USDC</p>
+</div>
+<span class="text-xs text-gray-500 font-semibold">200</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl shadow-sm p-4 mb-3">
+<p class="text-[11px] text-gray-400 mb-2 font-medium">收款地址</p>
+<div class="flex items-center rounded-xl px-3 py-2.5 bg-gray-50/80 transition-colors">
+<span class="material-symbols-outlined text-gray-300 text-[18px] mr-2">account_circle</span>
+<input class="flex-1 bg-transparent text-sm text-gray-800 outline-none border-0 placeholder-gray-300" id="input-recipient" placeholder="输入或粘贴钱包地址"/>
+<button class="text-primary ml-1" onclick="document.getElementById('input-recipient').value='0xAb3F...7c9D'">
+<span class="material-symbols-outlined text-[16px]">content_paste</span>
+</button>
+</div>
+</div>
+<div class="bg-white rounded-2xl shadow-sm p-4 mb-3">
+<div class="flex justify-between items-center mb-2">
+<p class="text-[11px] text-gray-400 font-medium">金额</p>
+<button class="text-[10px] text-primary font-semibold" onclick="document.getElementById('input-amount').value='1250'">MAX</button>
+</div>
+<div class="flex items-center rounded-xl px-3 py-2.5 bg-gray-50/80 transition-colors">
+<input class="flex-1 bg-transparent text-xl font-bold text-gray-800 outline-none border-0 placeholder-gray-300" id="input-amount" placeholder="0.00"/>
+<div class="flex items-center bg-orange-50 rounded-lg px-2 py-1 ml-2">
+<span class="text-xs font-bold text-orange-500" id="amount-token-label">NT</span>
+</div>
+</div>
+<p class="text-[10px] text-gray-400 mt-2 text-right" id="amount-available">可用: 1,250 NT</p>
+</div>
+<div class="bg-white rounded-2xl shadow-sm p-4 mb-3">
+<p class="text-[11px] text-gray-400 mb-2 font-medium">备注 <span class="text-gray-300">(可选·上链)</span></p>
+<div class="flex items-center rounded-xl px-3 py-2.5 bg-gray-50/80 transition-colors">
+<input class="flex-1 bg-transparent text-sm text-gray-800 outline-none border-0 placeholder-gray-300" id="input-memo" placeholder="添加备注..."/>
+</div>
+</div>
+<div class="mt-auto">
+<button class="ui-btn" id="btn-confirm-send" onclick="goVerify()">确认发送</button>
+</div>
+</div>
+<!-- Step 3: Verify Code -->
+<div class="transition-all duration-500 w-full absolute top-0 left-0 h-full bg-[#f8fafc] opacity-0 translate-x-full pointer-events-none flex flex-col px-4 pt-14 pb-4" id="send-step-3">
+<div class="flex items-center mb-5">
+<button class="mr-3" onclick="goSendStep2FromVerify()">
+<span class="material-symbols-outlined text-gray-600">arrow_back</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center">
+<p class="text-lg font-bold text-gray-800 mb-1">发送代币</p>
+<p class="text-xs text-gray-400 mb-8">请输入6位密码</p>
+<div class="flex space-x-3 mb-6" id="verify-code-boxes">
+<div class="w-10 h-12 rounded-xl border-2 border-gray-200 flex items-center justify-center text-xl font-bold text-gray-800 bg-white" id="vc-0"></div>
+<div class="w-10 h-12 rounded-xl border-2 border-gray-200 flex items-center justify-center text-xl font-bold text-gray-800 bg-white" id="vc-1"></div>
+<div class="w-10 h-12 rounded-xl border-2 border-gray-200 flex items-center justify-center text-xl font-bold text-gray-800 bg-white" id="vc-2"></div>
+<div class="w-10 h-12 rounded-xl border-2 border-gray-200 flex items-center justify-center text-xl font-bold text-gray-800 bg-white" id="vc-3"></div>
+<div class="w-10 h-12 rounded-xl border-2 border-gray-200 flex items-center justify-center text-xl font-bold text-gray-800 bg-white" id="vc-4"></div>
+<div class="w-10 h-12 rounded-xl border-2 border-gray-200 flex items-center justify-center text-xl font-bold text-gray-800 bg-white" id="vc-5"></div>
+</div>
+<p class="text-xs text-gray-400 mb-8">剩余免手续费交易次数：<span class="font-semibold text-gray-600">20</span></p>
+<div class="flex space-x-3 w-full max-w-[280px]">
+<button class="flex-1 py-3 bg-gray-200 text-gray-500 rounded-xl text-sm font-semibold" onclick="goSendStep2FromVerify()">上一步</button>
+<button class="flex-1 py-3 bg-primary text-white rounded-xl text-sm font-semibold" onclick="confirmSend()">确定</button>
+</div>
+</div>
+</div>
+<!-- Success Overlay -->
+<div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500 bg-white z-20 rounded-3xl" id="success-overlay">
+<div class="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mb-4">
+<svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24">
+<path class="path-check" d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<p class="text-xl font-bold text-gray-800 mb-2">发送成功</p>
+<p class="text-sm text-gray-500 text-center px-8" id="success-text">100 NT 已发送</p>
+</div>
+<!-- Receive Step -->
+<div class="transition-all duration-500 w-full absolute top-0 left-0 h-full bg-[#f8fafc] opacity-0 translate-x-full pointer-events-none flex flex-col px-4 pt-14 pb-4" id="receive-step">
+<div class="flex items-center mb-5">
+<button class="mr-3" onclick="goHomeFromReceive()">
+<span class="material-symbols-outlined text-gray-600">arrow_back</span>
+</button>
+<h2 class="font-bold text-gray-800 text-lg">接收</h2>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center">
+<div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-[260px] flex flex-col items-center">
+<canvas id="qr-canvas" width="180" height="180" class="rounded-lg mb-4" title="Welcome to nanaland / Hello nanaland"></canvas>
+<p class="text-xs text-gray-400 mb-2">扫描二维码获取地址</p>
+<div class="flex items-center space-x-2 bg-gray-50 rounded-lg px-3 py-2 w-full justify-center">
+<span class="text-xs font-mono text-gray-600">0x123...abc</span>
+<button class="text-primary" onclick="copyAddress()">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+<p class="text-[10px] text-gray-300 mt-3 italic" id="qr-easter-egg" style="display:none;">Welcome to nanaland 🌿 Hello nanaland</p>
+</div>
+<div class="mt-6 flex items-center space-x-4">
+<button class="flex flex-col items-center" onclick="shareAddress()">
+<div class="w-10 h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</div>
+<span class="text-[10px] text-gray-500">分享</span>
+</button>
+<button class="flex flex-col items-center" onclick="document.getElementById('qr-easter-egg').style.display='block'">
+<div class="w-10 h-10 rounded-full bg-orange-50 text-orange-500 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[20px]">qr_code</span>
+</div>
+<span class="text-[10px] text-gray-500">详情</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Screen 2: Multi-sig -->
+<div class="screen-view absolute w-full h-full px-4 transition-all duration-500 ease-in-out opacity-0 translate-x-full pointer-events-none bg-[#f8fafc] overflow-y-auto no-scrollbar" id="screen-multisig">
+<div class="flex justify-between items-center mb-5 pt-14">
+<h2 class="font-bold text-gray-800 text-lg">Multi-sig Wallet</h2>
+<span class="material-symbols-outlined text-gray-600">settings</span>
+</div>
+<div class="ui-card bg-gray-800 text-white mb-5 min-h-[120px]">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-xs text-gray-400 mb-1">Treasury Vault</p>
+<h3 class="text-xl font-bold">50,000 NANA</h3>
+</div>
+<div class="bg-gray-700 px-2 py-1 rounded text-xs font-semibold">2/3 Policy</div>
+</div>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-blue-500 border-2 border-gray-800 flex items-center justify-center text-xs font-bold">A</div>
+<div class="w-8 h-8 rounded-full bg-green-500 border-2 border-gray-800 flex items-center justify-center text-xs font-bold">B</div>
+<div class="w-8 h-8 rounded-full bg-purple-500 border-2 border-gray-800 flex items-center justify-center text-xs font-bold">C</div>
+</div>
+</div>
+<h3 class="font-bold text-gray-800 mb-3 text-sm">Pending Transactions</h3>
+<div class="ui-card cursor-pointer border border-primary/20 hover:border-primary/50 transition-colors" id="multisig-pending-card" onclick="playMultisigAnimation()">
+<div class="flex justify-between items-start mb-3">
+<div>
+<p class="font-bold text-gray-800 text-sm">Project Funding</p>
+<p class="text-xs text-gray-500">To: Dev Team</p>
+</div>
+<span class="font-bold text-primary" id="multisig-amount">-5,000 NANA</span>
+</div>
+<div class="bg-gray-50 rounded p-2 mb-3">
+<div class="flex justify-between text-xs mb-1">
+<span class="text-gray-500">Signatures</span>
+<span class="font-semibold text-gray-700" id="multisig-sig-text">1 of 2 required</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full transition-all duration-500" id="multisig-progress" style="width: 50%"></div>
+</div>
+</div>
+<button class="w-full py-2 bg-primary/10 text-primary rounded-lg text-sm font-semibold hover:bg-primary/20 transition-colors" id="btn-review-sign" onclick="playMultisigAnimation()">
+                                Review &amp; Sign
+                            </button>
+</div>
+<div class="ui-card opacity-60">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="font-bold text-gray-800 text-sm">Marketing Grant</p>
+<p class="text-xs text-gray-500">To: Comm Team</p>
+</div>
+<span class="font-bold text-gray-800">-1,000 NANA</span>
+</div>
+<div class="flex space-x-1 text-xs text-gray-500">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Executed (2/2)</span>
+</div>
+</div>
+</div>
+<!-- Screen 3: NFT Badges -->
+<div class="screen-view absolute w-full h-full transition-all duration-500 ease-in-out opacity-0 translate-x-full pointer-events-none bg-[#f8fafc] overflow-y-auto no-scrollbar" id="screen-nft">
+<div class="w-full h-full relative" id="nft-main-container">
+<!-- Badge/NFT Homepage -->
+<div class="w-full h-full overflow-y-auto no-scrollbar px-4 pt-14 pb-4" id="badge-home">
+<div class="flex justify-between items-center mb-5">
+<h2 class="font-bold text-gray-800 text-lg">徽章和NFT</h2>
+<span class="material-symbols-outlined text-gray-600 text-[22px] cursor-pointer" onclick="clearAutoPlay()">add_circle</span>
+</div>
+<div class="ui-card bg-gradient-to-b from-emerald-700 to-emerald-500 text-white mb-5 min-h-[120px] p-0 overflow-hidden">
+<div class="flex h-full">
+<div class="flex-1 cursor-pointer transition-opacity flex flex-col items-center justify-center" id="card-tab-badge" onclick="switchBadgeTab('badge')">
+<h3 class="text-xl font-bold mb-1" id="card-badge-title">徽章</h3>
+<p class="text-[10px] opacity-70">接收与查看徽章</p>
+</div>
+<div class="w-px bg-white/20"></div>
+<div class="flex-1 cursor-pointer transition-opacity flex flex-col items-center justify-center" id="card-tab-nft" onclick="switchBadgeTab('nft')">
+<h3 class="text-xl font-bold mb-1 opacity-40" id="card-nft-title">NFT</h3>
+<p class="text-[10px] opacity-40">您收集到的NFT</p>
+</div>
+</div>
+</div>
+<div id="badge-content">
+<div class="flex space-x-2 mb-4">
+<button class="px-3 py-1 rounded-full text-[11px] font-semibold bg-primary/10 text-primary" id="subtab-owned" onclick="switchBadgeSubTab('owned')">已拥有</button>
+<button class="px-3 py-1 rounded-full text-[11px] font-semibold bg-gray-100 text-gray-500" id="subtab-created" onclick="switchBadgeSubTab('created')">已创建</button>
+<button class="px-3 py-1 rounded-full text-[11px] font-semibold bg-gray-100 text-gray-500" id="subtab-pending" onclick="switchBadgeSubTab('pending')">待接受</button>
+</div>
+<div id="badge-list-owned">
+<div class="space-y-3">
+<div class="bg-white rounded-2xl shadow-sm p-4 flex items-center space-x-4 cursor-pointer hover:shadow-md transition-shadow" id="badge-item-1" onclick="showBadgeDetail()">
+<div class="w-14 h-14 rounded-full bg-gradient-to-br from-orange-50 to-amber-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl text-orange-500">local_fire_department</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold text-gray-800 text-sm">Nana Pioneer</p>
+<p class="text-[10px] text-gray-400 truncate">nanaland 早期支持者徽章</p>
+</div>
+<span class="material-symbols-outlined text-gray-300 text-[18px]">chevron_right</span>
+</div>
+<div class="bg-white rounded-2xl shadow-sm p-4 flex items-center space-x-4 cursor-pointer hover:shadow-md transition-shadow" onclick="showBadgeDetail2()">
+<div class="w-14 h-14 rounded-full bg-gradient-to-br from-emerald-50 to-green-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl text-emerald-500">eco</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold text-gray-800 text-sm">社区共建者</p>
+<p class="text-[10px] text-gray-400 truncate">参与社区治理与共建</p>
+</div>
+<span class="material-symbols-outlined text-gray-300 text-[18px]">chevron_right</span>
+</div>
+<div class="bg-white rounded-2xl shadow-sm p-4 flex items-center space-x-4 cursor-pointer hover:shadow-md transition-shadow" onclick="showBadgeDetail3()">
+<div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl text-indigo-500">code</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold text-gray-800 text-sm">技术贡献者</p>
+<p class="text-[10px] text-gray-400 truncate">为 nanaland 贡献代码</p>
+</div>
+<span class="material-symbols-outlined text-gray-300 text-[18px]">chevron_right</span>
+</div>
+</div>
+</div>
+<div id="badge-list-empty" class="hidden flex-1 flex flex-col items-center justify-center py-16">
+<div class="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-3xl text-gray-300">workspace_premium</span>
+</div>
+<p class="text-sm text-gray-400 font-medium">没有徽章</p>
+</div>
+</div>
+<div id="nft-content" class="hidden">
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-white rounded-2xl shadow-sm overflow-hidden cursor-pointer hover:shadow-md transition-shadow" id="nft-item-1" onclick="showNFTDetail()">
+<div class="aspect-square bg-gradient-to-br from-orange-50 to-amber-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-orange-400">auto_stories</span>
+</div>
+<div class="p-3">
+<p class="text-xs font-bold text-gray-800 truncate">社区共创宣言</p>
+<p class="text-[10px] text-gray-400 truncate">nanaland</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl shadow-sm overflow-hidden cursor-pointer hover:shadow-md transition-shadow" onclick="showNFTDetail2()">
+<div class="aspect-square bg-gradient-to-br from-teal-50 to-emerald-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-teal-400">diversity_3</span>
+</div>
+<div class="p-3">
+<p class="text-xs font-bold text-gray-800 truncate">南塘共居共创</p>
+<p class="text-[10px] text-gray-400 truncate">nanaland</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl shadow-sm overflow-hidden cursor-pointer hover:shadow-md transition-shadow" onclick="showNFTDetail3()">
+<div class="aspect-square bg-gradient-to-br from-violet-50 to-purple-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-violet-400">campaign</span>
+</div>
+<div class="p-3">
+<p class="text-xs font-bold text-gray-800 truncate">社区之声</p>
+<p class="text-[10px] text-gray-400 truncate">nanaland</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl shadow-sm overflow-hidden cursor-pointer hover:shadow-md transition-shadow">
+<div class="aspect-square bg-gradient-to-br from-rose-50 to-pink-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-rose-400">favorite</span>
+</div>
+<div class="p-3">
+<p class="text-xs font-bold text-gray-800 truncate">爱心传递者</p>
+<p class="text-[10px] text-gray-400 truncate">nanaland</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Badge Detail Overlay -->
+<div class="absolute inset-0 bg-black/30 z-30 opacity-0 pointer-events-none transition-opacity duration-300" id="badge-detail-overlay" onclick="hideBadgeDetail()">
+<div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl max-h-[90%] overflow-y-auto no-scrollbar" onclick="event.stopPropagation()">
+<div class="flex justify-between items-center p-4 border-b border-gray-100">
+<button class="flex items-center space-x-1 text-gray-500" onclick="hideBadgeDetail()">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<span class="font-bold text-gray-800 text-sm">徽章详情</span>
+<button class="text-gray-400" onclick="hideBadgeDetail()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-5 flex flex-col items-center">
+<div class="w-20 h-20 rounded-full bg-gradient-to-br from-orange-50 to-amber-100 flex items-center justify-center mb-4 shadow-lg">
+<span class="material-symbols-outlined text-4xl text-orange-500">local_fire_department</span>
+</div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">Nana Pioneer</h3>
+<p class="text-xs text-gray-400 text-center mb-5 px-4">nanaland 社区早期支持者，见证了社区从零到一的每一个里程碑。</p>
+<div class="w-full space-y-3 mb-5">
+<div class="bg-gray-50 rounded-xl p-3">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] text-gray-400">交易哈希</span>
+<div class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px] text-gray-400 cursor-pointer" onclick="copyText('0xa3f8...9b2c')">content_copy</span>
+<span class="material-symbols-outlined text-[14px] text-primary cursor-pointer">open_in_new</span>
+</div>
+</div>
+<p class="text-[10px] font-mono text-gray-600 break-all">0xa3f8d72e4b1c9f6a8d3e5b7c2f4a1d9e6b8c3f7a2d4e1b9c6f3a8d5e2b7c4f1</p>
+</div>
+<div class="flex justify-between items-center px-1">
+<span class="text-[10px] text-gray-400">发布时间</span>
+<span class="text-[10px] text-gray-700 font-medium">2025-03-15 14:30:22</span>
+</div>
+<div class="flex justify-between items-center px-1">
+<span class="text-[10px] text-gray-400">拥有者</span>
+<div class="flex items-center space-x-1">
+<span class="text-[10px] font-mono text-gray-600">0x7bE4...3fA2</span>
+<span class="material-symbols-outlined text-[14px] text-gray-400 cursor-pointer" onclick="copyText('0x7bE4...3fA2')">content_copy</span>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-gray-200 text-gray-500 rounded-xl text-sm font-semibold" disabled>已接受</button>
+</div>
+</div>
+</div>
+<!-- NFT Detail Overlay -->
+<div class="absolute inset-0 bg-black/30 z-30 opacity-0 pointer-events-none transition-opacity duration-300" id="nft-detail-overlay" onclick="hideNFTDetail()">
+<div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl max-h-[90%] overflow-y-auto no-scrollbar" onclick="event.stopPropagation()">
+<div class="flex justify-between items-center p-4 border-b border-gray-100">
+<span class="font-bold text-gray-800 text-sm">NFT详情</span>
+<button class="text-gray-400" onclick="hideNFTDetail()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-5">
+<div class="aspect-square rounded-2xl bg-gradient-to-br from-orange-50 to-amber-100 flex items-center justify-center mb-4 shadow-sm">
+<span class="material-symbols-outlined text-6xl text-orange-400">auto_stories</span>
+</div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">社区共创宣言</h3>
+<p class="text-xs text-gray-400 mb-5">nanaland 社区成员共同签署的共创宣言，记录社区初心与愿景。</p>
+<div class="w-full space-y-3 mb-5">
+<div class="bg-gray-50 rounded-xl p-3">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] text-gray-400">合约地址</span>
+<div class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px] text-gray-400 cursor-pointer" onclick="copyText('0xC5f2...8eB1')">content_copy</span>
+<span class="material-symbols-outlined text-[14px] text-primary cursor-pointer">open_in_new</span>
+</div>
+</div>
+<p class="text-[10px] font-mono text-gray-600 break-all">0xC5f2a9E71b3D4c8F6A2e7B1d5C3f8A4e9D2b7C6f</p>
+</div>
+<div class="flex justify-between items-center px-1">
+<span class="text-[10px] text-gray-400">代币ID</span>
+<span class="text-[10px] text-gray-700 font-medium">1</span>
+</div>
+<div class="flex justify-between items-center px-1">
+<span class="text-[10px] text-gray-400">代币标准</span>
+<span class="text-[10px] text-gray-700 font-medium">ERC1155</span>
+</div>
+<div class="flex justify-between items-center px-1">
+<span class="text-[10px] text-gray-400">合集</span>
+<span class="text-[10px] text-primary font-medium">nanaland 社区</span>
+</div>
+</div>
+<div class="mb-5">
+<p class="text-[10px] text-gray-400 font-semibold mb-2 uppercase tracking-wider">属性</p>
+<div class="space-y-2">
+<div class="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+<span class="text-[10px] text-gray-500">时间</span>
+<span class="text-[10px] text-gray-700 font-medium">2025-03-20</span>
+</div>
+<div class="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+<span class="text-[10px] text-gray-500">类型</span>
+<span class="text-[10px] text-gray-700 font-medium">宣言文档</span>
+</div>
+<div class="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+<span class="text-[10px] text-gray-500">来源</span>
+<span class="text-[10px] text-primary font-medium">nanaland DAO</span>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-gray-800 text-white rounded-xl text-sm font-semibold" onclick="hideNFTDetail()">关闭</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20 bg-surface-container-lowest dark:bg-inverse-surface">
+<div class="max-w-[1280px] mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">nanaland</div>
+<p class="font-body-md text-body-md text-text-muted">© 2024 nanaland community. All rights reserved.</p>
+</div>
+<div class="flex flex-col space-y-3">
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Product Overview</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">About Us</a>
+</div>
+<div class="flex flex-col space-y-3">
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Join Us</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">GitHub</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+<script>
+    const buttons = document.querySelectorAll('.feature-btn');
+    const phoneContainer = document.getElementById('phone-container');
+    const autoCursor = document.getElementById('auto-cursor');
+    const screens = [
+        document.getElementById('screen-send'),
+        document.getElementById('screen-multisig'),
+        document.getElementById('screen-nft')
+    ];
+    
+    let sendAnimationTimeout;
+    let multisigAnimationTimeout;
+    let autoPlayTimers = [];
+
+    function clearAutoPlay() {
+        autoPlayTimers.forEach(t => clearTimeout(t));
+        autoPlayTimers = [];
+        autoCursor.style.display = 'none';
+    }
+
+    function showCursor(targetEl, callback, delay) {
+        if (!targetEl) { if (callback) autoPlayTimers.push(setTimeout(callback, delay || 500)); return; }
+        autoPlayTimers.push(setTimeout(function() {
+            var phoneRect = phoneContainer.getBoundingClientRect();
+            var elRect = targetEl.getBoundingClientRect();
+            var cx = elRect.left - phoneRect.left + elRect.width / 2;
+            var cy = elRect.top - phoneRect.top + elRect.height / 2;
+            autoCursor.style.display = 'block';
+            autoCursor.style.left = cx + 'px';
+            autoCursor.style.top = cy + 'px';
+            autoPlayTimers.push(setTimeout(function() {
+                autoCursor.style.display = 'none';
+                if (callback) callback();
+            }, delay || 1200));
+        }, 200));
+    }
+
+    function typeText(el, text, speed, callback) {
+        if (!el) { if (callback) autoPlayTimers.push(setTimeout(callback, 300)); return; }
+        el.value = '';
+        el.focus();
+        var i = 0;
+        function typeChar() {
+            if (i < text.length) {
+                el.value += text.charAt(i);
+                i++;
+                autoPlayTimers.push(setTimeout(typeChar, speed || 60));
+            } else {
+                el.blur();
+                if (callback) autoPlayTimers.push(setTimeout(callback, 300));
+            }
+        }
+        typeChar();
+    }
+
+    function activateFeature(index) {
+        clearAutoPlay();
+        resetSendSteps();
+        resetNFTScreen();
+        resetMultisigState();
+        document.getElementById('multisig-dialog').classList.add('opacity-0', 'translate-y-4', 'hidden');
+        document.getElementById('multisig-dialog').classList.remove('flex');
+        
+        clearTimeout(sendAnimationTimeout);
+        clearTimeout(multisigAnimationTimeout);
+
+        buttons.forEach((btn, i) => {
+            if (i === index) {
+                btn.classList.add('active');
+                btn.classList.remove('opacity-60', 'scale-95');
+            } else {
+                btn.classList.remove('active');
+                btn.classList.add('opacity-60', 'scale-95');
+            }
+        });
+
+        phoneContainer.classList.remove('phone-shift-left', 'phone-shift-right', 'phone-shift-center');
+        if (index === 0) {
+            phoneContainer.classList.add('phone-shift-left');
+        } else if (index === 1) {
+            phoneContainer.classList.add('phone-shift-center');
+        } else {
+            phoneContainer.classList.add('phone-shift-right');
+        }
+
+        screens.forEach((screen, i) => {
+            if (i === index) {
+                screen.classList.remove('opacity-0', 'translate-x-full', '-translate-x-full', 'pointer-events-none');
+                screen.classList.add('opacity-100', 'translate-x-0');
+            } else {
+                screen.classList.remove('opacity-100', 'translate-x-0');
+                screen.classList.add('opacity-0', 'pointer-events-none');
+                if (i < index) {
+                    screen.classList.add('-translate-x-full');
+                    screen.classList.remove('translate-x-full');
+                } else {
+                    screen.classList.add('translate-x-full');
+                    screen.classList.remove('-translate-x-full');
+                }
+            }
+        });
+
+        if (index === 0) {
+            autoPlayTimers.push(setTimeout(function() { autoPlaySend(); }, 1500));
+        } else if (index === 1) {
+            autoPlayTimers.push(setTimeout(function() {
+                showCursor(document.getElementById('btn-review-sign'), function() {
+                    playMultisigAnimation();
+                });
+            }, 1500));
+        } else if (index === 2) {
+            autoPlayTimers.push(setTimeout(function() { autoPlayNFT(); }, 1500));
+        }
+    }
+
+    function goSendStep2() {
+        clearAutoPlay();
+        var step1 = document.getElementById('send-step-1');
+        var step2 = document.getElementById('send-step-2');
+        step1.classList.add('-translate-x-full', 'opacity-0');
+        step2.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
+        step2.classList.add('translate-x-0');
+    }
+
+    function goSendStep1() {
+        clearAutoPlay();
+        var step1 = document.getElementById('send-step-1');
+        var step2 = document.getElementById('send-step-2');
+        step1.classList.remove('-translate-x-full', 'opacity-0');
+        step2.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+        step2.classList.remove('translate-x-0');
+    }
+
+    function goVerify() {
+        clearAutoPlay();
+        var step2 = document.getElementById('send-step-2');
+        var step3 = document.getElementById('send-step-3');
+        step2.classList.add('-translate-x-full', 'opacity-0');
+        step3.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
+        step3.classList.add('translate-x-0');
+    }
+
+    function goSendStep2FromVerify() {
+        clearAutoPlay();
+        var step2 = document.getElementById('send-step-2');
+        var step3 = document.getElementById('send-step-3');
+        step3.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+        step3.classList.remove('translate-x-0');
+        step2.classList.remove('-translate-x-full', 'opacity-0');
+        for (var i = 0; i < 6; i++) {
+            var vc = document.getElementById('vc-' + i);
+            if (vc) { vc.textContent = ''; vc.classList.remove('verify-digit-in'); vc.style.borderColor = ''; }
+        }
+    }
+
+    function confirmSend() {
+        clearAutoPlay();
+        var success = document.getElementById('success-overlay');
+        success.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function goReceiveStep() {
+        clearAutoPlay();
+        var step1 = document.getElementById('send-step-1');
+        var receiveStep = document.getElementById('receive-step');
+        step1.classList.add('-translate-x-full', 'opacity-0');
+        receiveStep.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
+        receiveStep.classList.add('translate-x-0');
+        drawQRCode('qr-canvas', 'Welcome to nanaland / Hello nanaland');
+    }
+
+    function goHomeFromReceive() {
+        clearAutoPlay();
+        var step1 = document.getElementById('send-step-1');
+        var receiveStep = document.getElementById('receive-step');
+        step1.classList.remove('-translate-x-full', 'opacity-0');
+        receiveStep.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+        receiveStep.classList.remove('translate-x-0');
+        var egg = document.getElementById('qr-easter-egg');
+        if (egg) egg.style.display = 'none';
+    }
+
+    function drawQRCode(canvasId, text) {
+        var canvas = document.getElementById(canvasId);
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        var size = canvas.width;
+        var modules = 25;
+        var cellSize = Math.floor(size / modules);
+        var offset = Math.floor((size - cellSize * modules) / 2);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, size, size);
+
+        function drawFinderPattern(x, y) {
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(offset + x * cellSize, offset + y * cellSize, 7 * cellSize, 7 * cellSize);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(offset + (x + 1) * cellSize, offset + (y + 1) * cellSize, 5 * cellSize, 5 * cellSize);
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(offset + (x + 2) * cellSize, offset + (y + 2) * cellSize, 3 * cellSize, 3 * cellSize);
+        }
+
+        drawFinderPattern(0, 0);
+        drawFinderPattern(modules - 7, 0);
+        drawFinderPattern(0, modules - 7);
+
+        var seed = 0;
+        for (var i = 0; i < text.length; i++) seed += text.charCodeAt(i) * (i + 1);
+        function pseudoRandom() {
+            seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+            return seed / 0x7fffffff;
+        }
+
+        ctx.fillStyle = '#000000';
+        for (var row = 0; row < modules; row++) {
+            for (var col = 0; col < modules; col++) {
+                if ((row < 8 && col < 8) || (row < 8 && col > modules - 9) || (row > modules - 9 && col < 8)) continue;
+                if (row === 6 || col === 6) {
+                    if ((row === 6 && col % 2 === 0) || (col === 6 && row % 2 === 0)) {
+                        ctx.fillRect(offset + col * cellSize, offset + row * cellSize, cellSize, cellSize);
+                    }
+                    continue;
+                }
+                if (pseudoRandom() > 0.5) {
+                    ctx.fillRect(offset + col * cellSize, offset + row * cellSize, cellSize, cellSize);
+                }
+            }
+        }
+    }
+
+    function copyAddress() {
+        var addr = '0x1234567890abcdef1234567890abcdef1234abcd';
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(addr);
+        }
+    }
+
+    function shareAddress() {}
+
+    function toggleTokenDropdown() {
+        clearAutoPlay();
+        var dd = document.getElementById('token-dropdown');
+        dd.classList.toggle('hidden');
+    }
+
+    function selectToken(symbol, name, balance) {
+        clearAutoPlay();
+        var iconEl = document.getElementById('token-icon');
+        var nameEl = document.getElementById('token-name');
+        var balEl = document.getElementById('token-balance');
+        var labelEl = document.getElementById('amount-token-label');
+        var availEl = document.getElementById('amount-available');
+        iconEl.textContent = symbol.substring(0, 2);
+        nameEl.textContent = name;
+        balEl.textContent = '可用: ' + balance + ' ' + symbol;
+        labelEl.textContent = symbol;
+        availEl.textContent = '可用: ' + balance + ' ' + symbol;
+        document.getElementById('token-dropdown').classList.add('hidden');
+    }
+
+    function resetSendSteps() {
+        var step1 = document.getElementById('send-step-1');
+        var step2 = document.getElementById('send-step-2');
+        var step3 = document.getElementById('send-step-3');
+        var success = document.getElementById('success-overlay');
+        var receiveStep = document.getElementById('receive-step');
+        
+        step1.classList.remove('-translate-x-full', 'opacity-0');
+        step2.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+        step2.classList.remove('translate-x-0', '-translate-x-full');
+        step3.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+        step3.classList.remove('translate-x-0', '-translate-x-full');
+        receiveStep.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+        receiveStep.classList.remove('translate-x-0', '-translate-x-full');
+        success.classList.add('opacity-0', 'pointer-events-none');
+
+        var inputs = ['input-recipient', 'input-amount', 'input-memo'];
+        inputs.forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.value = '';
+        });
+        for (var i = 0; i < 6; i++) {
+            var vc = document.getElementById('vc-' + i);
+            if (vc) { vc.textContent = ''; vc.classList.remove('verify-digit-in'); vc.style.borderColor = ''; }
+        }
+        selectToken('NT', 'NanaToken', '1,250');
+        document.getElementById('token-dropdown').classList.add('hidden');
+        var egg = document.getElementById('qr-easter-egg');
+        if (egg) egg.style.display = 'none';
+    }
+
+    function autoPlaySend() {
+        clearAutoPlay();
+        resetSendSteps();
+        var steps = [];
+        function next(fn) { steps.push(fn); }
+        function run() {
+            if (steps.length === 0) return;
+            var fn = steps.shift();
+            fn(run);
+        }
+
+        next(function(r) {
+            showCursor(document.getElementById('btn-send'), function() {
+                goSendStep2();
+                autoPlayTimers.push(setTimeout(r, 600));
+            });
+        });
+
+        next(function(r) {
+            showCursor(document.getElementById('token-selector'), function() {
+                document.getElementById('token-dropdown').classList.remove('hidden');
+                autoPlayTimers.push(setTimeout(r, 500));
+            });
+        });
+
+        next(function(r) {
+            var ntOption = document.querySelector('#token-dropdown > div:first-child');
+            showCursor(ntOption, function() {
+                selectToken('NT', 'NanaToken', '1,250');
+                autoPlayTimers.push(setTimeout(r, 400));
+            });
+        });
+
+        next(function(r) {
+            typeText(document.getElementById('input-recipient'), '0xAb3F...7c9D', 60, r);
+        });
+
+        next(function(r) {
+            typeText(document.getElementById('input-amount'), '100', 80, r);
+        });
+
+        next(function(r) {
+            typeText(document.getElementById('input-memo'), '社区活动赞助', 60, r);
+        });
+
+        next(function(r) {
+            showCursor(document.getElementById('btn-confirm-send'), function() {
+                goVerify();
+                autoPlayTimers.push(setTimeout(r, 800));
+            });
+        });
+
+        next(function(r) {
+            var code = '384726';
+            var idx = 0;
+            function fillNext() {
+                if (idx < code.length) {
+                    var vc = document.getElementById('vc-' + idx);
+                    if (vc) {
+                        vc.textContent = '•';
+                        vc.classList.add('verify-digit-in');
+                        vc.style.borderColor = '#FF6B35';
+                    }
+                    idx++;
+                    autoPlayTimers.push(setTimeout(fillNext, 350));
+                } else {
+                    autoPlayTimers.push(setTimeout(r, 600));
+                }
+            }
+            fillNext();
+        });
+
+        next(function(r) {
+            showCursor(document.querySelector('#send-step-3 .bg-primary'), function() {
+                var success = document.getElementById('success-overlay');
+                success.classList.remove('opacity-0', 'pointer-events-none');
+                autoPlayTimers.push(setTimeout(r, 2500));
+            });
+        });
+
+        next(function(r) {
+            resetSendSteps();
+            autoPlayTimers.push(setTimeout(r, 500));
+        });
+
+        autoPlayTimers.push(setTimeout(run, 300));
+    }
+
+    var multisigSigned = false;
+
+    function resetMultisigState() {
+        multisigSigned = false;
+        var card = document.getElementById('multisig-pending-card');
+        var btn = document.getElementById('btn-review-sign');
+        var progress = document.getElementById('multisig-progress');
+        var sigText = document.getElementById('multisig-sig-text');
+        var amount = document.getElementById('multisig-amount');
+        var sigSection = card ? card.querySelector('.bg-gray-50') : null;
+
+        if (card) {
+            card.classList.remove('opacity-60', 'border-gray-200');
+            card.classList.add('border-primary/20', 'hover:border-primary/50', 'cursor-pointer');
+            card.onclick = playMultisigAnimation;
+        }
+        if (btn) {
+            btn.classList.remove('hidden');
+            btn.classList.add('bg-primary/10', 'text-primary', 'hover:bg-primary/20');
+            btn.textContent = 'Review & Sign';
+            btn.disabled = false;
+        }
+        if (progress) {
+            progress.style.width = '50%';
+            progress.classList.remove('bg-gray-400');
+            progress.classList.add('bg-primary');
+        }
+        if (sigText) sigText.textContent = '1 of 2 required';
+        if (amount) {
+            amount.classList.remove('text-gray-800');
+            amount.classList.add('text-primary');
+        }
+        if (sigSection) sigSection.classList.remove('hidden');
+        var execBadge = document.getElementById('multisig-exec-badge');
+        if (execBadge) execBadge.remove();
+    }
+
+    function playMultisigAnimation() {
+        clearAutoPlay();
+        if (multisigSigned) {
+            resetMultisigState();
+            return;
+        }
+        var dialog = document.getElementById('multisig-dialog');
+        var status = document.getElementById('dialog-status');
+        var btn = document.getElementById('btn-review-sign');
+        var progress = document.getElementById('multisig-progress');
+        var sigText = document.getElementById('multisig-sig-text');
+        
+        dialog.classList.remove('hidden');
+        setTimeout(function() {
+            dialog.classList.remove('opacity-0', 'translate-y-4');
+            dialog.classList.add('flex');
+        }, 10);
+        
+        status.textContent = "等待签名 (1/2)...";
+        
+        multisigAnimationTimeout = setTimeout(function() {
+            status.textContent = "用户 A 已签名 (1/2)";
+            if (progress) progress.style.width = '75%';
+            
+            multisigAnimationTimeout = setTimeout(function() {
+                status.textContent = "用户 B 已签名 (2/2)";
+                if (sigText) sigText.textContent = '2 of 2 required';
+                if (progress) progress.style.width = '100%';
+                
+                multisigAnimationTimeout = setTimeout(function() {
+                    status.textContent = "链上已确认！";
+                    status.classList.add('text-green-600', 'font-bold');
+                    
+                    setTimeout(function() {
+                        dialog.classList.add('opacity-0', 'translate-y-4');
+                        setTimeout(function() {
+                            dialog.classList.add('hidden');
+                            dialog.classList.remove('flex');
+                            status.classList.remove('text-green-600', 'font-bold');
+                        }, 500);
+                    }, 1000);
+
+                    multisigSigned = true;
+                    var card = document.getElementById('multisig-pending-card');
+                    var amount = document.getElementById('multisig-amount');
+                    var sigSection = card ? card.querySelector('.bg-gray-50') : null;
+
+                    if (card) {
+                        card.classList.add('opacity-60', 'border-gray-200');
+                        card.classList.remove('border-primary/20', 'hover:border-primary/50', 'cursor-pointer');
+                        card.onclick = function() { resetMultisigState(); };
+                    }
+                    if (btn) {
+                        btn.classList.add('hidden');
+                    }
+                    if (progress) {
+                        progress.classList.remove('bg-primary');
+                        progress.classList.add('bg-gray-400');
+                    }
+                    if (amount) {
+                        amount.classList.remove('text-primary');
+                        amount.classList.add('text-gray-800');
+                    }
+                    if (sigSection) sigSection.classList.add('hidden');
+                    if (card) {
+                        var execBadge = document.createElement('div');
+                        execBadge.id = 'multisig-exec-badge';
+                        execBadge.className = 'flex space-x-1 text-xs text-gray-500 mt-1';
+                        execBadge.innerHTML = '<span class="material-symbols-outlined text-[14px]">check_circle</span><span>Executed (2/2)</span>';
+                        var amountContainer = amount ? amount.parentElement : null;
+                        if (amountContainer) {
+                            amountContainer.parentElement.appendChild(execBadge);
+                        }
+                    }
+                }, 800);
+            }, 1000);
+        }, 1000);
+    }
+
+    function showBadgeDetail() {
+        clearAutoPlay();
+        var overlay = document.getElementById('badge-detail-overlay');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+    }
+    
+    function hideBadgeDetail() {
+        clearAutoPlay();
+        var overlay = document.getElementById('badge-detail-overlay');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function showBadgeDetail2() {
+        clearAutoPlay();
+        var overlay = document.getElementById('badge-detail-overlay');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function showBadgeDetail3() {
+        clearAutoPlay();
+        var overlay = document.getElementById('badge-detail-overlay');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function showNFTDetail() {
+        clearAutoPlay();
+        var overlay = document.getElementById('nft-detail-overlay');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function hideNFTDetail() {
+        clearAutoPlay();
+        var overlay = document.getElementById('nft-detail-overlay');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function showNFTDetail2() {
+        clearAutoPlay();
+        var overlay = document.getElementById('nft-detail-overlay');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function showNFTDetail3() {
+        clearAutoPlay();
+        var overlay = document.getElementById('nft-detail-overlay');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function switchBadgeTab(tab) {
+        clearAutoPlay();
+        var badgeContent = document.getElementById('badge-content');
+        var nftContent = document.getElementById('nft-content');
+        var cardBadgeTitle = document.getElementById('card-badge-title');
+        var cardNftTitle = document.getElementById('card-nft-title');
+        var badgeTab = document.getElementById('card-tab-badge');
+        var nftTab = document.getElementById('card-tab-nft');
+
+        if (tab === 'badge') {
+            badgeContent.classList.remove('hidden');
+            nftContent.classList.add('hidden');
+            cardBadgeTitle.classList.remove('opacity-40');
+            cardBadgeTitle.nextElementSibling.classList.remove('opacity-40');
+            cardBadgeTitle.nextElementSibling.classList.add('opacity-70');
+            badgeTab.style.opacity = '1';
+            cardNftTitle.classList.add('opacity-40');
+            cardNftTitle.nextElementSibling.classList.add('opacity-40');
+            cardNftTitle.nextElementSibling.classList.remove('opacity-70');
+            nftTab.style.opacity = '0.5';
+        } else {
+            nftContent.classList.remove('hidden');
+            badgeContent.classList.add('hidden');
+            cardNftTitle.classList.remove('opacity-40');
+            cardNftTitle.nextElementSibling.classList.remove('opacity-40');
+            cardNftTitle.nextElementSibling.classList.add('opacity-70');
+            nftTab.style.opacity = '1';
+            cardBadgeTitle.classList.add('opacity-40');
+            cardBadgeTitle.nextElementSibling.classList.add('opacity-40');
+            cardBadgeTitle.nextElementSibling.classList.remove('opacity-70');
+            badgeTab.style.opacity = '0.5';
+        }
+    }
+
+    function switchBadgeSubTab(subtab) {
+        clearAutoPlay();
+        var subtabOwned = document.getElementById('subtab-owned');
+        var subtabCreated = document.getElementById('subtab-created');
+        var subtabPending = document.getElementById('subtab-pending');
+        var listOwned = document.getElementById('badge-list-owned');
+        var listEmpty = document.getElementById('badge-list-empty');
+
+        subtabOwned.classList.remove('bg-primary/10', 'text-primary');
+        subtabOwned.classList.add('bg-gray-100', 'text-gray-500');
+        subtabCreated.classList.remove('bg-primary/10', 'text-primary');
+        subtabCreated.classList.add('bg-gray-100', 'text-gray-500');
+        subtabPending.classList.remove('bg-primary/10', 'text-primary');
+        subtabPending.classList.add('bg-gray-100', 'text-gray-500');
+
+        if (subtab === 'owned') {
+            subtabOwned.classList.add('bg-primary/10', 'text-primary');
+            subtabOwned.classList.remove('bg-gray-100', 'text-gray-500');
+            listOwned.classList.remove('hidden');
+            listEmpty.classList.add('hidden');
+        } else {
+            var activeTab = subtab === 'created' ? subtabCreated : subtabPending;
+            activeTab.classList.add('bg-primary/10', 'text-primary');
+            activeTab.classList.remove('bg-gray-100', 'text-gray-500');
+            listOwned.classList.add('hidden');
+            listEmpty.classList.remove('hidden');
+        }
+    }
+
+    function copyText(text) {
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(text);
+        }
+    }
+
+    function resetNFTScreen() {
+        hideBadgeDetail();
+        hideNFTDetail();
+        switchBadgeTab('badge');
+        switchBadgeSubTab('owned');
+    }
+
+    function autoPlayNFT() {
+        clearAutoPlay();
+        resetNFTScreen();
+        var steps = [];
+        function next(fn) { steps.push(fn); }
+        function run() {
+            if (steps.length === 0) return;
+            var fn = steps.shift();
+            fn(run);
+        }
+
+        next(function(r) {
+            showCursor(document.getElementById('badge-item-1'), function() {
+                showBadgeDetail();
+                autoPlayTimers.push(setTimeout(r, 2000));
+            });
+        });
+
+        next(function(r) {
+            var closeBtn = document.querySelector('#badge-detail-overlay .text-gray-400');
+            showCursor(closeBtn, function() {
+                hideBadgeDetail();
+                autoPlayTimers.push(setTimeout(r, 600));
+            });
+        });
+
+        next(function(r) {
+            showCursor(document.getElementById('card-tab-nft'), function() {
+                switchBadgeTab('nft');
+                autoPlayTimers.push(setTimeout(r, 600));
+            });
+        });
+
+        next(function(r) {
+            showCursor(document.getElementById('nft-item-1'), function() {
+                showNFTDetail();
+                autoPlayTimers.push(setTimeout(r, 2500));
+            });
+        });
+
+        next(function(r) {
+            hideNFTDetail();
+            autoPlayTimers.push(setTimeout(r, 500));
+        });
+
+        autoPlayTimers.push(setTimeout(run, 300));
+    }
+
+    activateFeature(0);
+    
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 80) {
+            nav.classList.add('shadow-[0_8px_24px_rgba(255,107,53,0.12)]');
+            nav.classList.remove('bg-white/50');
+            nav.classList.add('bg-white/85');
+        } else {
+            nav.classList.remove('shadow-[0_8px_24px_rgba(255,107,53,0.12)]');
+            nav.classList.remove('bg-white/85');
+            nav.classList.add('bg-white/50');
+        }
+    });
+</script>
+</body></html>

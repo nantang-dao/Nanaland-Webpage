@@ -1,0 +1,387 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>nanaland - Build Your Trusted Digital Land</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#ab3500",
+                        "inverse-on-surface": "#f2efff",
+                        "accent-gradient-start": "#FF6B35",
+                        "primary-fixed-dim": "#ffb59d",
+                        "bg-soft-green": "#E6FAF5",
+                        "surface-container-highest": "#e2e0fc",
+                        "outline-variant": "#e1bfb5",
+                        "on-background": "#1a1a2e",
+                        "tertiary-container": "#00a7cb",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#41ddc2",
+                        "outline": "#8d7168",
+                        "primary-container": "#ff6b35",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "tertiary-fixed": "#b5ebff",
+                        "accent-gradient-end": "#FF8C69",
+                        "text-muted": "#5B5B6C",
+                        "on-primary-fixed-variant": "#832600",
+                        "surface-bright": "#fcf8ff",
+                        "on-tertiary-container": "#003744",
+                        "on-primary-container": "#5f1900",
+                        "secondary-container": "#65fade",
+                        "tertiary": "#00677e",
+                        "on-surface": "#1a1a2e",
+                        "on-secondary-fixed": "#00201b",
+                        "on-surface-variant": "#594139",
+                        "error-container": "#ffdad6",
+                        "bg-soft-orange": "#FFF3EF",
+                        "surface-container-high": "#e8e5ff",
+                        "secondary": "#006b5c",
+                        "surface-container": "#efecff",
+                        "on-secondary-container": "#007262",
+                        "surface-container-low": "#f5f2ff",
+                        "primary-fixed": "#ffdbd0",
+                        "surface": "#fcf8ff",
+                        "on-primary-fixed": "#390c00",
+                        "inverse-surface": "#2f2e43",
+                        "secondary-fixed": "#65fade",
+                        "on-secondary-fixed-variant": "#005045",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "inverse-primary": "#ffb59d",
+                        "background": "#fcf8ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#ab3500",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e2e0fc",
+                        "on-tertiary-fixed": "#001f28",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dad7f3",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "3xl": "2rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "label-lg": ["Inter"],
+                        "headline-xl-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["36px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-xl-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C69 100%);
+            transition: all 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 32px rgba(255,107,53,0.18);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C69 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-transition {
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .bg-gradient-organic {
+            background: linear-gradient(135deg, #FFF3EF 0%, #E6FAF5 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar Component -->
+<nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-on-background/85 backdrop-blur-xl backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] shadow-sm dark:shadow-none" id="main-nav">
+<div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">
+                nanaland
+            </a>
+<!-- Navigation Links (Desktop) -->
+<ul class="hidden md:flex items-center gap-8"><li class=""><a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">Overview</a></li>
+<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="{{DATA:SCREEN:SCREEN_5}}">Project</a></li>
+<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">About</a></li>
+<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Join</a></li></ul>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1" id="lang-toggle">
+<span class="material-symbols-outlined text-[18px]">language</span>
+<span data-lang-cn="EN/中" data-lang-en="中/EN" class="">中/EN</span>
+</button>
+<button class="btn-primary text-white font-label-lg text-label-lg px-6 py-2.5 rounded-xl hidden md:block">
+                    Connect
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-20 bg-gradient-organic relative z-10 w-full overflow-hidden" id="main-content">
+<div class="w-[300vw] flex page-transition h-full" id="horizontal-scroll-container">
+<!-- Page 1: Home / Overview -->
+<div class="w-[100vw] shrink-0 min-h-screen pb-section-gap">
+<!-- Hero Section -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-gutter pt-24 md:pt-32 pb-16 relative">
+<!-- Decorative blur blobs -->
+<div class="absolute top-10 left-10 w-64 h-64 bg-accent-gradient-start/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse"></div>
+<div class="absolute top-40 right-20 w-72 h-72 bg-tertiary-fixed-dim/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center relative z-10">
+<div class="lg:col-span-7 space-y-8">
+<div class="inline-block px-4 py-1.5 rounded-full glass-panel font-label-lg text-label-lg text-primary border border-primary/20 mb-4">
+<span class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-accent-gradient-start animate-ping"></span>
+                                    The Nanaland Developer Community
+                                </span>
+</div>
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface">
+                                构建可信数字家园 <br>
+<span class="text-gradient">Build Your Trusted Digital Land</span>
+</h1>
+<p class="font-body-lg text-body-lg text-text-muted max-w-2xl">
+                                Join a vibrant ecosystem balancing the organic warmth of community-driven rural construction with the precision of blockchain technology. Empowering localized DAOs through programmable trust.
+                            </p>
+<div class="flex flex-wrap items-center gap-4 pt-4">
+<button class="btn-primary text-white font-label-lg text-label-lg px-8 py-4 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)]">
+                                    探索我们的产品 / Explore Products
+                                </button>
+<button class="px-8 py-4 rounded-xl font-label-lg text-label-lg text-on-surface border-[1.5px] border-outline-variant/50 hover:border-primary/50 hover:bg-white/50 transition-all duration-300">
+                                    Read Documentation
+                                </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative mt-12 lg:mt-0">
+<!-- Hero Image placeholder using image generation prompt -->
+<div class="relative w-full aspect-square rounded-3xl overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.05)] border border-white/40">
+<img alt="Neo-Natural Tech Abstract" class="w-full h-full object-cover" data-alt="A bright, optimistic digital abstract composition representing a neo-natural tech ecosystem. Soft geometric shapes in warm oranges and vibrant greens float effortlessly over a fluid, translucent background. The lighting is soft, diffuse, and high-key, creating an airy glassmorphism effect. The overall mood is modern, welcoming, and technologically advanced, perfectly capturing the Bright Neo-Natural Tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc9ILRow_vSyZdf1UxU_RCu9EdTY4FzA7etFkTmKYwcwSs4ycaiknmE9-q-bqazcFbvY8pURDJ2DHj6wjBhf11vOfhVzpIKRxjeGUsoiJzYZfps-sLn-CZtw2aNQvrlKXhVJKbDH7Fny24pdpRwKOuQVzrIO2PdFf-zRS3vlwqj3xfT7MvCTUtoEc4VLG_SPdQrWl-_d_HKl4eNH6hqc7Lfti1XFk26IOvAdYv6GtqEWmP1fOR4EuTyxCs8oVhzH2U1To6qWiOm0BZ">
+<!-- Floating UI element -->
+<div class="absolute bottom-6 left-6 right-6 glass-panel rounded-2xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">nature_people</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Community Trust</p>
+<p class="font-body-md text-[13px] text-text-muted">Verified nodes active</p>
+</div>
+</div>
+<span class="font-headline-md text-headline-md text-primary">+84%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Ecosystem Section -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-gutter py-16">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Programmable Ecosystem</h2>
+<p class="font-body-lg text-body-lg text-text-muted">
+                            Nanaland provides a suite of modular tools to construct, manage, and govern digital-physical communities with absolute transparency.
+                        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Product Card: SEMI -->
+<div class="glass-panel rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] group">
+<div class="w-16 h-16 rounded-2xl bg-primary-container text-on-primary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[32px]">account_balance_wallet</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">SEMI</h3>
+<p class="font-body-md text-body-md text-text-muted mb-8 line-clamp-3">
+                                The foundational digital wallet and identity layer for community members, ensuring secure transactions and verifiable credentials.
+                            </p>
+
+</div>
+<!-- Product Card: bai -->
+<div class="glass-panel rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(101,250,222,0.18)] group relative overflow-hidden">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container text-on-secondary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[32px]">hub</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">bai</h3>
+<p class="font-body-md text-body-md text-text-muted mb-8 line-clamp-3">
+                                Decentralized resource mapping and spatial coordination protocol bridging physical assets with on-chain verification.
+                            </p>
+
+</div>
+<!-- Product Card: vote -->
+<div class="glass-panel rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,167,203,0.18)] group">
+<div class="w-16 h-16 rounded-2xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[32px]">how_to_vote</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">vote</h3>
+<p class="font-body-md text-body-md text-text-muted mb-8 line-clamp-3">
+                                A gamified, transparent governance module that empowers collective decision-making and aligns community incentives.
+                            </p>
+
+</div>
+</div><div class="flex justify-center mt-12">
+    <a href="{{DATA:SCREEN:SCREEN_5}}" class="btn-primary text-white font-label-lg text-label-lg px-10 py-3 rounded-full shadow-[0_8px_24px_rgba(255,107,53,0.12)]">
+        查看详情 See Details
+    </a>
+</div>
+</section>
+<!-- Features Band -->
+<section class="w-full bg-white/40 border-y border-white/60 backdrop-blur-md py-12 my-12">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row justify-between items-center gap-8 divide-y md:divide-y-0 md:divide-x divide-outline-variant/30">
+<div class="flex-1 flex flex-col items-center text-center px-4 w-full pt-4 md:pt-0">
+<span class="material-symbols-outlined text-[40px] text-primary mb-2" data-weight="fill">group</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">社区共建</h4>
+<p class="font-body-md text-text-muted mt-2">Community Driven</p>
+</div>
+<div class="flex-1 flex flex-col items-center text-center px-4 w-full pt-4 md:pt-0">
+<span class="material-symbols-outlined text-[40px] text-secondary mb-2" data-weight="fill">verified_user</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Security</h4>
+<p class="font-body-md text-text-muted mt-2">Cryptographic Trust</p>
+</div>
+<div class="flex-1 flex flex-col items-center text-center px-4 w-full pt-4 md:pt-0">
+<span class="material-symbols-outlined text-[40px] text-tertiary mb-2" data-weight="fill">extension</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Gamified</h4>
+<p class="font-body-md text-text-muted mt-2">Engaging Interactions</p>
+</div>
+</div>
+</section>
+<!-- Case Study Section -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-gutter py-16">
+<div class="glass-panel rounded-[2rem] overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-2">
+<div class="p-10 md:p-16 flex flex-col justify-center">
+<span class="font-label-lg text-label-lg text-primary tracking-widest uppercase mb-4 block">Case Study</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">
+                                    Empowering communities like Nantang DAO
+                                </h2>
+<p class="font-body-lg text-body-lg text-text-muted mb-8">
+                                    Discover how rural cooperatives are leveraging nanaland's programmable infrastructure to manage shared resources, distribute yields fairly, and build a resilient local economy based on trustless coordination.
+                                </p>
+<div>
+<button class="font-label-lg text-label-lg text-on-surface border-[1.5px] border-outline-variant rounded-xl px-6 py-3 hover:bg-primary hover:text-white hover:border-primary transition-colors duration-300 flex items-center gap-2">
+                                        Read the Nantang Story
+                                        <span class="material-symbols-outlined">menu_book</span>
+</button>
+</div>
+</div>
+<div class="h-64 lg:h-auto bg-surface-container-high relative">
+<img alt="Nantang DAO Village" class="absolute inset-0 w-full h-full object-cover mix-blend-luminosity opacity-80" data-alt="A serene, high-quality photograph of a modern, sustainable rural community village integrated with subtle digital overlays. Soft, warm sunlight illuminates green agricultural terraces and contemporary wooden structures. The bright neo-natural tech aesthetic is maintained through airy composition and vibrant orange graphical accents subtly layered into the scene, symbolizing the fusion of nature and blockchain technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF8ksUuNycTODH74LLZj1sHGtkQPpL-EAddzcyePmY-T9iMEet20PCikM9hjZN7q0ysdsLlQOziryZ6iGL8QVaJHWktnZq9iftgZ4EzpOgwcjjeJ6U1VY3UeuWht5D_S-Jp49ifSt0jUQIJQXtISa2kzGbTVk_fUOGe-JmqTMJnsPkzdBm2GY7esx8IXll45sghbe93ECU3yzcalH9mRqdim_EdwLwjC_A4-l69SreBO_0fknDNl0IsHOUQZaBGKqMtw5UYfd4Z89p">
+<div class="absolute inset-0 bg-gradient-to-r from-white/90 to-transparent lg:block hidden"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-white/90 to-transparent lg:hidden block"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Placeholder for Page 2 (Horizontal Scroll Target) -->
+<div class="w-[100vw] shrink-0 min-h-screen pt-32 px-gutter">
+<h1 class="font-headline-xl text-headline-xl text-primary text-center">Page 2 Placeholder</h1>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20 relative z-20">
+<div class="max-w-[1280px] mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-2">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">
+                    nanaland
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant max-w-sm">
+                    Bridging the organic warmth of physical communities with the precision of Web3 technology.
+                </p>
+<div class="mt-8 font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant">
+                    © 2024 nanaland community. All rights reserved.
+                </div>
+</div>
+<!-- Links Column 1 -->
+<div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6">Ecosystem</h4>
+<ul class="space-y-4">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Product Overview</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">About Us</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Join Us</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6">Connect</h4>
+<ul class="space-y-4">
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="#">
+                            GitHub
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="#">
+                            Twitter
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+<!-- Micro-interactions Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar Scroll Effect
+            const nav = document.getElementById('main-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) {
+                    nav.classList.add('shadow-md');
+                    nav.classList.remove('shadow-sm');
+                } else {
+                    nav.classList.remove('shadow-md');
+                    nav.classList.add('shadow-sm');
+                }
+            });
+
+            // Language Toggle Mock Logic
+            const langBtn = document.getElementById('lang-toggle');
+            let isEn = true;
+            langBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                isEn = !isEn;
+                const span = langBtn.querySelector('span:last-child');
+                span.textContent = isEn ? span.getAttribute('data-lang-en') : span.getAttribute('data-lang-cn');
+                // In a real app, this would trigger global state refresh without reload
+            });
+        });
+    </script>
+
+
+</body></html>
