@@ -142,18 +142,30 @@
             </div>
 <!-- Links (Desktop) -->
 <div class="hidden md:flex gap-8 items-center">
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="index.html">Overview</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="projects.html">Projects</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="about.html">About</a>
-<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="join.html">Join</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="index.html" data-zh="概览" data-en="Overview">概览</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="projects.html" data-zh="项目" data-en="Projects">项目</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="about.html" data-zh="关于" data-en="About">关于</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="join.html" data-zh="加入" data-en="Join">加入</a>
 </div>
 <!-- Actions -->
 <div class="flex items-center gap-4">
-<span class="font-label-lg text-label-lg text-on-surface-variant cursor-pointer hover:text-primary transition-colors">中/EN</span>
-<a class="hidden md:block bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white px-6 py-2 rounded-[12px] font-label-lg text-label-lg hover:scale-105 transition-transform duration-300 shadow-[0_8px_24px_rgba(255,107,53,0.12)]" href="join.html">
-                    Connect
+<button class="md:hidden material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-[28px]" id="mobile-menu-btn">menu</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant cursor-pointer hover:text-primary transition-colors" id="lang-toggle">中/EN</button>
+<a class="hidden md:block bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white px-6 py-2 rounded-[12px] font-label-lg text-label-lg hover:scale-105 transition-transform duration-300 shadow-[0_8px_24px_rgba(255,107,53,0.12)]" href="join.html" data-zh="联系" data-en="Connect">
+                    联系
                 </a>
 </div>
+</div>
+<!-- Mobile Menu Drawer -->
+<div class="md:hidden hidden flex-col gap-4 px-margin-mobile pb-6 pt-2" id="mobile-menu">
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="index.html" data-zh="概览" data-en="Overview">概览</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="projects.html" data-zh="项目" data-en="Projects">项目</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="about.html" data-zh="关于" data-en="About">关于</a>
+    <a class="font-label-lg text-label-lg text-primary border-b-2 border-primary font-bold pb-1" href="join.html" data-zh="加入" data-en="Join">加入</a>
+    <div class="flex items-center gap-4 pt-2">
+        <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary" id="mobile-lang-toggle">中/EN</button>
+        <a class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white font-label-lg text-label-lg px-6 py-2 rounded-[12px]" href="join.html">Connect</a>
+    </div>
 </div>
 </nav>
 <!-- Main Content Canvas -->
@@ -167,10 +179,10 @@
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 <!-- Hero Text Block -->
 <div class="lg:col-span-5 flex flex-col gap-6">
-<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary">
+<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary" data-zh="加入 nanaland" data-en="Join nanaland">
                     加入 nanaland
                 </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md" data-zh="我们永远欢迎有想法的伙伴。不论你是开发者、设计师、社区运营者，还是只想聊聊，都欢迎联系。" data-en="We always welcome people with ideas. Whether you're a developer, designer, community operator, or just want to chat, feel free to reach out.">
                     我们永远欢迎有想法的伙伴。不论你是开发者、设计师、社区运营者，还是只想聊聊，都欢迎联系。
                 </p>
 <div class="w-16 h-1 bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end rounded-full mt-4"></div>
@@ -180,26 +192,26 @@
 <div class="glass-panel rounded-[32px] p-8 md:p-12 relative overflow-hidden group hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] transition-shadow duration-500">
 <form class="flex flex-col gap-6 relative z-10 transition-opacity duration-500" id="contact-form">
 <div>
-<label class="block font-label-lg text-label-lg text-on-surface-variant mb-2">你的称呼</label>
-<input class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" placeholder="aaa" required="" type="text">
+<label class="block font-label-lg text-label-lg text-on-surface-variant mb-2" data-zh="你的称呼" data-en="Your Name">你的称呼</label>
+<input class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" placeholder="你的名字或昵称" data-zh-placeholder="你的名字或昵称" data-en-placeholder="Your name or nickname" required="" type="text">
 </div>
 <div>
-<label class="block font-label-lg text-label-lg text-on-surface-variant mb-2">你的邮箱</label>
-<input class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" placeholder="bbb" required="" type="email">
+<label class="block font-label-lg text-label-lg text-on-surface-variant mb-2" data-zh="你的邮箱" data-en="Your Email">你的邮箱</label>
+<input class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" placeholder="your@email.com" required="" type="email">
 </div>
 <div>
-<label class="block font-label-lg text-label-lg text-on-surface-variant mb-2">想说的话</label>
-<textarea class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all resize-none" placeholder="aaaa" required="" rows="4"></textarea>
+<label class="block font-label-lg text-label-lg text-on-surface-variant mb-2" data-zh="想说的话" data-en="Your Message">想说的话</label>
+<textarea class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all resize-none" placeholder="介绍一下自己，或者你想和我们一起做的事..." data-zh-placeholder="介绍一下自己，或者你想和我们一起做的事..." data-en-placeholder="Tell us about yourself, or what you'd like to do with us..." required="" rows="4"></textarea>
 </div>
 <button class="mt-4 bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white py-4 rounded-[12px] font-label-lg text-label-lg flex justify-center items-center gap-2 hover:scale-[1.02] transition-transform duration-300 shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)]" type="submit">
-<span class="">发送</span>
+<span class="" data-zh="发送" data-en="Send">发送</span>
 <span class="material-symbols-outlined">send</span>
 </button>
 </form>
 <!-- Success Message Overlay -->
 <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500 z-20 bg-white/90 backdrop-blur-sm rounded-[32px]" id="success-message">
 <span class="material-symbols-outlined text-[80px] text-secondary mb-6 scale-50 transition-transform duration-500 delay-100" id="success-icon">check_circle</span>
-<p class="font-headline-md text-headline-md text-on-surface font-semibold text-center px-4">已成功发送，感谢您的联系</p>
+<p class="font-headline-md text-headline-md text-on-surface font-semibold text-center px-4" data-zh="已成功发送，感谢您的联系" data-en="Message sent successfully, thank you for reaching out">已成功发送，感谢您的联系</p>
 </div>
 <!-- Decorative Blob -->
 <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-primary-fixed-dim/30 rounded-full blur-[40px] z-0"></div>
@@ -220,13 +232,13 @@
 </div>
 <div class="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
 <div class="flex flex-col gap-4">
-<h4 class="font-label-lg text-label-lg text-primary font-semibold">Links</h4>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">Product Overview</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">About Us</a>
-<a class="font-body-md text-body-md text-primary font-semibold hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Join Us</a>
+<h4 class="font-label-lg text-label-lg text-primary font-semibold" data-zh="链接" data-en="Links">链接</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#" data-zh="产品概览" data-en="Product Overview">产品概览</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#" data-zh="关于我们" data-en="About Us">关于我们</a>
+<a class="font-body-md text-body-md text-primary font-semibold hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="加入我们" data-en="Join Us">加入我们</a>
 </div>
 <div class="flex flex-col gap-4">
-<h4 class="font-label-lg text-label-lg text-primary font-semibold">Social</h4>
+<h4 class="font-label-lg text-label-lg text-primary font-semibold" data-zh="社交" data-en="Social">社交</h4>
 <a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">GitHub</a>
 <a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">Twitter</a>
 </div>
@@ -264,5 +276,38 @@
         });
     </script>
 
+<script>
+// Mobile menu
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    });
+}
+// Language toggle
+function getCurrentLang() { return localStorage.getItem('nanaland-lang') || 'zh'; }
+function setLang(lang) {
+    localStorage.setItem('nanaland-lang', lang);
+    document.querySelectorAll('[data-zh]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+    });
+    document.querySelectorAll('[data-zh-placeholder]').forEach(el => {
+        el.placeholder = el.getAttribute('data-' + lang + '-placeholder');
+    });
+    document.querySelectorAll('#lang-toggle, #mobile-lang-toggle').forEach(btn => {
+        if (btn) btn.textContent = lang === 'zh' ? 'EN/中' : '中/EN';
+    });
+}
+const initLang = getCurrentLang();
+if (initLang === 'en') setLang('en');
+document.getElementById('lang-toggle')?.addEventListener('click', () => {
+    setLang(getCurrentLang() === 'zh' ? 'en' : 'zh');
+});
+document.getElementById('mobile-lang-toggle')?.addEventListener('click', () => {
+    setLang(getCurrentLang() === 'zh' ? 'en' : 'zh');
+});
+</script>
 
 </body></html>

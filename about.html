@@ -208,14 +208,26 @@
                 nanaland
             </a>
 <!-- Navigation Links (Desktop) -->
-<div class="hidden md:flex items-center space-x-8 font-label-lg text-label-lg"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="index.html">Overview</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="projects.html">Projects</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="about.html">About</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="join.html">Join</a></div>
+<div class="hidden md:flex items-center space-x-8 font-label-lg text-label-lg"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="index.html" data-zh="概览" data-en="Overview">概览</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="projects.html" data-zh="项目" data-en="Projects">项目</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="about.html" data-zh="关于" data-en="About">关于</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="join.html" data-zh="加入" data-en="Join">加入</a></div>
 <!-- Actions -->
 <div class="flex items-center space-x-6">
-<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300">中/EN</button>
+<button class="md:hidden material-symbols-outlined text-on-surface hover:text-primary transition-colors duration-300" id="mobile-menu-btn" style="font-size:28px;">menu</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300" id="lang-toggle">EN/中</button>
 <a class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white font-label-lg text-label-lg px-6 py-2 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] hover:scale-105 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="join.html">
                     Connect
                 </a>
 </div>
+</div>
+<!-- Mobile Menu -->
+<div class="md:hidden hidden flex-col gap-4 px-margin-mobile pb-6 pt-2" id="mobile-menu">
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="index.html" data-zh="概览" data-en="Overview">概览</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="projects.html" data-zh="项目" data-en="Projects">项目</a>
+    <a class="font-label-lg text-label-lg text-primary border-b-2 border-primary font-bold pb-1" href="about.html" data-zh="关于" data-en="About">关于</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="join.html" data-zh="加入" data-en="Join">加入</a>
+    <div class="flex items-center gap-4 pt-2">
+        <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary" id="mobile-lang-toggle">EN/中</button>
+        <a class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white font-label-lg text-label-lg px-6 py-2 rounded-xl" href="join.html">Connect</a>
+    </div>
 </div>
 </nav>
 <!-- Main Content Canvas -->
@@ -229,10 +241,10 @@
 <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-secondary-fixed rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-float" style="animation-delay: 2s;"></div>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 <div class="space-y-6 z-10">
-<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background">
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background" data-zh="关于 nanaland" data-en="About nanaland">
                         关于 <span class="bg-clip-text text-transparent bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end">nanaland</span>
 </h1>
-<p class="font-body-lg text-body-lg text-text-muted leading-relaxed max-w-xl">
+<p class="font-body-lg text-body-lg text-text-muted leading-relaxed max-w-xl" data-zh="我们是 nanaland，一群相信技术能让社区更美好的开发者和创造者。我们专注于为乡建组织、DAO、Web3 社区提供数字化协作工具，从身份到任务到治理。" data-en="We are nanaland, a group of developers and creators who believe technology can make communities better. We focus on providing digital collaboration tools for rural development organizations, DAOs, and Web3 communities — from identity to tasks to governance.">
                         我们是 nanaland，一群相信技术能让社区更美好的开发者和创造者。我们专注于为乡建组织、DAO、Web3 社区提供数字化协作工具，从身份到任务到治理。
                     </p>
 </div>
@@ -251,13 +263,13 @@
                     home_iot_device
                 </span>
 <h2 class="font-headline-lg text-headline-lg text-on-background mb-8 leading-tight">
-                    使命是让每个社区都能拥有自己的<br class="hidden md:block">
+                    <span data-zh="使命是让每个社区都能拥有自己的" data-en="Our mission is to enable every community to have its own">使命是让每个社区都能拥有自己的</span><br class="hidden md:block">
 <span class="text-primary relative inline-block">
-                        “数字家园”
+                        <span data-zh="&quot;数字家园&quot;" data-en="&quot;Digital Home&quot;">"数字家园"</span>
                         <svg class="absolute w-full h-3 -bottom-1 left-0 text-primary-fixed-dim" preserveAspectRatio="none" viewBox="0 0 100 10"><path d="M0 5 Q 50 10 100 5" fill="transparent" stroke="currentColor" stroke-width="3"></path></svg>
 </span>
 </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto" data-zh="让贡献被看见，让决策被信任。我们扎根实践，持续迭代。" data-en="Make contributions visible, make decisions trusted. Rooted in practice, iterating continuously.">
                     让贡献被看见，让决策被信任。我们扎根实践，持续迭代。
                 </p>
 </div>
@@ -270,8 +282,8 @@
 <div class="w-12 h-12 rounded-full bg-bg-soft-orange flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined text-primary">code</span>
 </div>
-<h3 class="font-headline-md text-headline-md text-on-background mb-3">开发者</h3>
-<p class="font-body-md text-body-md text-text-muted">
+<h3 class="font-headline-md text-headline-md text-on-background mb-3" data-zh="开发者" data-en="Developer">开发者</h3>
+<p class="font-body-md text-body-md text-text-muted" data-zh="用优雅的代码构建稳健的去中心化基础设施，连接虚拟与现实。" data-en="Building robust decentralized infrastructure with elegant code, bridging the virtual and the real.">
                         用优雅的代码构建稳健的去中心化基础设施，连接虚拟与现实。
                     </p>
 </div>
@@ -280,8 +292,8 @@
 <div class="w-12 h-12 rounded-full bg-bg-soft-green flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined text-secondary">palette</span>
 </div>
-<h3 class="font-headline-md text-headline-md text-on-background mb-3">创造者</h3>
-<p class="font-body-md text-body-md text-text-muted">
+<h3 class="font-headline-md text-headline-md text-on-background mb-3" data-zh="创造者" data-en="Creator">创造者</h3>
+<p class="font-body-md text-body-md text-text-muted" data-zh="设计直观、温暖的用户体验，让复杂的 Web3 工具像日常工具一样简单易用。" data-en="Designing intuitive, warm user experiences that make complex Web3 tools as simple as everyday tools.">
                         设计直观、温暖的用户体验，让复杂的 Web3 工具像日常工具一样简单易用。
                     </p>
 </div>
@@ -290,11 +302,98 @@
 <div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined text-tertiary">diversity_3</span>
 </div>
-<h3 class="font-headline-md text-headline-md text-on-background mb-3">社区实践者</h3>
-<p class="font-body-md text-body-md text-text-muted">
+<h3 class="font-headline-md text-headline-md text-on-background mb-3" data-zh="社区实践者" data-en="Community Practitioner">社区实践者</h3>
+<p class="font-body-md text-body-md text-text-muted" data-zh="深入乡建现场与DAO组织的日常，倾听真实需求，让技术真正在泥土中扎根。" data-en="Immersed in the daily life of rural development and DAO organizations, listening to real needs, letting technology truly take root in the soil.">
                         深入乡建现场与DAO组织的日常，倾听真实需求，让技术真正在泥土中扎根。
                     </p>
 </div>
+</div>
+</section>
+<!-- Team Members Section -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-gutter pb-section-gap">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-4" data-zh="核心团队" data-en="Core Team">核心团队</h2>
+<p class="font-body-lg text-body-lg text-text-muted max-w-2xl mx-auto" data-zh="一群热爱技术与社区的人，共同构建可信数字家园。" data-en="A group of people passionate about technology and community, building a trusted digital homeland together.">
+                    一群热爱技术与社区的人，共同构建可信数字家园。
+                </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<!-- Member 1: CC -->
+<div class="glass-panel rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-[0_12px_32px_rgba(255,107,53,0.12)] group">
+<div class="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden border-2 border-primary/20 group-hover:border-primary/50 transition-colors">
+<img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cute%20chibi%20anime%20avatar%20of%20a%20young%20woman%20with%20long%20flowing%20dark%20hair%2C%20big%20sparkling%20eyes%2C%20warm%20smile%2C%20pastel%20soft%20colors%2C%20kawaii%20style%2C%20simple%20clean%20white%20background%2C%20illustration&image_size=square_hd" alt="CC" class="w-full h-full object-cover">
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">CC</h3>
+<p class="font-label-lg text-label-lg text-primary mb-2" data-zh="全栈开发" data-en="Full-Stack Dev">全栈开发</p>
+<p class="font-body-md text-body-md text-text-muted text-sm leading-relaxed" data-zh="数学科学背景，深耕数据科学与传统软件架构。精通 Python、Java、C、R 等多语言生态，以严谨的数理思维构建稳健的技术底座，让复杂系统运转如精密齿轮。" data-en="Background in mathematical science, deep expertise in data science and traditional software architecture. Proficient in Python, Java, C, R and more — building a robust technical foundation with rigorous mathematical thinking, making complex systems run like precision gears.">
+                        数学科学背景，深耕数据科学与传统软件架构。精通 Python、Java、C、R 等多语言生态，以严谨的数理思维构建稳健的技术底座，让复杂系统运转如精密齿轮。
+                    </p>
+</div>
+<!-- Member 2: 云展 -->
+<div class="glass-panel rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-[0_12px_32px_rgba(0,107,92,0.12)] group">
+<div class="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden border-2 border-secondary/20 group-hover:border-secondary/50 transition-colors">
+<img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cute%20chibi%20anime%20avatar%20of%20a%20young%20woman%20with%20very%20short%20buzz%20cut%20hair%2C%20confident%20expression%2C%20big%20eyes%2C%20pastel%20soft%20colors%2C%20kawaii%20style%2C%20simple%20clean%20white%20background%2C%20illustration&image_size=square_hd" alt="云展" class="w-full h-full object-cover">
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">云展</h3>
+<p class="font-label-lg text-label-lg text-secondary mb-2" data-zh="全栈开发" data-en="Full-Stack Dev">全栈开发</p>
+<p class="font-body-md text-body-md text-text-muted text-sm leading-relaxed" data-zh="区块链技术的深度实践者，在全栈开发领域游刃有余。将去中心化理念融入每一行代码，用智能合约重新定义信任与协作的边界。" data-en="A deep practitioner of blockchain technology, adept in full-stack development. Infusing decentralization into every line of code, redefining the boundaries of trust and collaboration with smart contracts.">
+                        区块链技术的深度实践者，在全栈开发领域游刃有余。将去中心化理念融入每一行代码，用智能合约重新定义信任与协作的边界。
+                    </p>
+</div>
+<!-- Member 3: 野生蓝莓 -->
+<div class="glass-panel rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-[0_12px_32px_rgba(0,167,203,0.12)] group">
+<div class="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden border-2 border-tertiary/20 group-hover:border-tertiary/50 transition-colors">
+<img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cute%20chibi%20anime%20avatar%20of%20a%20young%20woman%20with%20short%20bob%20haircut%20at%20shoulder%20length%2C%20creative%20expression%2C%20big%20eyes%2C%20pastel%20soft%20colors%2C%20kawaii%20style%2C%20simple%20clean%20white%20background%2C%20illustration&image_size=square_hd" alt="野生蓝莓" class="w-full h-full object-cover">
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">野生蓝莓</h3>
+<p class="font-label-lg text-label-lg text-tertiary mb-2" data-zh="组织规划" data-en="Org & Design">组织规划</p>
+<p class="font-body-md text-body-md text-text-muted text-sm leading-relaxed" data-zh="从产品经理到自治理组织的架构设计师，兼具前端美工与交互设计的独到心得。以审美驱动产品，以规划引领社区，让技术与人文在 DAO 中和谐共生。" data-en="From product manager to self-governing organization architect, with unique insights in frontend aesthetics and interaction design. Driven by aesthetics, guided by planning — harmonizing technology and humanity in DAOs.">
+                        从产品经理到自治理组织的架构设计师，兼具前端美工与交互设计的独到心得。以审美驱动产品，以规划引领社区，让技术与人文在 DAO 中和谐共生。
+                    </p>
+</div>
+<!-- Member 4: jiang -->
+<div class="glass-panel rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-[0_12px_32px_rgba(255,107,53,0.12)] group">
+<div class="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden border-2 border-primary/20 group-hover:border-primary/50 transition-colors">
+<img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cute%20chibi%20anime%20avatar%20of%20a%20young%20man%20with%20short%20neat%20hair%2C%20thoughtful%20expression%2C%20big%20eyes%2C%20pastel%20soft%20colors%2C%20kawaii%20style%2C%20simple%20clean%20white%20background%2C%20illustration&image_size=square_hd" alt="jiang" class="w-full h-full object-cover">
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">jiang</h3>
+<p class="font-label-lg text-label-lg text-primary mb-2" data-zh="安全审计" data-en="Security Audit">安全审计</p>
+<p class="font-body-md text-body-md text-text-muted text-sm leading-relaxed" data-zh="SEMI 数字身份理念的提出者与构想者，为去中心化身份体系奠定了哲学与技术基石。如今执掌安全审计，以先见之明守护每一寸链上信任。" data-en="The originator and visionary behind SEMI digital identity, laying the philosophical and technical foundation for decentralized identity systems. Now leading security audit, safeguarding every inch of on-chain trust with foresight.">
+                        SEMI 数字身份理念的提出者与构想者，为去中心化身份体系奠定了哲学与技术基石。如今执掌安全审计，以先见之明守护每一寸链上信任。
+                    </p>
+</div>
+<!-- Member 5: xboring -->
+<div class="glass-panel rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-[0_12px_32px_rgba(0,107,92,0.12)] group">
+<div class="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden border-2 border-secondary/20 group-hover:border-secondary/50 transition-colors">
+<img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cute%20chibi%20anime%20avatar%20of%20a%20man%20with%20glasses%20and%20short%20hair%2C%20calm%20wise%20expression%2C%20big%20eyes%2C%20pastel%20soft%20colors%2C%20kawaii%20style%2C%20simple%20clean%20white%20background%2C%20illustration&image_size=square_hd" alt="xboring" class="w-full h-full object-cover">
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">xboring</h3>
+<p class="font-label-lg text-label-lg text-secondary mb-2" data-zh="战略方向" data-en="Strategy">战略方向</p>
+<p class="font-body-md text-body-md text-text-muted text-sm leading-relaxed" data-zh="项目战略方向的把控者，以宏观视野审视技术与社区的交汇点。在纷繁的可能性中锚定航向，确保 nanaland 始终行进在最有价值的方向上。" data-en="Steering the project's strategic direction, examining the intersection of technology and community with a macro perspective. Anchoring the course amid countless possibilities, ensuring nanaland always moves in the most valuable direction.">
+                        项目战略方向的把控者，以宏观视野审视技术与社区的交汇点。在纷繁的可能性中锚定航向，确保 nanaland 始终行进在最有价值的方向上。
+                    </p>
+</div>
+<!-- Member 6: 小白 -->
+<div class="glass-panel rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-[0_12px_32px_rgba(0,167,203,0.12)] group">
+<div class="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden border-2 border-tertiary/20 group-hover:border-tertiary/50 transition-colors">
+<img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cute%20chibi%20anime%20avatar%20of%20a%20young%20man%20with%20friendly%20smile%20and%20casual%20short%20hair%2C%20approachable%20look%2C%20big%20eyes%2C%20pastel%20soft%20colors%2C%20kawaii%20style%2C%20simple%20clean%20white%20background%2C%20illustration&image_size=square_hd" alt="小白" class="w-full h-full object-cover">
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">小白</h3>
+<p class="font-label-lg text-label-lg text-tertiary mb-2" data-zh="商业拓展" data-en="Business Dev">商业拓展</p>
+<p class="font-body-md text-body-md text-text-muted text-sm leading-relaxed" data-zh="商业对接与拓展的核心推动者，在社区与市场之间架起桥梁。以敏锐的商业嗅觉发掘合作可能，让 nanaland 的价值触达更广阔的世界。" data-en="The core driver of business partnerships and expansion, bridging community and market. With keen business acumen, uncovering collaboration possibilities and bringing nanaland's value to a broader world.">
+                        商业对接与拓展的核心推动者，在社区与市场之间架起桥梁。以敏锐的商业嗅觉发掘合作可能，让 nanaland 的价值触达更广阔的世界。
+                    </p>
+</div>
+</div>
+<!-- Join Card -->
+<div class="mt-8 flex justify-center">
+<a href="join.html" class="glass-panel rounded-2xl p-8 w-full max-w-xs text-center hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] group cursor-pointer block border-2 border-dashed border-primary/30 hover:border-primary/60">
+<div class="w-16 h-16 rounded-full mx-auto mb-4 bg-gradient-to-br from-accent-gradient-start to-accent-gradient-end flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl text-white">add</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2" data-zh="期待你的加入" data-en="We Want You">期待你的加入</h3>
+<p class="font-body-md text-body-md text-text-muted" data-zh="加入我们" data-en="Join Us">加入我们</p>
+</a>
 </div>
 </section>
 </main>
@@ -312,9 +411,9 @@
 </div>
 <!-- Links Column 1 -->
 <div class="col-span-1 flex flex-col space-y-4">
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 transform hover:scale-105 origin-left" href="#">Product Overview</a>
-<a class="font-label-lg text-label-lg text-primary font-semibold transform hover:scale-105 origin-left" href="#">About Us</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 transform hover:scale-105 origin-left" href="#">Join Us</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 transform hover:scale-105 origin-left" href="#" data-zh="产品概览" data-en="Product Overview">产品概览</a>
+<a class="font-label-lg text-label-lg text-primary font-semibold transform hover:scale-105 origin-left" href="#" data-zh="关于我们" data-en="About Us">关于我们</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 transform hover:scale-105 origin-left" href="#" data-zh="加入我们" data-en="Join Us">加入我们</a>
 </div>
 <!-- Links Column 2 -->
 <div class="col-span-1 flex flex-col space-y-4">
@@ -339,5 +438,42 @@
         });
     </script>
 
+<script>
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    });
+}
+
+// Language toggle
+function getCurrentLang() {
+    return localStorage.getItem('nanaland-lang') || 'zh';
+}
+function setLang(lang) {
+    localStorage.setItem('nanaland-lang', lang);
+    document.querySelectorAll('[data-zh]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+    });
+    // Update toggle buttons
+    document.querySelectorAll('#lang-toggle, #mobile-lang-toggle').forEach(btn => {
+        if (btn) btn.textContent = lang === 'zh' ? 'EN/中' : '中/EN';
+    });
+}
+// Init language
+const initLang = getCurrentLang();
+if (initLang === 'en') setLang('en');
+// Desktop toggle
+document.getElementById('lang-toggle')?.addEventListener('click', () => {
+    setLang(getCurrentLang() === 'zh' ? 'en' : 'zh');
+});
+// Mobile toggle
+document.getElementById('mobile-lang-toggle')?.addEventListener('click', () => {
+    setLang(getCurrentLang() === 'zh' ? 'en' : 'zh');
+});
+</script>
 
 </body></html>

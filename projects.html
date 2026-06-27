@@ -146,10 +146,21 @@
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
                 nanaland
             </div>
-<div class="hidden md:flex items-center gap-8"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="index.html">Overview</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="projects.html">Projects</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="about.html">About</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="join.html">Join</a></div>
+<div class="hidden md:flex items-center gap-8"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="index.html" data-zh="概览" data-en="Overview">概览</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="projects.html" data-zh="项目" data-en="Projects">项目</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="about.html" data-zh="关于" data-en="About">关于</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="join.html" data-zh="加入" data-en="Join">加入</a></div>
 <div class="flex items-center gap-4">
-<button class="text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-colors">中/EN</button>
+<button class="md:hidden material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-2xl" id="mobile-menu-btn">menu</button>
+<button class="text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-colors" id="lang-toggle">中/EN</button>
 <a class="gradient-btn text-white px-6 py-2 rounded-xl font-label-lg text-label-lg" href="join.html">Connect</a>
+</div>
+<div class="md:hidden hidden flex-col gap-4 px-margin-mobile pb-6 pt-2" id="mobile-menu">
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="index.html" data-zh="概览" data-en="Overview">概览</a>
+    <a class="font-label-lg text-label-lg text-primary border-b-2 border-primary font-bold pb-1" href="projects.html" data-zh="项目" data-en="Projects">项目</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="about.html" data-zh="关于" data-en="About">关于</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="join.html" data-zh="加入" data-en="Join">加入</a>
+    <div class="flex items-center gap-4 pt-2">
+        <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary" id="mobile-lang-toggle">中/EN</button>
+        <a class="gradient-btn text-white font-label-lg text-label-lg px-6 py-2 rounded-xl" href="join.html">Connect</a>
+    </div>
 </div>
 </div>
 </nav>
@@ -158,10 +169,9 @@
 <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-gutter">
 <!-- Header Section -->
 <div class="text-center mb-24 max-w-3xl mx-auto">
-<h1 class="font-headline-xl text-headline-xl text-on-surface mb-6">产品生态 / Product Ecosystem</h1>
-<p class="font-body-lg text-body-lg text-text-muted">
-                    从身份、协作到治理，nanaland 为社区铺设完整数字基建。<br>
-                    From identity to collaboration to governance, nanaland builds the complete digital infrastructure.
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-6" data-zh="产品生态" data-en="Product Ecosystem">产品生态</h1>
+<p class="font-body-lg text-body-lg text-text-muted" data-zh="从身份、协作到治理，nanaland 为社区铺设完整数字基建。" data-en="From identity to collaboration to governance, nanaland builds the complete digital infrastructure.">
+                    从身份、协作到治理，nanaland 为社区铺设完整数字基建。
                 </p>
 </div>
 <!-- Product Matrix -->
@@ -172,23 +182,21 @@
 <img alt="" class="w-[300px] h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAysRxuyHNqYq9G70-Pbc7XSih-_w6glaMGVuEnmiJgrrOkSW0mFJkWqCPEGR8mTzOU17_KQDDZYSzd58lGOysjrMXDvJWG6aaSeQXSiv1E6u_vEG7_eqvz1o5ZfZVCG5C3F_hxzgD1q2IpCz8a8EJKJzL_mC4UHiuAPhhRR3fPuPKpvG2KcZUu3wV7K8yZuLVlFgxgE-RgihXP4JZFmZWEqYRThRlB9G7lqNzUheh6TayeP80BnE2bnPY9dYDDuMqoH5fcaLtThD47">
 </div>
 <div class="w-full md:w-1/2 order-1 md:order-2 glass-card p-12 rounded-[24px]">
-<h2 class="font-headline-lg text-headline-lg text-primary-container mb-4">SEMI Digital Identity</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
-                            你的通用社区身份。唯一、可追溯、自我掌控的数字身份标识，支持个人独立管理与多人共管。<br><br>
-                            Your universal community identity. A unique, traceable, self-sovereign digital identifier with solo and multi-sig management.
+<h2 class="font-headline-lg text-headline-lg text-primary-container mb-4" data-zh="SEMI 数字身份" data-en="SEMI Digital Identity">SEMI 数字身份</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8" data-zh="你的通用社区身份。唯一、可追溯、自我掌控的数字身份标识，支持个人独立管理与多人共管。" data-en="Your universal community identity. A unique, traceable, self-sovereign digital identifier with solo and multi-sig management.">
+                            你的通用社区身份。唯一、可追溯、自我掌控的数字身份标识，支持个人独立管理与多人共管。
                         </p>
-<button class="gradient-btn text-white px-8 py-3 rounded-xl font-label-lg text-label-lg shadow-[0_8px_24px_rgba(255,107,53,0.2)]" onclick="window.location.href='semi.html'">了解详情 / Learn More</button>
+<button class="gradient-btn text-white px-8 py-3 rounded-xl font-label-lg text-label-lg shadow-[0_8px_24px_rgba(255,107,53,0.2)]" onclick="window.location.href='semi.html'" data-zh="了解详情" data-en="Learn More">了解详情</button>
 </div>
 </div>
 <!-- Product 2: bai -->
 <div class="flex flex-col md:flex-row items-center gap-16 relative">
 <div class="w-full md:w-1/2 glass-card p-12 rounded-[24px] order-1">
-<h2 class="font-headline-lg text-headline-lg text-secondary mb-4">bai Task System</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
-                            互助即游戏。在社区广场接任务、交凭证、赚积分，让协作像游戏一样有趣。<br><br>
-                            Helping is playing. Take tasks, submit proofs, earn points, making collaboration a fun game.
+<h2 class="font-headline-lg text-headline-lg text-secondary mb-4" data-zh="bai 任务系统" data-en="bai Task System">bai Task System</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8" data-zh="互助即游戏。在社区广场接任务、交凭证、赚积分，让协作像游戏一样有趣。" data-en="Helping is playing. Take tasks, submit proofs, earn points, making collaboration a fun game.">
+                            互助即游戏。在社区广场接任务、交凭证、赚积分，让协作像游戏一样有趣。
                         </p>
-<button class="bg-secondary text-white px-8 py-3 rounded-xl font-label-lg text-label-lg shadow-[0_8px_24px_rgba(0,107,92,0.2)] hover:scale-105 transition-transform duration-300" onclick="window.location.href='bai.html'">了解详情 / Learn More</button>
+<button class="bg-secondary text-white px-8 py-3 rounded-xl font-label-lg text-label-lg shadow-[0_8px_24px_rgba(0,107,92,0.2)] hover:scale-105 transition-transform duration-300" onclick="window.location.href='bai.html'" data-zh="了解详情" data-en="Learn More">了解详情</button>
 </div>
 <div class="w-full md:w-1/2 flex justify-center order-2">
 <img alt="" class="w-full max-w-[500px] h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500 rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAubXRBZ0frduHdU-Z0tz3mQGXmI5urdWbw2qBOZ70HP8QowATn18hQ-qp74jCczyF1NciNTWjZ-KU5fP2a6lYIqFzqlMK9rXx3_CZdAHuPtwqj9cmPo7cYmMOI8iDOFDqIqEEUcs6Kj5ZRMPdlzQ-l4POAj27tz73y4FrsMH2huLLNVLQOp1gAE_W_v8e4KRhpAtwxPTl03b8ffKs6e3pJqSj40ewgM1xsXR_SOgqVDfyMu3bufN-LU073nfquwqNZ-SJHRCYJmufI">
@@ -200,19 +208,18 @@
 <div class="w-64 h-64 bg-surface-variant/50 rounded-full blur-3xl absolute -z-10"></div>
 <div class="glass-card w-64 h-80 rounded-[24px] flex items-center justify-center flex-col gap-4 border-dashed border-2 border-outline-variant">
 <span class="material-symbols-outlined text-6xl text-text-muted">how_to_vote</span>
-<span class="font-label-lg text-label-lg text-text-muted">Building...</span>
+<span class="font-label-lg text-label-lg text-text-muted" data-zh="开发中..." data-en="Building...">开发中...</span>
 </div>
 </div>
 <div class="w-full md:w-1/2 order-1 md:order-2 glass-card p-12 rounded-[24px]">
 <div class="flex items-center gap-4 mb-4">
-<h2 class="font-headline-lg text-headline-lg text-tertiary">vote Voting Platform</h2>
-<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-lg text-[12px]">Coming Soon</span>
+<h2 class="font-headline-lg text-headline-lg text-tertiary" data-zh="vote 投票平台" data-en="vote Voting Platform">vote 投票平台</h2>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-lg text-[12px]" data-zh="即将上线" data-en="Coming Soon">即将上线</span>
 </div>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
-                            让决策上链。白名单治理、灵活提案、结果验证，为社区透明决策量身打造。（开发中）<br><br>
-                            Decision-making on-chain. Allowlist governance, flexible proposals, verifiable results. (In Development)
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8" data-zh="让决策上链。白名单治理、灵活提案、结果验证，为社区透明决策量身打造。（开发中）" data-en="Decision-making on-chain. Allowlist governance, flexible proposals, verifiable results. (In Development)">
+                            让决策上链。白名单治理、灵活提案、结果验证，为社区透明决策量身打造。（开发中）
                         </p>
-<button class="border-2 border-outline-variant text-on-surface-variant px-8 py-3 rounded-xl font-label-lg text-label-lg opacity-70 cursor-pointer" onclick="window.location.href='vote.html'">了解详情 / Learn More</button>
+<button class="border-2 border-outline-variant text-on-surface-variant px-8 py-3 rounded-xl font-label-lg text-label-lg opacity-70 cursor-pointer" onclick="window.location.href='vote.html'" data-zh="了解详情" data-en="Learn More">了解详情</button>
 </div>
 </div>
 </div>
@@ -223,17 +230,47 @@
 <div class="max-w-[1280px] mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
 <div class="col-span-1 md:col-span-1">
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">nanaland</div>
-<p class="font-body-md text-body-md text-on-surface-variant">© 2024 nanaland community. All rights reserved.</p>
+<p class="font-body-md text-body-md text-on-surface-variant" data-zh="© 2024 nanaland 社区. 保留所有权利." data-en="© 2024 nanaland community. All rights reserved.">© 2024 nanaland 社区. 保留所有权利.</p>
 </div>
 <div class="col-span-1 md:col-span-3 flex flex-wrap gap-8 md:justify-end">
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">Product Overview</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">About Us</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">Join Us</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#" data-zh="产品概览" data-en="Product Overview">产品概览</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#" data-zh="关于我们" data-en="About Us">关于我们</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#" data-zh="加入我们" data-en="Join Us">加入我们</a>
 <a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">GitHub</a>
 <a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">Twitter</a>
 </div>
 </div>
 </footer>
 
+<script>
+// Mobile menu
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    });
+}
+// Language toggle
+function getCurrentLang() { return localStorage.getItem('nanaland-lang') || 'zh'; }
+function setLang(lang) {
+    localStorage.setItem('nanaland-lang', lang);
+    document.querySelectorAll('[data-zh]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+    });
+    document.querySelectorAll('#lang-toggle, #mobile-lang-toggle').forEach(btn => {
+        if (btn) btn.textContent = lang === 'zh' ? 'EN/中' : '中/EN';
+    });
+}
+const initLang = getCurrentLang();
+if (initLang === 'en') setLang('en');
+document.getElementById('lang-toggle')?.addEventListener('click', () => {
+    setLang(getCurrentLang() === 'zh' ? 'en' : 'zh');
+});
+document.getElementById('mobile-lang-toggle')?.addEventListener('click', () => {
+    setLang(getCurrentLang() === 'zh' ? 'en' : 'zh');
+});
+</script>
 
 </body></html>

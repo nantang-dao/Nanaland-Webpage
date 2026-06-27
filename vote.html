@@ -212,13 +212,24 @@
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
                 nanaland
             </div>
-<div class="hidden md:flex items-center space-x-8"><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="index.html">Overview</a><a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 transition-all duration-300" href="projects.html">Projects</a><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="about.html">About</a><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="join.html">Join</a></div>
+<div class="hidden md:flex items-center space-x-8"><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="index.html" data-zh="概览" data-en="Overview">概览</a><a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 transition-all duration-300" href="projects.html" data-zh="项目" data-en="Projects">项目</a><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="about.html" data-zh="关于" data-en="About">关于</a><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="join.html" data-zh="加入" data-en="Join">加入</a></div>
 <div class="flex items-center space-x-4">
-<span class="font-label-lg text-label-lg text-on-surface-variant cursor-pointer hover:text-primary transition-colors">中/EN</span>
-<a class="hidden md:block bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white px-6 py-2 rounded-xl font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300" style="transition-timing-function: cubic-bezier(0.2,0.8,0.2,1);" href="join.html">
-                    Connect
+<button class="font-label-lg text-label-lg text-on-surface-variant cursor-pointer hover:text-primary transition-colors" id="lang-toggle">中/EN</button>
+<a class="hidden md:block bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white px-6 py-2 rounded-xl font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300" style="transition-timing-function: cubic-bezier(0.2,0.8,0.2,1);" href="join.html" data-zh="连接" data-en="Connect">
+                    连接
                 </a>
+<button class="md:hidden material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" id="mobile-menu-btn">menu</button>
 </div>
+</div>
+<div class="md:hidden hidden flex-col gap-4 px-margin-mobile pb-6 pt-2" id="mobile-menu">
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="index.html" data-zh="概览" data-en="Overview">概览</a>
+    <a class="font-label-lg text-label-lg text-primary border-b-2 border-primary font-bold pb-1" href="projects.html" data-zh="项目" data-en="Projects">项目</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="about.html" data-zh="关于" data-en="About">关于</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="join.html" data-zh="加入" data-en="Join">加入</a>
+    <div class="flex items-center gap-4 pt-2">
+        <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary" id="mobile-lang-toggle">中/EN</button>
+        <a class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white font-label-lg text-label-lg px-6 py-2 rounded-xl" href="join.html" data-zh="连接" data-en="Connect">连接</a>
+    </div>
 </div>
 </nav>
 <!-- Main Content Canvas -->
@@ -234,13 +245,13 @@
 <!-- Headlines -->
 <div class="space-y-4">
 <h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface leading-tight">
-                        让每一个社区决策都<span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end">清晰可鉴。</span>
+                        让每一个社区决策都<span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end" data-zh="清晰可鉴。" data-en="clear and verifiable.">清晰可鉴。</span>
 </h1>
-<p class="font-body-lg text-body-lg text-text-muted max-w-md leading-relaxed">
+<p class="font-body-lg text-body-lg text-text-muted max-w-md leading-relaxed" data-zh="vote 投票平台 — 让决策上链。白名单治理、灵活提案、结果验证，为社区透明决策量身打造。" data-en="vote — Decisions on-chain. Allowlist governance, flexible proposals, verifiable results, purpose-built for transparent community decision-making.">
                         vote 投票平台 — 让决策上链。白名单治理、灵活提案、结果验证，为社区透明决策量身打造。
                     </p><div class="mt-8 flex flex-col gap-3">
-<a href="projects.html" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-primary-fixed-dim/30 bg-white/50 text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md w-fit"><span class="material-symbols-outlined text-sm">arrow_back</span><span class="">返回 Back</span></a>
-<a href="semi.html" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-primary-fixed-dim/30 bg-white/50 text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md w-fit">Next 下一个产品<span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+<a href="projects.html" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-primary-fixed-dim/30 bg-white/50 text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md w-fit"><span class="material-symbols-outlined text-sm">arrow_back</span><span class="" data-zh="← 返回" data-en="← Back">← 返回</span></a>
+<a href="semi.html" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-primary-fixed-dim/30 bg-white/50 text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md w-fit"><span data-zh="下一个产品 →" data-en="Next →">下一个产品 →</span><span class="material-symbols-outlined text-sm">arrow_forward</span></a>
 </div>
 </div>
 <!-- Functional Concept Labels (Non-interactive structure mirroring SEMI/bai) -->
@@ -249,19 +260,19 @@
 <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">edit_document</span>
 </div>
-<span class="font-label-lg text-label-lg text-on-surface">灵活提案创建</span>
+<span class="font-label-lg text-label-lg text-on-surface" data-zh="灵活提案创建" data-en="Flexible Proposal Creation">灵活提案创建</span>
 </div>
 <div class="flex items-center space-x-4 p-4 rounded-[16px] glass-panel transition-all">
 <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">how_to_reg</span>
 </div>
-<span class="font-label-lg text-label-lg text-on-surface">白名单身份验证</span>
+<span class="font-label-lg text-label-lg text-on-surface" data-zh="白名单身份验证" data-en="Allowlist Verification">白名单身份验证</span>
 </div>
 <div class="flex items-center space-x-4 p-4 rounded-[16px] glass-panel transition-all">
 <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">query_stats</span>
 </div>
-<span class="font-label-lg text-label-lg text-on-surface">链上结果溯源</span>
+<span class="font-label-lg text-label-lg text-on-surface" data-zh="链上结果溯源" data-en="On-chain Result Tracing">链上结果溯源</span>
 </div>
 </div>
 </div>
@@ -297,10 +308,10 @@
 <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">hourglass_empty</span>
 </div>
 </div>
-<h3 class="font-headline-md text-headline-md text-on-surface font-bold text-center">
-                            Coming Soon
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold text-center" data-zh="即将推出" data-en="Coming Soon">
+                            即将推出
                         </h3>
-<p class="font-body-md text-body-md text-text-muted text-center mt-2 px-6">
+<p class="font-body-md text-body-md text-text-muted text-center mt-2 px-6" data-zh="底层智能合约部署中..." data-en="Smart contracts deploying...">
                             底层智能合约部署中...
                         </p>
 </div>
@@ -315,19 +326,48 @@
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">
                     nanaland
                 </div>
-<p class="font-body-md text-body-md text-text-muted mt-2">
+<p class="font-body-md text-body-md text-text-muted mt-2" data-zh="© 2024 nanaland community. All rights reserved." data-en="© 2024 nanaland community. All rights reserved.">
                     © 2024 nanaland community. All rights reserved.
                 </p>
 </div>
 <div class="col-span-1 md:col-span-3 flex flex-wrap gap-8 md:justify-end items-start mt-8 md:mt-0">
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Product Overview</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">About Us</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Join Us</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="产品概览" data-en="Product Overview">产品概览</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="关于我们" data-en="About Us">关于我们</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="加入我们" data-en="Join Us">加入我们</a>
 <a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">GitHub</a>
 <a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Twitter</a>
 </div>
 </div>
 </footer>
 
-
+<script>
+// Mobile menu
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    });
+}
+// Language toggle
+function getCurrentLang() { return localStorage.getItem('nanaland-lang') || 'zh'; }
+function setLang(lang) {
+    localStorage.setItem('nanaland-lang', lang);
+    document.querySelectorAll('[data-zh]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+    });
+    document.querySelectorAll('#lang-toggle, #mobile-lang-toggle').forEach(btn => {
+        if (btn) btn.textContent = lang === 'zh' ? 'EN/中' : '中/EN';
+    });
+}
+const initLang = getCurrentLang();
+if (initLang === 'en') setLang('en');
+document.getElementById('lang-toggle')?.addEventListener('click', () => {
+    setLang(getCurrentLang() === 'zh' ? 'en' : 'zh');
+});
+document.getElementById('mobile-lang-toggle')?.addEventListener('click', () => {
+    setLang(getCurrentLang() === 'zh' ? 'en' : 'zh');
+});
+</script>
 </body></html>

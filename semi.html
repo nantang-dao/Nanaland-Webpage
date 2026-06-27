@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html class="scroll-smooth" lang="zh-CN"><head>
 <meta charset="utf-8"/>
@@ -316,32 +316,43 @@
             nanaland
         </a>
 <div class="hidden md:flex items-center space-x-8">
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="index.html">Overview</a>
-<a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 transition-all duration-300" href="projects.html">Projects</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="about.html">About</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="join.html">Join</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="index.html" data-zh="概览" data-en="Overview">概览</a>
+<a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 transition-all duration-300" href="projects.html" data-zh="项目" data-en="Projects">项目</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="about.html" data-zh="关于" data-en="About">关于</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="join.html" data-zh="加入" data-en="Join">加入</a>
 </div>
 <div class="flex items-center space-x-4">
-<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300">中/EN</button>
+<button class="md:hidden material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors duration-300 text-2xl" id="mobile-menu-btn">menu</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" id="lang-toggle">中/EN</button>
 <a class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-on-primary font-label-lg text-label-lg px-6 py-2 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] hover:scale-105 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="join.html">
                 Connect
             </a>
 </div>
 </div>
+<div class="md:hidden hidden flex-col gap-4 px-margin-mobile pb-6 pt-2" id="mobile-menu">
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="index.html" data-zh="概览" data-en="Overview">概览</a>
+    <a class="font-label-lg text-label-lg text-primary border-b-2 border-primary font-bold pb-1" href="projects.html" data-zh="项目" data-en="Projects">项目</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="about.html" data-zh="关于" data-en="About">关于</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="join.html" data-zh="加入" data-en="Join">加入</a>
+    <div class="flex items-center gap-4 pt-2">
+        <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary" id="mobile-lang-toggle">中/EN</button>
+        <a class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-on-primary font-label-lg text-label-lg px-6 py-2 rounded-xl" href="join.html">Connect</a>
+    </div>
+</div>
 </nav>
 <!-- Main Content -->
 <main class="flex-grow pt-32 pb-24 relative bg-pattern">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter mb-12 z-10 relative">
-<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary mb-4 transition-interactive">SEMI 数字身份</h1>
-<p class="font-body-lg text-body-lg text-text-muted max-w-2xl mb-6">
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary mb-4 transition-interactive" data-zh="SEMI 数字身份" data-en="SEMI Digital Identity">SEMI 数字身份</h1>
+<p class="font-body-lg text-body-lg text-text-muted max-w-2xl mb-6" data-zh="你的通用社区身份。唯一、可追溯、自我掌控的数字身份标识，让积分流转安全又自由。" data-en="Your universal community identity. A unique, traceable, self-sovereign digital identifier, enabling secure and free token flow.">
             你的通用社区身份。唯一、可追溯、自我掌控的数字身份标识，让积分流转安全又自由。
         </p>
 <div class="flex flex-col gap-3 mt-6">
 <a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit" href="projects.html">
-<span class="material-symbols-outlined text-sm">arrow_back</span>返回 Back
+<span class="material-symbols-outlined text-sm">arrow_back</span><span data-zh="← 返回" data-en="← Back">← 返回</span>
         </a>
 <a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit" href="bai.html">
-  Next 下一个产品
+  <span data-zh="Next → 下一个产品" data-en="Next →">Next → 下一个产品</span>
   <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </div>
@@ -354,8 +365,8 @@
 <span class="material-symbols-outlined" data-weight="fill">send_money</span>
 </div>
 <div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-2 transition-interactive">发送积分</h3>
-<p class="font-body-md text-body-md text-text-muted transition-interactive">快速、安全、可追溯的链上流转。</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 transition-interactive" data-zh="发送积分" data-en="Send Tokens">发送积分</h3>
+<p class="font-body-md text-body-md text-text-muted transition-interactive" data-zh="快速、安全、可追溯的链上流转。" data-en="Fast, secure, and traceable on-chain token flow.">快速、安全、可追溯的链上流转。</p>
 </div>
 </button>
 <button class="feature-btn group text-left glass-panel p-6 rounded-[24px] cursor-pointer transition-interactive border border-outline-variant/30 flex items-start space-x-4 w-full opacity-60 scale-95" onclick="activateFeature(1)">
@@ -363,8 +374,8 @@
 <span class="material-symbols-outlined">group</span>
 </div>
 <div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-2 transition-interactive">多签管理</h3>
-<p class="font-body-md text-body-md text-text-muted transition-interactive">集体信任编码，多人共管资产。</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 transition-interactive" data-zh="多签管理" data-en="Multi-sig Management">多签管理</h3>
+<p class="font-body-md text-body-md text-text-muted transition-interactive" data-zh="集体信任编码，多人共管资产。" data-en="Encode collective trust, co-manage assets with multiple signers.">集体信任编码，多人共管资产。</p>
 </div>
 </button>
 <button class="feature-btn group text-left glass-panel p-6 rounded-[24px] cursor-pointer transition-interactive border border-outline-variant/30 flex items-start space-x-4 w-full opacity-60 scale-95" onclick="activateFeature(2)">
@@ -372,8 +383,8 @@
 <span class="material-symbols-outlined">workspace_premium</span>
 </div>
 <div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-2 transition-interactive">NFT徽章</h3>
-<p class="font-body-md text-body-md text-text-muted transition-interactive">记录每一次贡献，点亮社区荣誉。</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 transition-interactive" data-zh="NFT徽章" data-en="NFT Badges">NFT徽章</h3>
+<p class="font-body-md text-body-md text-text-muted transition-interactive" data-zh="记录每一次贡献，点亮社区荣誉。" data-en="Record every contribution, light up community honors.">记录每一次贡献，点亮社区荣誉。</p>
 </div>
 </button>
 </div>
@@ -925,16 +936,16 @@
 <div class="max-w-[1280px] mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
 <div class="md:col-span-1">
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">nanaland</div>
-<p class="font-body-md text-body-md text-text-muted">© 2024 nanaland community. All rights reserved.</p>
+<p class="font-body-md text-body-md text-text-muted" data-zh="© 2024 nanaland 社区. 保留所有权利." data-en="© 2024 nanaland community. All rights reserved.">© 2024 nanaland 社区. 保留所有权利.</p>
 </div>
 <div class="flex flex-col space-y-3">
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Product Overview</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">About Us</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="产品概览" data-en="Product Overview">产品概览</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="关于我们" data-en="About Us">关于我们</a>
 </div>
 <div class="flex flex-col space-y-3">
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Join Us</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">GitHub</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Twitter</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="加入我们" data-en="Join Us">加入我们</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="GitHub" data-en="GitHub">GitHub</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="Twitter" data-en="Twitter">Twitter</a>
 </div>
 </div>
 </footer>
@@ -1620,5 +1631,35 @@
             nav.classList.add('bg-white/50');
         }
     });
+</script>
+<script>
+// Mobile menu
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    });
+}
+// Language toggle
+function getCurrentLang() { return localStorage.getItem('nanaland-lang') || 'zh'; }
+function setLang(lang) {
+    localStorage.setItem('nanaland-lang', lang);
+    document.querySelectorAll('[data-zh]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+    });
+    document.querySelectorAll('#lang-toggle, #mobile-lang-toggle').forEach(btn => {
+        if (btn) btn.textContent = lang === 'zh' ? 'EN/中' : '中/EN';
+    });
+}
+const initLang = getCurrentLang();
+if (initLang === 'en') setLang('en');
+document.getElementById('lang-toggle')?.addEventListener('click', () => {
+    setLang(getCurrentLang() === 'zh' ? 'en' : 'zh');
+});
+document.getElementById('mobile-lang-toggle')?.addEventListener('click', () => {
+    setLang(getCurrentLang() === 'zh' ? 'en' : 'zh');
+});
 </script>
 </body></html>

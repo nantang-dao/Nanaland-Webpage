@@ -270,30 +270,41 @@ body {
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">nanaland</div>
 <div class="hidden md:flex gap-8 items-center">
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="index.html">Overview</a>
-<a class="text-primary border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg" href="projects.html">Projects</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="about.html">About</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="join.html">Join</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="index.html" data-zh="概览" data-en="Overview">Overview</a>
+<a class="text-primary border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg" href="projects.html" data-zh="项目" data-en="Projects">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="about.html" data-zh="关于" data-en="About">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="join.html" data-zh="加入" data-en="Join">Join</a>
 </div>
 <div class="flex items-center gap-6">
-<span class="font-label-lg text-label-lg cursor-pointer hover:text-primary transition-colors">中/EN</span>
+<button class="md:hidden material-symbols-outlined text-2xl text-on-surface" id="mobile-menu-btn">menu</button>
+<button class="font-label-lg text-label-lg cursor-pointer hover:text-primary transition-colors" id="lang-toggle">中/EN</button>
 <a class="btn-primary px-6 py-2 rounded-xl font-label-lg text-label-lg hidden md:block" href="join.html">Connect</a>
 </div>
+</div>
+<div class="md:hidden hidden flex-col gap-4 px-margin-mobile pb-6 pt-2" id="mobile-menu">
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="index.html" data-zh="概览" data-en="Overview">概览</a>
+    <a class="font-label-lg text-label-lg text-primary border-b-2 border-primary font-bold pb-1" href="projects.html" data-zh="项目" data-en="Projects">项目</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="about.html" data-zh="关于" data-en="About">关于</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant" href="join.html" data-zh="加入" data-en="Join">加入</a>
+    <div class="flex items-center gap-4 pt-2">
+        <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary" id="mobile-lang-toggle">中/EN</button>
+        <a class="btn-primary px-6 py-2 rounded-xl font-label-lg text-label-lg" href="join.html">Connect</a>
+    </div>
 </div>
 </nav>
 
 <main class="pt-32 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-gutter min-h-screen flex flex-col justify-center relative">
 <div class="text-center mb-20 max-w-4xl mx-auto anim-fade-in">
-<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-6 leading-tight">
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-6 leading-tight" data-zh="把社区互助变成一场游戏。接任务、交凭证、晒贡献，用积分串联每一个行动。" data-en="Turn community mutual aid into a game. Take tasks, submit proofs, showcase contributions, linking every action with points.">
 把社区互助变成一场游戏。<br/>接任务、交凭证、晒贡献，用积分串联每一个行动。
 </h1>
-<p class="font-body-lg text-body-lg text-text-muted">bai 任务系统，让每一次社区参与都充满乐趣与回报。</p>
+<p class="font-body-lg text-body-lg text-text-muted" data-zh="bai 任务系统，让每一次社区参与都充满乐趣与回报。" data-en="bai Task System — making every community participation fun and rewarding.">bai 任务系统，让每一次社区参与都充满乐趣与回报。</p>
 <div class="flex flex-col gap-3 mt-6">
 <a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit mx-auto" href="projects.html">
-<span class="material-symbols-outlined text-sm">arrow_back</span>返回 Back
+<span class="material-symbols-outlined text-sm">arrow_back</span><span data-zh="← 返回" data-en="← Back">← 返回</span>
 </a>
 <a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit mx-auto" href="vote.html">
-  Next 下一个产品
+  <span data-zh="Next →" data-en="Next →">Next →</span>
   <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </div>
@@ -304,59 +315,59 @@ body {
 <button class="btn-functional active glass-card rounded-[24px] py-6 px-8 text-left group" id="btn-social" onclick="switchFeature('social')">
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">forum</span>
-<span class="font-headline-md text-headline-md">社区圈互动</span>
+<span class="font-headline-md text-headline-md" data-zh="社区圈互动" data-en="Social Circle">社区圈互动</span>
 </div>
-<p class="mt-2 font-body-md text-body-md opacity-80">分享动态，点赞评论，建立社区连接。</p>
+<p class="mt-2 font-body-md text-body-md opacity-80" data-zh="分享动态，点赞评论，建立社区连接。" data-en="Share updates, like and comment, build community connections.">分享动态，点赞评论，建立社区连接。</p>
 </button>
 <button class="btn-functional glass-card rounded-[24px] py-6 px-8 text-left group" id="btn-task" onclick="switchFeature('task')">
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">task_alt</span>
-<span class="font-headline-md text-headline-md">任务与审核</span>
+<span class="font-headline-md text-headline-md" data-zh="任务与审核" data-en="Tasks & Review">任务与审核</span>
 </div>
-<p class="mt-2 font-body-md text-body-md opacity-80">领取社区任务，上传凭证，获取积分奖励。</p>
+<p class="mt-2 font-body-md text-body-md opacity-80" data-zh="领取社区任务，上传凭证，获取积分奖励。" data-en="Claim community tasks, upload proofs, earn point rewards.">领取社区任务，上传凭证，获取积分奖励。</p>
 </button>
 <button class="btn-functional glass-card rounded-[24px] py-6 px-8 text-left group" id="btn-calendar" onclick="switchFeature('calendar')">
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">calendar_month</span>
-<span class="font-headline-md text-headline-md">活动日历</span>
+<span class="font-headline-md text-headline-md" data-zh="活动日历" data-en="Event Calendar">活动日历</span>
 </div>
-<p class="mt-2 font-body-md text-body-md opacity-80">查看并报名社区活动，不错过精彩瞬间。</p>
+<p class="mt-2 font-body-md text-body-md opacity-80" data-zh="查看并报名社区活动，不错过精彩瞬间。" data-en="View and sign up for community events, never miss a moment.">查看并报名社区活动，不错过精彩瞬间。</p>
 </button>
 <button class="btn-functional glass-card rounded-[24px] py-6 px-8 text-left group" id="btn-store" onclick="switchFeature('store')">
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">storefront</span>
-<span class="font-headline-md text-headline-md">积分商城</span>
+<span class="font-headline-md text-headline-md" data-zh="积分商城" data-en="Points Store">积分商城</span>
 </div>
-<p class="mt-2 font-body-md text-body-md opacity-80">使用积分兑换社区专属商品与权益。</p>
+<p class="mt-2 font-body-md text-body-md opacity-80" data-zh="使用积分兑换社区专属商品与权益。" data-en="Use points to redeem community-exclusive goods and perks.">使用积分兑换社区专属商品与权益。</p>
 </button>
 </div>
 
 <div class="absolute left-1/3 top-1/2 -translate-y-1/2 -translate-x-1/2 z-30 opacity-0 pointer-events-none transition-all duration-500 glass-card p-6 rounded-2xl w-64 transform scale-95" id="dialog-task-progress">
-<h3 class="font-headline-md text-headline-md text-primary mb-4">任务进度</h3>
+<h3 class="font-headline-md text-headline-md text-primary mb-4" data-zh="任务进度" data-en="Task Progress">任务进度</h3>
 <div class="flex flex-col font-body-md text-body-md" id="progress-steps">
 <div class="flex items-start gap-2" id="step-1">
 <span class="material-symbols-outlined text-sm mt-0.5 step-icon">radio_button_unchecked</span>
-<span class="step-label">任务创建</span>
+<span class="step-label" data-zh="任务创建" data-en="Task Created">任务创建</span>
 </div>
 <div class="progress-line-wrap ml-[7px]"><div class="progress-line" id="line-1"></div></div>
 <div class="flex items-start gap-2" id="step-2">
 <span class="material-symbols-outlined text-sm mt-0.5 step-icon">radio_button_unchecked</span>
-<span class="step-label">领取任务</span>
+<span class="step-label" data-zh="领取任务" data-en="Task Claimed">领取任务</span>
 </div>
 <div class="progress-line-wrap ml-[7px]"><div class="progress-line" id="line-2"></div></div>
 <div class="flex items-start gap-2" id="step-3">
 <span class="material-symbols-outlined text-sm mt-0.5 step-icon">radio_button_unchecked</span>
-<span class="step-label">上传凭证</span>
+<span class="step-label" data-zh="上传凭证" data-en="Upload Proof">上传凭证</span>
 </div>
 <div class="progress-line-wrap ml-[7px]"><div class="progress-line" id="line-3"></div></div>
 <div class="flex items-start gap-2" id="step-4">
 <span class="material-symbols-outlined text-sm mt-0.5 step-icon">radio_button_unchecked</span>
-<span class="step-label">审核通过</span>
+<span class="step-label" data-zh="审核通过" data-en="Review Passed">审核通过</span>
 </div>
 <div class="progress-line-wrap ml-[7px]"><div class="progress-line" id="line-4"></div></div>
 <div class="flex items-start gap-2" id="step-5">
 <span class="material-symbols-outlined text-sm mt-0.5 step-icon">radio_button_unchecked</span>
-<span class="step-label">+150 积分</span>
+<span class="step-label" data-zh="+150 积分" data-en="+150 Points">+150 积分</span>
 </div>
 </div>
 </div>
@@ -1913,6 +1924,36 @@ window.addEventListener('scroll', function() {
     nav.classList.remove('bg-white/85');
     nav.classList.add('bg-white/50');
   }
+});
+</script>
+<script>
+// Mobile menu
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    });
+}
+// Language toggle
+function getCurrentLang() { return localStorage.getItem('nanaland-lang') || 'zh'; }
+function setLang(lang) {
+    localStorage.setItem('nanaland-lang', lang);
+    document.querySelectorAll('[data-zh]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+    });
+    document.querySelectorAll('#lang-toggle, #mobile-lang-toggle').forEach(btn => {
+        if (btn) btn.textContent = lang === 'zh' ? 'EN/中' : '中/EN';
+    });
+}
+const initLang = getCurrentLang();
+if (initLang === 'en') setLang('en');
+document.getElementById('lang-toggle')?.addEventListener('click', () => {
+    setLang(getCurrentLang() === 'zh' ? 'en' : 'zh');
+});
+document.getElementById('mobile-lang-toggle')?.addEventListener('click', () => {
+    setLang(getCurrentLang() === 'zh' ? 'en' : 'zh');
 });
 </script>
 </body></html>

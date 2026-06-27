@@ -145,19 +145,37 @@
                 nanaland
             </a>
 <!-- Navigation Links (Desktop) -->
-<ul class="hidden md:flex items-center gap-8"><li class=""><a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="index.html">Overview</a></li>
-<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="projects.html">Projects</a></li>
-<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="about.html">About</a></li>
-<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="join.html">Join</a></li></ul>
+<ul class="hidden md:flex items-center gap-8"><li class=""><a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="index.html" data-zh="概览" data-en="Overview">概览</a></li>
+<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="projects.html" data-zh="项目" data-en="Projects">项目</a></li>
+<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="about.html" data-zh="关于" data-en="About">关于</a></li>
+<li class=""><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="join.html" data-zh="加入" data-en="Join">加入</a></li></ul>
 <!-- Actions -->
 <div class="flex items-center gap-4">
+<!-- Hamburger Button (Mobile) -->
+<button class="md:hidden flex items-center justify-center w-10 h-10 rounded-xl text-on-surface-variant hover:text-primary hover:bg-primary/5 transition-colors duration-300" id="hamburger-btn">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
 <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1" id="lang-toggle">
 <span class="material-symbols-outlined text-[18px]">language</span>
-<span data-lang-cn="EN/中" data-lang-en="中/EN" class="">中/EN</span>
+<span data-zh="EN/中" data-en="中/EN" class="lang-text">EN/中</span>
 </button>
 <a class="btn-primary text-white font-label-lg text-label-lg px-6 py-2.5 rounded-xl hidden md:block" href="join.html">
                     Connect
                 </a>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div class="md:hidden hidden flex-col gap-4 px-margin-mobile pb-6 pt-2 glass-panel" id="mobile-menu">
+<a class="font-label-lg text-label-lg text-primary border-b-2 border-primary font-bold pb-1" href="index.html" data-zh="概览" data-en="Overview">概览</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant" href="projects.html" data-zh="项目" data-en="Projects">项目</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant" href="about.html" data-zh="关于" data-en="About">关于</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant" href="join.html" data-zh="加入" data-en="Join">加入</a>
+<div class="flex items-center gap-4 pt-2">
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary flex items-center gap-1" id="mobile-lang-toggle">
+<span class="material-symbols-outlined text-[18px]">language</span>
+<span data-zh="EN/中" data-en="中/EN" class="lang-text">EN/中</span>
+</button>
+<a class="btn-primary text-white font-label-lg text-label-lg px-6 py-2.5 rounded-xl" href="join.html">Connect</a>
 </div>
 </div>
 </nav>
@@ -176,22 +194,22 @@
 <div class="inline-block px-4 py-1.5 rounded-full glass-panel font-label-lg text-label-lg text-primary border border-primary/20 mb-4">
 <span class="flex items-center gap-2">
 <span class="w-2 h-2 rounded-full bg-accent-gradient-start animate-ping"></span>
-                                    The Nanaland Developer Community
+                                    <span data-zh="nanaland 开发者社区" data-en="The Nanaland Developer Community">nanaland 开发者社区</span>
                                 </span>
 </div>
 <h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface">
-                                构建可信数字家园 <br>
-<span class="text-gradient">Build Your Trusted Digital Land</span>
+                                <span data-zh="构建可信数字家园" data-en="Build Your Trusted Digital Land">构建可信数字家园</span> <br>
+<span class="text-gradient" data-zh="构建可信数字家园" data-en="Build Your Trusted Digital Land">构建可信数字家园</span>
 </h1>
-<p class="font-body-lg text-body-lg text-text-muted max-w-2xl">
-                                Join a vibrant ecosystem balancing the organic warmth of community-driven rural construction with the precision of blockchain technology. Empowering localized DAOs through programmable trust.
+<p class="font-body-lg text-body-lg text-text-muted max-w-2xl" data-zh="加入一个充满活力的生态系统，在社区驱动的乡村建设的有机温度与区块链技术的精确性之间取得平衡。通过可编程信任赋能本地化 DAO。" data-en="Join a vibrant ecosystem balancing the organic warmth of community-driven rural construction with the precision of blockchain technology. Empowering localized DAOs through programmable trust.">
+                                加入一个充满活力的生态系统，在社区驱动的乡村建设的有机温度与区块链技术的精确性之间取得平衡。通过可编程信任赋能本地化 DAO。
                             </p>
 <div class="flex flex-wrap items-center gap-4 pt-4">
-<a class="btn-primary text-white font-label-lg text-label-lg px-8 py-4 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)]" href="projects.html">
-                                    探索我们的产品 / Explore Products
+<a class="btn-primary text-white font-label-lg text-label-lg px-8 py-4 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)]" href="projects.html" data-zh="探索我们的产品" data-en="Explore Products">
+                                    探索我们的产品
                                 </a>
-<button class="px-8 py-4 rounded-xl font-label-lg text-label-lg text-on-surface border-[1.5px] border-outline-variant/50 hover:border-primary/50 hover:bg-white/50 transition-all duration-300">
-                                    阅览文档 / Read Documentations
+<button class="px-8 py-4 rounded-xl font-label-lg text-label-lg text-on-surface border-[1.5px] border-outline-variant/50 hover:border-primary/50 hover:bg-white/50 transition-all duration-300" data-zh="阅读文档" data-en="Read Documentation">
+                                    阅读文档
                                 </button>
 </div>
 </div>
@@ -206,8 +224,8 @@
 <span class="material-symbols-outlined">nature_people</span>
 </div>
 <div>
-<p class="font-label-lg text-label-lg text-on-surface">Community Trust</p>
-<p class="font-body-md text-[13px] text-text-muted">Verified nodes active</p>
+<p class="font-label-lg text-label-lg text-on-surface" data-zh="社区信任" data-en="Community Trust">社区信任</p>
+<p class="font-body-md text-[13px] text-text-muted" data-zh="已验证节点活跃" data-en="Verified nodes active">已验证节点活跃</p>
 </div>
 </div>
 <span class="font-headline-md text-headline-md text-primary">+84%</span>
@@ -219,12 +237,9 @@
 <!-- Ecosystem Section -->
 <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-gutter py-16">
 <div class="text-center max-w-3xl mx-auto mb-16">
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">可编程生态系统</h2>
-<p class="font-body-lg text-body-lg text-text-muted">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4" data-zh="可编程生态系统" data-en="Programmable Ecosystem">可编程生态系统</h2>
+<p class="font-body-lg text-body-lg text-text-muted" data-zh="Nanaland 提供了一套模块化工具，用于构建、管理和治理数字-实体社区，且完全透明。" data-en="Nanaland provides a suite of modular tools to construct, manage, and govern digital-physical communities with absolute transparency.">
                             Nanaland 提供了一套模块化工具，用于构建、管理和治理数字-实体社区，且完全透明。
-                        </p>
-<p class="font-body-lg text-body-lg text-text-muted">
-                            Programmable Ecosystem - Nanaland provides a suite of modular tools to construct, manage, and govern digital-physical communities with absolute transparency.
                         </p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -234,8 +249,8 @@
 <span class="material-symbols-outlined text-[32px]">account_balance_wallet</span>
 </div>
 <h3 class="font-headline-md text-headline-md text-on-surface mb-3">SEMI</h3>
-<p class="font-body-md text-body-md text-text-muted mb-8 line-clamp-3">
-                                The foundational digital wallet and identity layer for community members, ensuring secure transactions and verifiable credentials.
+<p class="font-body-md text-body-md text-text-muted mb-8 line-clamp-3" data-zh="面向社区成员的基础数字钱包与身份层，确保安全交易和可验证凭证。" data-en="The foundational digital wallet and identity layer for community members, ensuring secure transactions and verifiable credentials.">
+                                面向社区成员的基础数字钱包与身份层，确保安全交易和可验证凭证。
                             </p>
 
 </div>
@@ -245,8 +260,8 @@
 <span class="material-symbols-outlined text-[32px]">hub</span>
 </div>
 <h3 class="font-headline-md text-headline-md text-on-surface mb-3">bai</h3>
-<p class="font-body-md text-body-md text-text-muted mb-8 line-clamp-3">
-                                Decentralized resource mapping and spatial coordination protocol bridging physical assets with on-chain verification.
+<p class="font-body-md text-body-md text-text-muted mb-8 line-clamp-3" data-zh="去中心化资源映射与空间协调协议，连接物理资产与链上验证。" data-en="Decentralized resource mapping and spatial coordination protocol bridging physical assets with on-chain verification.">
+                                去中心化资源映射与空间协调协议，连接物理资产与链上验证。
                             </p>
 
 </div>
@@ -256,14 +271,14 @@
 <span class="material-symbols-outlined text-[32px]">how_to_vote</span>
 </div>
 <h3 class="font-headline-md text-headline-md text-on-surface mb-3">vote</h3>
-<p class="font-body-md text-body-md text-text-muted mb-8 line-clamp-3">
-                                A gamified, transparent governance module that empowers collective decision-making and aligns community incentives.
+<p class="font-body-md text-body-md text-text-muted mb-8 line-clamp-3" data-zh="游戏化、透明的治理模块，赋能集体决策并协调社区激励。" data-en="A gamified, transparent governance module that empowers collective decision-making and aligns community incentives.">
+                                游戏化、透明的治理模块，赋能集体决策并协调社区激励。
                             </p>
 
 </div>
 </div><div class="flex justify-center mt-12">
-    <a href="projects.html" class="btn-primary text-white font-label-lg text-label-lg px-10 py-3 rounded-full shadow-[0_8px_24px_rgba(255,107,53,0.12)]">
-        查看详情 See Details
+    <a href="projects.html" class="btn-primary text-white font-label-lg text-label-lg px-10 py-3 rounded-full shadow-[0_8px_24px_rgba(255,107,53,0.12)]" data-zh="查看详情" data-en="See Details">
+        查看详情
     </a>
 </div>
 </section>
@@ -272,18 +287,18 @@
 <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row justify-between items-center gap-8 divide-y md:divide-y-0 md:divide-x divide-outline-variant/30">
 <div class="flex-1 flex flex-col items-center text-center px-4 w-full pt-4 md:pt-0">
 <span class="material-symbols-outlined text-[40px] text-primary mb-2" data-weight="fill">group</span>
-<h4 class="font-headline-md text-headline-md text-on-surface">社区共建</h4>
-<p class="font-body-md text-text-muted mt-2">Community Driven</p>
+<h4 class="font-headline-md text-headline-md text-on-surface" data-zh="社区共建" data-en="Community Driven">社区共建</h4>
+<p class="font-body-md text-text-muted mt-2" data-zh="去中心化协作" data-en="Decentralized Collaboration">去中心化协作</p>
 </div>
 <div class="flex-1 flex flex-col items-center text-center px-4 w-full pt-4 md:pt-0">
 <span class="material-symbols-outlined text-[40px] text-secondary mb-2" data-weight="fill">verified_user</span>
-<h4 class="font-headline-md text-headline-md text-on-surface">安全</h4>
-<p class="font-body-md text-text-muted mt-2">Cryptographic Trust</p>
+<h4 class="font-headline-md text-headline-md text-on-surface" data-zh="安全信任" data-en="Cryptographic Trust">安全信任</h4>
+<p class="font-body-md text-text-muted mt-2" data-zh="加密保障" data-en="Secured by Cryptography">加密保障</p>
 </div>
 <div class="flex-1 flex flex-col items-center text-center px-4 w-full pt-4 md:pt-0">
 <span class="material-symbols-outlined text-[40px] text-tertiary mb-2" data-weight="fill">extension</span>
-<h4 class="font-headline-md text-headline-md text-on-surface">游戏化</h4>
-<p class="font-body-md text-text-muted mt-2">Engaging Interactions</p>
+<h4 class="font-headline-md text-headline-md text-on-surface" data-zh="游戏化" data-en="Gamified">游戏化</h4>
+<p class="font-body-md text-text-muted mt-2" data-zh="趣味互动" data-en="Engaging Interactions">趣味互动</p>
 </div>
 </div>
 </section>
@@ -292,16 +307,16 @@
 <div class="glass-panel rounded-[2rem] overflow-hidden">
 <div class="grid grid-cols-1 lg:grid-cols-2">
 <div class="p-10 md:p-16 flex flex-col justify-center">
-<span class="font-label-lg text-label-lg text-primary tracking-widest uppercase mb-4 block">合作案例/Case Study</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">
-                                    Empowering communities like Nantang DAO
+<span class="font-label-lg text-label-lg text-primary tracking-widest uppercase mb-4 block" data-zh="合作案例" data-en="Case Study">合作案例</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6" data-zh="赋能像南塘 DAO 这样的社区" data-en="Empowering communities like Nantang DAO">
+                                    赋能像南塘 DAO 这样的社区
                                 </h2>
-<p class="font-body-lg text-body-lg text-text-muted mb-8">
-                                    Discover how rural cooperatives are leveraging nanaland's programmable infrastructure to manage shared resources, distribute yields fairly, and build a resilient local economy based on trustless coordination.
+<p class="font-body-lg text-body-lg text-text-muted mb-8" data-zh="了解农村合作社如何利用 nanaland 的可编程基础设施来管理共享资源、公平分配收益，并基于无信任协调建立弹性本地经济。" data-en="Discover how rural cooperatives are leveraging nanaland's programmable infrastructure to manage shared resources, distribute yields fairly, and build a resilient local economy based on trustless coordination.">
+                                    了解农村合作社如何利用 nanaland 的可编程基础设施来管理共享资源、公平分配收益，并基于无信任协调建立弹性本地经济。
                                 </p>
 <div>
-<button class="font-label-lg text-label-lg text-on-surface border-[1.5px] border-outline-variant rounded-xl px-6 py-3 hover:bg-primary hover:text-white hover:border-primary transition-colors duration-300 flex items-center gap-2">
-                                        Read the Nantang Story
+<button class="font-label-lg text-label-lg text-on-surface border-[1.5px] border-outline-variant rounded-xl px-6 py-3 hover:bg-primary hover:text-white hover:border-primary transition-colors duration-300 flex items-center gap-2" data-zh="阅读南塘故事" data-en="Read the Nantang Story">
+                                        阅读南塘故事
                                         <span class="material-symbols-outlined">menu_book</span>
 </button>
 </div>
@@ -329,8 +344,8 @@
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">
                     nanaland
                 </div>
-<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant max-w-sm">
-                    Bridging the organic warmth of physical communities with the precision of Web3 technology.
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant max-w-sm" data-zh="将物理社区的有机温度与 Web3 技术的精确性连接起来。" data-en="Bridging the organic warmth of physical communities with the precision of Web3 technology.">
+                    将物理社区的有机温度与 Web3 技术的精确性连接起来。
                 </p>
 <div class="mt-8 font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant">
                     © 2024 nanaland community. All rights reserved.
@@ -338,16 +353,16 @@
 </div>
 <!-- Links Column 1 -->
 <div>
-<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6">Ecosystem</h4>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6" data-zh="生态" data-en="Ecosystem">生态</h4>
 <ul class="space-y-4">
-<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Product Overview</a></li>
-<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">About Us</a></li>
-<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Join Us</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="产品概览" data-en="Product Overview">产品概览</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="关于我们" data-en="About Us">关于我们</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="加入我们" data-en="Join Us">加入我们</a></li>
 </ul>
 </div>
 <!-- Links Column 2 -->
 <div>
-<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6">Connect</h4>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6" data-zh="连接" data-en="Connect">连接</h4>
 <ul class="space-y-4">
 <li class="">
 <a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="#">
@@ -380,15 +395,64 @@
                 }
             });
 
-            // Language Toggle Mock Logic
-            const langBtn = document.getElementById('lang-toggle');
-            let isEn = true;
-            langBtn.addEventListener('click', (e) => {
+            // Mobile Menu Toggle
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            let mobileMenuOpen = false;
+
+            hamburgerBtn.addEventListener('click', () => {
+                mobileMenuOpen = !mobileMenuOpen;
+                if (mobileMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                    hamburgerBtn.querySelector('.material-symbols-outlined').textContent = 'close';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    hamburgerBtn.querySelector('.material-symbols-outlined').textContent = 'menu';
+                }
+            });
+
+            // Language Toggle Logic
+            const LANG_KEY = 'nanaland-lang';
+            const defaultLang = 'zh';
+
+            function getCurrentLang() {
+                return localStorage.getItem(LANG_KEY) || defaultLang;
+            }
+
+            function applyLang(lang) {
+                const elements = document.querySelectorAll('[data-zh][data-en]');
+                elements.forEach(el => {
+                    el.textContent = el.getAttribute('data-' + lang);
+                });
+                // Update lang toggle button texts
+                document.querySelectorAll('.lang-text').forEach(span => {
+                    span.textContent = lang === 'zh' ? 'EN/中' : '中/EN';
+                });
+            }
+
+            function toggleLang() {
+                const current = getCurrentLang();
+                const next = current === 'zh' ? 'en' : 'zh';
+                localStorage.setItem(LANG_KEY, next);
+                applyLang(next);
+            }
+
+            // Init language on page load
+            const initLang = getCurrentLang();
+            applyLang(initLang);
+
+            // Desktop lang toggle
+            document.getElementById('lang-toggle').addEventListener('click', (e) => {
                 e.preventDefault();
-                isEn = !isEn;
-                const span = langBtn.querySelector('span:last-child');
-                span.textContent = isEn ? span.getAttribute('data-lang-en') : span.getAttribute('data-lang-cn');
-                // In a real app, this would trigger global state refresh without reload
+                toggleLang();
+            });
+
+            // Mobile lang toggle
+            document.getElementById('mobile-lang-toggle').addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleLang();
             });
         });
     </script>
