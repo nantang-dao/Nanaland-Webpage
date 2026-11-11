@@ -1,0 +1,110 @@
+/* 文档类页面统一使用与主站一致的顶部导航 */
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.12);
+}
+.site-nav-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.site-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Plus Jakarta Sans", "Microsoft YaHei", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ab3500;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: opacity .3s;
+}
+.site-brand:hover { opacity: .9; }
+.site-brand img {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .12);
+}
+.site-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.site-links a {
+    font-family: "Inter", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #594139;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color .3s, border-color .3s;
+}
+.site-links a:hover { color: #ab3500; }
+.site-links a.is-active {
+    color: #ab3500;
+    font-weight: 700;
+    border-bottom-color: #ab3500;
+}
+.site-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.site-lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 0;
+    background: none;
+    font-family: "Inter", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #594139;
+    cursor: pointer;
+    padding: 0;
+}
+.site-lang:hover { color: #ab3500; }
+.site-lang .material-symbols-outlined { font-size: 18px; }
+.site-connect {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C69 100%);
+    color: #fff;
+    font-family: "Inter", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.18);
+    transition: transform .3s, box-shadow .3s;
+}
+.site-connect:hover { transform: scale(1.02); box-shadow: 0 12px 32px rgba(255, 107, 53, 0.22); }
+
+@media (max-width: 900px) {
+    .site-links { display: none; }
+}
+@media (max-width: 560px) {
+    .site-nav-inner { height: 68px; padding: 0 20px; }
+    .site-brand { font-size: 20px; }
+    .site-brand img { width: 32px; height: 32px; border-radius: 10px; }
+    .site-connect { padding: 8px 16px; font-size: 13px; }
+}

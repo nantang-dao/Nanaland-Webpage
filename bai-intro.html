@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bai 详细介绍 - 记录每一份社区贡献</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="docs.css" rel="stylesheet"/>
+<link href="site-nav.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="site-nav">
+    <div class="site-nav-inner">
+        <a class="site-brand" href="index.html"><img src="picture/logo-n-code.svg" alt="nanaland logo"/>nanaland</a>
+        <ul class="site-links">
+            <li><a href="index.html" data-zh="概览" data-en="Overview">概览</a></li>
+            <li><a href="projects.html" data-zh="项目" data-en="Projects">项目</a></li>
+            <li><a href="about.html" data-zh="关于" data-en="About">关于</a></li>
+            <li><a href="join.html" data-zh="加入" data-en="Join">加入</a></li>
+        </ul>
+        <div class="site-actions">
+            <button class="site-lang" id="lang-toggle" type="button">
+                <span class="material-symbols-outlined">language</span>
+                <span data-zh="EN/中" data-en="中/EN">EN/中</span>
+            </button>
+            <a class="site-connect" href="join.html">Connect</a>
+        </div>
+    </div>
+</nav>
+
+<main class="wrap">
+    <!-- 中文 -->
+    <div class="lang-zh">
+        <section class="hero">
+            <div>
+                <p class="eyebrow">Bai · 完整介绍</p>
+                <h1>让社区协作<br/>有迹可循</h1>
+                <p class="sub">社区协作助手「白」（Bai）</p>
+                <p class="lede">一个开源的社区协作平台，也是一本记录社区贡献的「贡献记录本」。社区在这里发任务、发公告、办活动；成员领任务、交凭证、拿积分。每一份为社区出的力，都被写成一条可追溯的记录，公开、可信。</p>
+                <div class="chips">
+                    <span class="chip">开源 · GitHub</span>
+                    <span class="chip">Semi 统一登录</span>
+                    <span class="chip">任务 · 活动 · 商城</span>
+                    <span class="chip">链上备注存证</span>
+                </div>
+            </div>
+            <aside class="download-card">
+                <h3>完整版文档</h3>
+                <p>包含全部六个章节、技术细节与自行部署指南。</p>
+                <a class="btn primary" download="Bai-中文完整版.pdf" href="docs/bai-zh.pdf">下载中文完整版（PDF）</a>
+                <a class="btn ghost" download="Bai-English-Full.pdf" href="docs/bai-en.pdf">Download English PDF</a>
+                <span class="file-note">本页为导读；完整内容请下载文档阅读。</span>
+            </aside>
+        </section>
+
+        <h2 class="section-title">导读</h2>
+        <p class="section-sub">五分钟了解 Bai 为什么做、是什么、能做什么、怎么做到。</p>
+        <div class="grid">
+            <article class="card">
+                <span class="num">01 · 为什么做</span>
+                <h3>社区不缺热情，缺一个被看见的地方</h3>
+                <p>需求发在群里，刷两屏就沉了；报名靠接龙，谁报了谁没报要靠人点名；做完了，也只是在群里说一句「我弄好了」。社区越大、人越流动，「凭记忆办事」就越吃力——大家需要的，是一把公开的尺子。</p>
+            </article>
+            <article class="card">
+                <span class="num">02 · 它是什么</span>
+                <h3>社区的一间「公共大厅」</h3>
+                <p>墙上贴着公告，谁都不会错过社区正在发生的事；桌上摆着任务墙，谁需要帮忙、谁能帮忙，都写在明处；角落里有一本贡献记录本，记下每个人为社区做过什么。它背后接入 Semi，一个身份通行多个社区应用。</p>
+            </article>
+            <article class="card">
+                <span class="num">03 · 现在能做什么</span>
+                <h3>从发任务到发积分，全流程线上</h3>
+                <ul>
+                    <li>Semi 身份登录，社区广场浏览与加入</li>
+                    <li>发布、认领任务：积分、截止时间、凭证要求</li>
+                    <li>提交凭证、审核通过或驳回重交，全程留痕</li>
+                    <li>任务完成即发放社区积分</li>
+                    <li>办活动、社区商城与账单、公告与动态</li>
+                    <li>站内通知与个人主页故事线</li>
+                </ul>
+            </article>
+            <article class="card">
+                <span class="num">04 · 技术怎么做</span>
+                <h3>三层分工，前端不碰链</h3>
+                <p>Nuxt 3/Vue 3 前端部署在 Vercel；Node.js/Express/TypeScript 后端配 Supabase（PostgreSQL）与对象存储，部署在 Fly.io；Solidity + Hardhat 编写的备注合约 RemarkLogicV1 已上链，支持质押与自动发放，积分按约定的规则自动到账，全程可查。</p>
+            </article>
+            <article class="card">
+                <span class="num">05 · 与 Semi 的配合</span>
+                <h3>Semi 管身份，Bai 管记录</h3>
+                <p>登录是一次 OAuth 2.0 授权（授权码 + PKCE）；积分在 Semi 的 Safe 智能账户里发，手续费由平台代付，Bai 从头到尾不接触私钥。「发积分」与「写备注」在同一笔链上操作中完成，链上资金安全有保障，每个人的社区贡献也被同时记录下来。</p>
+            </article>
+            <article class="card">
+                <span class="num">06 · 下一步</span>
+                <h3>从点对点直付，走向先托管后放款</h3>
+                <p>计划把托管合约正式部署上线：任务赏金先锁定、验收通过才放款；商城确认收货后放款，活动在可取消截止后放款；并支持平台费与社区费、链上退款与自动对账。</p>
+            </article>
+        </div>
+
+        <div class="band">
+            <div>
+                <h3>阅读完整版</h3>
+                <p>选择中文或英文 PDF，下载后可离线阅读、转发或打印。</p>
+            </div>
+            <div class="actions">
+                <a class="btn primary" download="Bai-中文完整版.pdf" href="docs/bai-zh.pdf">中文 PDF</a>
+                <a class="btn ghost" download="Bai-English-Full.pdf" href="docs/bai-en.pdf">English PDF</a>
+            </div>
+        </div>
+
+        <div class="back"><a href="bai.html">← 返回 Bai 产品页</a></div>
+    </div>
+
+    <!-- English -->
+    <div class="lang-en" hidden>
+        <section class="hero">
+            <div>
+                <p class="eyebrow">Bai · Full Introduction</p>
+                <h1>Community collaboration,<br/>on the record</h1>
+                <p class="sub">Community Collaboration Assistant "Bai"</p>
+                <p class="lede">An open-source community collaboration platform and a contribution ledger for communities. Communities publish tasks, announcements and events; members claim tasks, submit proof and earn points. Every bit of effort becomes a traceable, public and trustworthy record.</p>
+                <div class="chips">
+                    <span class="chip">Open source · GitHub</span>
+                    <span class="chip">Sign in with Semi</span>
+                    <span class="chip">Tasks · Events · Marketplace</span>
+                    <span class="chip">On-chain remark proofs</span>
+                </div>
+            </div>
+            <aside class="download-card">
+                <h3>Full document</h3>
+                <p>All six chapters, technical details, and a self-hosting guide.</p>
+                <a class="btn primary" download="Bai-中文完整版.pdf" href="docs/bai-zh.pdf">下载中文完整版（PDF）</a>
+                <a class="btn ghost" download="Bai-English-Full.pdf" href="docs/bai-en.pdf">Download English PDF</a>
+                <span class="file-note">This page is an overview; download the full document for details.</span>
+            </aside>
+        </section>
+
+        <h2 class="section-title">Overview</h2>
+        <p class="section-sub">Five minutes on why Bai exists, what it is, what it does, and how it works.</p>
+        <div class="grid">
+            <article class="card">
+                <span class="num">01 · WHY</span>
+                <h3>Communities don't lack enthusiasm; they lack a place to be seen</h3>
+                <p>A request posted in a group chat sinks after two scrolls. Sign-ups rely on a rolling list, and someone has to call the roll. When work is done, it's just a message saying "finished." The larger and more fluid the community, the harder it is to run on memory alone — people need a community app that brings all of this together in an organised way, which is exactly why we built Bai.</p>
+            </article>
+            <article class="card">
+                <span class="num">02 · WHAT</span>
+                <h3>A shared "public hall" for the community</h3>
+                <p>Announcements on the wall so nobody misses what's happening; a task wall on the table showing who needs help and who can help; and a contribution ledger in the corner recording what each person has done. It connects to Semi, so one identity works across community apps.</p>
+            </article>
+            <article class="card">
+                <span class="num">03 · WHAT IT DOES</span>
+                <h3>From publishing a task to issuing points — all online</h3>
+                <ul>
+                    <li>Sign in with Semi, browse and join communities</li>
+                    <li>Publish and claim tasks: points, deadlines, proof requirements</li>
+                    <li>Submit proof, approve or reject with resubmission, fully logged</li>
+                    <li>Community points issued on task completion</li>
+                    <li>Events, community marketplace and billing, announcements</li>
+                    <li>In-app notifications and a personal story timeline</li>
+                </ul>
+            </article>
+            <article class="card">
+                <span class="num">04 · HOW</span>
+                <h3>Three layers; the frontend never touches the chain</h3>
+                <p>A Nuxt 3/Vue 3 frontend on Vercel; a Node.js/Express/TypeScript backend with Supabase (PostgreSQL and storage) on Fly.io; and the RemarkLogicV1 remark contract written in Solidity and deployed with Hardhat, now live on-chain with staking and automatic distribution — points arrive by the agreed rules, fully auditable.</p>
+            </article>
+            <article class="card">
+                <span class="num">05 · WITH SEMI</span>
+                <h3>Semi handles identity, Bai handles records</h3>
+                <p>Login is an OAuth 2.0 authorization (authorization code + PKCE). Points are issued from Semi's Safe smart accounts with platform-sponsored gas, and Bai never touches private keys. "Issue points" and "write remark" happen in the same on-chain operation, keeping funds safe while recording each person's contribution to the community.</p>
+            </article>
+            <article class="card">
+                <span class="num">06 · NEXT</span>
+                <h3>From direct payment to escrow-then-release</h3>
+                <p>The plan is to deploy the escrow contract: task rewards are locked first and released on approval; marketplace orders release on delivery confirmation, events after the cancellation deadline; plus platform and community fees, on-chain refunds and automatic reconciliation.</p>
+            </article>
+        </div>
+
+        <div class="band">
+            <div>
+                <h3>Read the full document</h3>
+                <p>Choose the Chinese or English PDF to read offline, share, or print.</p>
+            </div>
+            <div class="actions">
+                <a class="btn primary" download="Bai-中文完整版.pdf" href="docs/bai-zh.pdf">中文 PDF</a>
+                <a class="btn ghost" download="Bai-English-Full.pdf" href="docs/bai-en.pdf">English PDF</a>
+            </div>
+        </div>
+
+        <div class="back"><a href="bai.html">← Back to the Bai product page</a></div>
+    </div>
+</main>
+
+<footer>
+    <div class="wrap">
+        <span data-zh="© 2026 nanaland community" data-en="© 2026 nanaland community">© 2026 nanaland community</span>
+        <span><a href="mailto:nantangdao@outlook.com">nantangdao@outlook.com</a> · <a href="https://github.com/nantang-dao" rel="noopener" target="_blank">GitHub</a></span>
+    </div>
+</footer>
+
+<script>
+    function getLang() { return localStorage.getItem('nanaland-lang') || 'zh'; }
+    function setLang(lang) {
+        localStorage.setItem('nanaland-lang', lang);
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        document.querySelectorAll('[data-zh]').forEach(function (el) {
+            el.textContent = el.getAttribute('data-' + lang);
+        });
+        document.querySelectorAll('.lang-zh').forEach(function (el) { el.hidden = lang !== 'zh'; });
+        document.querySelectorAll('.lang-en').forEach(function (el) { el.hidden = lang !== 'en'; });
+        document.title = lang === 'zh'
+            ? 'Bai 详细介绍 - 记录每一份社区贡献'
+            : 'Bai — Community collaboration, on the record';
+    }
+    document.getElementById('lang-toggle').addEventListener('click', function () {
+        setLang(getLang() === 'zh' ? 'en' : 'zh');
+    });
+    setLang(getLang());
+</script>
+</body>
+</html>

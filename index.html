@@ -141,7 +141,8 @@
 <nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-on-background/85 backdrop-blur-xl backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] shadow-sm dark:shadow-none" id="main-nav">
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
 <!-- Brand -->
-<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">
+<a class="flex items-center gap-2.5 font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="index.html">
+<img src="picture/logo-n-code.svg" alt="nanaland logo" class="w-9 h-9 rounded-[11px] shadow-sm"/>
                 nanaland
             </a>
 <!-- Navigation Links (Desktop) -->
@@ -198,8 +199,8 @@
                                 </span>
 </div>
 <h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface">
-                                <span data-zh="构建可信数字家园" data-en="Build Your Trusted Digital Land">构建可信数字家园</span> <br>
-<span class="text-gradient" data-zh="构建可信数字家园" data-en="Build Your Trusted Digital Land">构建可信数字家园</span>
+<span class="block" data-zh="构建可信数字家园" data-en="Build Your Trusted Digital Land">构建可信数字家园</span>
+<span aria-hidden="true" class="block text-gradient opacity-30 select-none pointer-events-none" style="transform: scaleY(-1); filter: blur(2px);" data-zh="构建可信数字家园" data-en="Build Your Trusted Digital Land">构建可信数字家园</span>
 </h1>
 <p class="font-body-lg text-body-lg text-text-muted max-w-2xl" data-zh="加入一个充满活力的生态系统，在社区驱动的乡村建设的有机温度与区块链技术的精确性之间取得平衡。通过可编程信任赋能本地化 DAO。" data-en="Join a vibrant ecosystem balancing the organic warmth of community-driven rural construction with the precision of blockchain technology. Empowering localized DAOs through programmable trust.">
                                 加入一个充满活力的生态系统，在社区驱动的乡村建设的有机温度与区块链技术的精确性之间取得平衡。通过可编程信任赋能本地化 DAO。
@@ -208,15 +209,15 @@
 <a class="btn-primary text-white font-label-lg text-label-lg px-8 py-4 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)]" href="projects.html" data-zh="探索我们的产品" data-en="Explore Products">
                                     探索我们的产品
                                 </a>
-<button class="px-8 py-4 rounded-xl font-label-lg text-label-lg text-on-surface border-[1.5px] border-outline-variant/50 hover:border-primary/50 hover:bg-white/50 transition-all duration-300" data-zh="阅读文档" data-en="Read Documentation">
+<a class="px-8 py-4 rounded-xl font-label-lg text-label-lg text-on-surface border-[1.5px] border-outline-variant/50 hover:border-primary/50 hover:bg-white/50 transition-all duration-300" href="docs.html" data-zh="阅读文档" data-en="Read Documentation">
                                     阅读文档
-                                </button>
+                                </a>
 </div>
 </div>
 <div class="lg:col-span-5 relative mt-12 lg:mt-0">
 <!-- Hero Image placeholder using image generation prompt -->
 <div class="relative w-full aspect-square rounded-3xl overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.05)] border border-white/40">
-<img alt="Neo-Natural Tech Abstract" class="w-full h-full object-cover" data-alt="A bright, optimistic digital abstract composition representing a neo-natural tech ecosystem. Soft geometric shapes in warm oranges and vibrant greens float effortlessly over a fluid, translucent background. The lighting is soft, diffuse, and high-key, creating an airy glassmorphism effect. The overall mood is modern, welcoming, and technologically advanced, perfectly capturing the Bright Neo-Natural Tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc9ILRow_vSyZdf1UxU_RCu9EdTY4FzA7etFkTmKYwcwSs4ycaiknmE9-q-bqazcFbvY8pURDJ2DHj6wjBhf11vOfhVzpIKRxjeGUsoiJzYZfps-sLn-CZtw2aNQvrlKXhVJKbDH7Fny24pdpRwKOuQVzrIO2PdFf-zRS3vlwqj3xfT7MvCTUtoEc4VLG_SPdQrWl-_d_HKl4eNH6hqc7Lfti1XFk26IOvAdYv6GtqEWmP1fOR4EuTyxCs8oVhzH2U1To6qWiOm0BZ">
+<img alt="Neo-Natural Tech Abstract" class="w-full h-full object-cover" src="picture/hero-village-v2.svg">
 <!-- Floating UI element -->
 <div class="absolute bottom-6 left-6 right-6 glass-panel rounded-2xl p-4 flex items-center justify-between">
 <div class="flex items-center gap-3">
@@ -244,7 +245,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <!-- Product Card: SEMI -->
-<div class="glass-panel rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] group">
+<a class="glass-panel rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] group block" href="semi.html">
 <div class="w-16 h-16 rounded-2xl bg-primary-container text-on-primary-container flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-[32px]">account_balance_wallet</span>
 </div>
@@ -253,9 +254,9 @@
                                 面向社区成员的基础数字钱包与身份层，确保安全交易和可验证凭证。
                             </p>
 
-</div>
+</a>
 <!-- Product Card: bai -->
-<div class="glass-panel rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(101,250,222,0.18)] group relative overflow-hidden">
+<a class="glass-panel rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(101,250,222,0.18)] group relative overflow-hidden block" href="bai.html">
 <div class="w-16 h-16 rounded-2xl bg-secondary-container text-on-secondary-container flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-[32px]">hub</span>
 </div>
@@ -264,9 +265,9 @@
                                 去中心化资源映射与空间协调协议，连接物理资产与链上验证。
                             </p>
 
-</div>
+</a>
 <!-- Product Card: vote -->
-<div class="glass-panel rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,167,203,0.18)] group">
+<a class="glass-panel rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,167,203,0.18)] group block" href="vote.html">
 <div class="w-16 h-16 rounded-2xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-[32px]">how_to_vote</span>
 </div>
@@ -275,7 +276,7 @@
                                 游戏化、透明的治理模块，赋能集体决策并协调社区激励。
                             </p>
 
-</div>
+</a>
 </div><div class="flex justify-center mt-12">
     <a href="projects.html" class="btn-primary text-white font-label-lg text-label-lg px-10 py-3 rounded-full shadow-[0_8px_24px_rgba(255,107,53,0.12)]" data-zh="查看详情" data-en="See Details">
         查看详情
@@ -315,14 +316,14 @@
                                     了解农村合作社如何利用 nanaland 的可编程基础设施来管理共享资源、公平分配收益，并基于无信任协调建立弹性本地经济。
                                 </p>
 <div>
-<button class="font-label-lg text-label-lg text-on-surface border-[1.5px] border-outline-variant rounded-xl px-6 py-3 hover:bg-primary hover:text-white hover:border-primary transition-colors duration-300 flex items-center gap-2" data-zh="阅读南塘故事" data-en="Read the Nantang Story">
+<a class="font-label-lg text-label-lg text-on-surface border-[1.5px] border-outline-variant rounded-xl px-6 py-3 hover:bg-primary hover:text-white hover:border-primary transition-colors duration-300 inline-flex items-center gap-2" href="case-study.html" data-zh="阅读南塘故事" data-en="Read the Nantang Story">
                                         阅读南塘故事
                                         <span class="material-symbols-outlined">menu_book</span>
-</button>
+</a>
 </div>
 </div>
 <div class="h-64 lg:h-auto bg-surface-container-high relative">
-<img alt="Nantang DAO Village" class="absolute inset-0 w-full h-full object-cover mix-blend-luminosity opacity-80" data-alt="A serene, high-quality photograph of a modern, sustainable rural community village integrated with subtle digital overlays. Soft, warm sunlight illuminates green agricultural terraces and contemporary wooden structures. The bright neo-natural tech aesthetic is maintained through airy composition and vibrant orange graphical accents subtly layered into the scene, symbolizing the fusion of nature and blockchain technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF8ksUuNycTODH74LLZj1sHGtkQPpL-EAddzcyePmY-T9iMEet20PCikM9hjZN7q0ysdsLlQOziryZ6iGL8QVaJHWktnZq9iftgZ4EzpOgwcjjeJ6U1VY3UeuWht5D_S-Jp49ifSt0jUQIJQXtISa2kzGbTVk_fUOGe-JmqTMJnsPkzdBm2GY7esx8IXll45sghbe93ECU3yzcalH9mRqdim_EdwLwjC_A4-l69SreBO_0fknDNl0IsHOUQZaBGKqMtw5UYfd4Z89p">
+<img alt="Nantang DAO Village" class="absolute inset-0 w-full h-full object-cover mix-blend-luminosity opacity-80" data-alt="A serene, high-quality photograph of a modern, sustainable rural community village integrated with subtle digital overlays. Soft, warm sunlight illuminates green agricultural terraces and contemporary wooden structures. The bright neo-natural tech aesthetic is maintained through airy composition and vibrant orange graphical accents subtly layered into the scene, symbolizing the fusion of nature and blockchain technology." src="picture/nantang-village.png">
 <div class="absolute inset-0 bg-gradient-to-r from-white/90 to-transparent lg:block hidden"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-white/90 to-transparent lg:hidden block"></div>
 </div>
@@ -355,9 +356,20 @@
 <div>
 <h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6" data-zh="生态" data-en="Ecosystem">生态</h4>
 <ul class="space-y-4">
-<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="产品概览" data-en="Product Overview">产品概览</a></li>
-<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="关于我们" data-en="About Us">关于我们</a></li>
-<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="加入我们" data-en="Join Us">加入我们</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="projects.html" data-zh="产品概览" data-en="Product Overview">产品概览</a></li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="https://semi.ntdao.xyz/" target="_blank" rel="noopener">
+                            SEMI
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="https://bai.ntdao.xyz/" target="_blank" rel="noopener">
+                            BAI
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="join.html" data-zh="加入我们" data-en="Join Us">加入我们</a></li>
 </ul>
 </div>
 <!-- Links Column 2 -->
@@ -365,7 +377,7 @@
 <h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6" data-zh="连接" data-en="Connect">连接</h4>
 <ul class="space-y-4">
 <li class="">
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="#">
+<a href="https://github.com/nantang-dao" target="_blank" rel="noopener" class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2">
                             GitHub
                             <span class="material-symbols-outlined text-[16px]">open_in_new</span>
 </a>

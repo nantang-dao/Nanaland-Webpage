@@ -137,9 +137,10 @@
 <nav class="bg-white/85 dark:bg-on-background/85 backdrop-blur-xl fixed top-0 w-full z-50 backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] shadow-sm dark:shadow-none transition-all duration-300 cubic-bezier(0.2, 0.8, 0.2, 1)">
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
 <!-- Brand -->
-<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+<a class="flex items-center gap-2.5 font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim hover:opacity-90 transition-all duration-300" href="index.html">
+<img src="picture/logo-n-code.svg" alt="nanaland logo" class="w-9 h-9 rounded-[11px] shadow-sm"/>
                 nanaland
-            </div>
+            </a>
 <!-- Links (Desktop) -->
 <div class="hidden md:flex gap-8 items-center">
 <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all cubic-bezier(0.2,0.8,0.2,1)" href="index.html" data-zh="概览" data-en="Overview">概览</a>
@@ -186,22 +187,31 @@
                     我们永远欢迎有想法的伙伴。不论你是开发者、设计师、社区运营者，还是只想聊聊，都欢迎联系。
                 </p>
 <div class="w-16 h-1 bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end rounded-full mt-4"></div>
+<a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-primary hover:opacity-80 transition-opacity w-fit" href="mailto:nantangdao@outlook.com">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+                    nantangdao@outlook.com
+                </a>
 </div>
 <!-- Contact Form Component -->
 <div class="lg:col-span-7">
 <div class="glass-panel rounded-[32px] p-8 md:p-12 relative overflow-hidden group hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] transition-shadow duration-500">
-<form class="flex flex-col gap-6 relative z-10 transition-opacity duration-500" id="contact-form">
+<!-- 表单优先通过 FormSubmit 直接发到 nantangdao@outlook.com（无需注册账号）；
+     若 FormSubmit 未激活或请求失败，会自动回退到打开本机邮件客户端并预填内容，保证一定能联系到我们。 -->
+<form accept-charset="UTF-8" action="https://formsubmit.co/ajax/nantangdao@outlook.com" method="POST" class="flex flex-col gap-6 relative z-10 transition-opacity duration-500" id="contact-form">
+<input name="_subject" type="hidden" value="nanaland 网站新消息">
+<input name="_captcha" type="hidden" value="false">
+<input name="_template" type="hidden" value="table">
 <div>
 <label class="block font-label-lg text-label-lg text-on-surface-variant mb-2" data-zh="你的称呼" data-en="Your Name">你的称呼</label>
-<input class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" placeholder="你的名字或昵称" data-zh-placeholder="你的名字或昵称" data-en-placeholder="Your name or nickname" required="" type="text">
+<input class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" name="name" placeholder="你的名字或昵称" data-zh-placeholder="你的名字或昵称" data-en-placeholder="Your name or nickname" required="" type="text">
 </div>
 <div>
 <label class="block font-label-lg text-label-lg text-on-surface-variant mb-2" data-zh="你的邮箱" data-en="Your Email">你的邮箱</label>
-<input class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" placeholder="your@email.com" required="" type="email">
+<input class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" name="email" placeholder="请填入你的邮箱地址@email.com" data-zh-placeholder="请填入你的邮箱地址@email.com" data-en-placeholder="your@email.com" required="" type="email">
 </div>
 <div>
 <label class="block font-label-lg text-label-lg text-on-surface-variant mb-2" data-zh="想说的话" data-en="Your Message">想说的话</label>
-<textarea class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all resize-none" placeholder="介绍一下自己，或者你想和我们一起做的事..." data-zh-placeholder="介绍一下自己，或者你想和我们一起做的事..." data-en-placeholder="Tell us about yourself, or what you'd like to do with us..." required="" rows="4"></textarea>
+<textarea class="w-full bg-[#F9F9FC] border border-transparent rounded-[12px] px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all resize-none" name="message" placeholder="介绍一下自己，或者你想和我们一起做的事..." data-zh-placeholder="介绍一下自己，或者你想和我们一起做的事..." data-en-placeholder="Tell us about yourself, or what you'd like to do with us..." required="" rows="4"></textarea>
 </div>
 <button class="mt-4 bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white py-4 rounded-[12px] font-label-lg text-label-lg flex justify-center items-center gap-2 hover:scale-[1.02] transition-transform duration-300 shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)]" type="submit">
 <span class="" data-zh="发送" data-en="Send">发送</span>
@@ -213,6 +223,11 @@
 <span class="material-symbols-outlined text-[80px] text-secondary mb-6 scale-50 transition-transform duration-500 delay-100" id="success-icon">check_circle</span>
 <p class="font-headline-md text-headline-md text-on-surface font-semibold text-center px-4" data-zh="已成功发送，感谢您的联系" data-en="Message sent successfully, thank you for reaching out">已成功发送，感谢您的联系</p>
 </div>
+<!-- Error Message Overlay -->
+<div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500 z-20 bg-white/90 backdrop-blur-sm rounded-[32px]" id="error-message">
+<span class="material-symbols-outlined text-[80px] text-error mb-6">error</span>
+<p class="font-headline-md text-headline-md text-on-surface font-semibold text-center px-4" data-zh="发送失败，请稍后重试，或直接邮件联系我们" data-en="Failed to send. Please try again, or email us directly.">发送失败，请稍后重试，或直接邮件联系我们</p>
+</div>
 <!-- Decorative Blob -->
 <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-primary-fixed-dim/30 rounded-full blur-[40px] z-0"></div>
 </div>
@@ -220,59 +235,136 @@
 </div>
 </main>
 <!-- Footer -->
-<footer class="bg-surface-container-lowest dark:bg-inverse-surface w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20">
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20 relative z-20">
 <div class="max-w-[1280px] mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
-<div class="md:col-span-1 flex flex-col gap-4">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-2">
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">
                     nanaland
                 </div>
-<p class="font-body-md text-body-md text-on-surface-variant">
-                    © 2024 nanaland community. All rights reserved.
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant max-w-sm" data-zh="将物理社区的有机温度与 Web3 技术的精确性连接起来。" data-en="Bridging the organic warmth of physical communities with the precision of Web3 technology.">
+                    将物理社区的有机温度与 Web3 技术的精确性连接起来。
                 </p>
+<div class="mt-8 font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant">
+                    © 2024 nanaland community. All rights reserved.
+                </div>
 </div>
-<div class="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
-<div class="flex flex-col gap-4">
-<h4 class="font-label-lg text-label-lg text-primary font-semibold" data-zh="链接" data-en="Links">链接</h4>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#" data-zh="产品概览" data-en="Product Overview">产品概览</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#" data-zh="关于我们" data-en="About Us">关于我们</a>
-<a class="font-body-md text-body-md text-primary font-semibold hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="加入我们" data-en="Join Us">加入我们</a>
+<!-- Links Column 1 -->
+<div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6" data-zh="生态" data-en="Ecosystem">生态</h4>
+<ul class="space-y-4">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="projects.html" data-zh="产品概览" data-en="Product Overview">产品概览</a></li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="https://semi.ntdao.xyz/" target="_blank" rel="noopener">
+                            SEMI
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="https://bai.ntdao.xyz/" target="_blank" rel="noopener">
+                            BAI
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="join.html" data-zh="加入我们" data-en="Join Us">加入我们</a></li>
+</ul>
 </div>
-<div class="flex flex-col gap-4">
-<h4 class="font-label-lg text-label-lg text-primary font-semibold" data-zh="社交" data-en="Social">社交</h4>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">GitHub</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">Twitter</a>
-</div>
+<!-- Links Column 2 -->
+<div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6" data-zh="连接" data-en="Connect">连接</h4>
+<ul class="space-y-4">
+<li class="">
+<a href="https://github.com/nantang-dao" target="_blank" rel="noopener" class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2">
+                            GitHub
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="#">
+                            Twitter
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+</ul>
 </div>
 </div>
 </footer>
 <script>
-        document.getElementById('contact-form').addEventListener('submit', (e) => {
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const form = e.target;
             const successMsg = document.getElementById('success-message');
             const successIcon = document.getElementById('success-icon');
-            
-            // Hide form, show success message
-            form.classList.add('opacity-0', 'pointer-events-none');
-            successMsg.classList.remove('opacity-0', 'pointer-events-none');
-            
-            // Animate icon
-            setTimeout(() => {
-                successIcon.classList.remove('scale-50');
-                successIcon.classList.add('scale-100');
-            }, 50);
+            const successText = successMsg.querySelector('p');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
 
-            // Reset after 3 seconds
-            setTimeout(() => {
-                successMsg.classList.add('opacity-0', 'pointer-events-none');
-                successIcon.classList.remove('scale-100');
-                successIcon.classList.add('scale-50');
-                
+            const data = new FormData(form);
+            const name = (data.get('name') || '').toString().trim();
+            const email = (data.get('email') || '').toString().trim();
+            const message = (data.get('message') || '').toString().trim();
+
+            const showOverlay = (zh, en) => {
+                successText.setAttribute('data-zh', zh);
+                successText.setAttribute('data-en', en);
+                successText.textContent = (localStorage.getItem('nanaland-lang') === 'en') ? en : zh;
+                form.classList.add('opacity-0', 'pointer-events-none');
+                successMsg.classList.remove('opacity-0', 'pointer-events-none');
                 setTimeout(() => {
-                    form.classList.remove('opacity-0', 'pointer-events-none');
-                    form.reset();
-                }, 500); // Wait for fade out before showing form again
-            }, 3000);
+                    successIcon.classList.remove('scale-50');
+                    successIcon.classList.add('scale-100');
+                }, 50);
+                setTimeout(() => {
+                    successMsg.classList.add('opacity-0', 'pointer-events-none');
+                    successIcon.classList.remove('scale-100');
+                    successIcon.classList.add('scale-50');
+                    setTimeout(() => {
+                        form.classList.remove('opacity-0', 'pointer-events-none');
+                        form.reset();
+                        submitBtn.disabled = false;
+                        successText.setAttribute('data-zh', '已成功发送，感谢您的联系');
+                        successText.setAttribute('data-en', 'Message sent successfully, thank you for reaching out');
+                        successText.textContent = (localStorage.getItem('nanaland-lang') === 'en')
+                            ? 'Message sent successfully, thank you for reaching out'
+                            : '已成功发送，感谢您的联系';
+                    }, 500);
+                }, 3000);
+            };
+
+            const openMailClient = () => {
+                const subject = 'nanaland 网站新消息';
+                const body = '称呼：' + name + '\n邮箱：' + email + '\n\n' + message;
+                window.location.href = 'mailto:nantangdao@outlook.com'
+                    + '?subject=' + encodeURIComponent(subject)
+                    + '&body=' + encodeURIComponent(body);
+            };
+
+            let sent = false;
+            try {
+                const controller = new AbortController();
+                const timer = setTimeout(() => controller.abort(), 8000);
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' },
+                    signal: controller.signal
+                });
+                clearTimeout(timer);
+                if (res.ok) {
+                    const json = await res.json().catch(() => ({}));
+                    sent = String(json.success) === 'true' || json.success === true;
+                }
+            } catch (err) {
+                sent = false;
+            }
+
+            if (sent) {
+                showOverlay('已成功发送，感谢您的联系', 'Message sent successfully, thank you for reaching out');
+            } else {
+                // FormSubmit 未激活 / 网络异常时，退回到本机邮件客户端，内容已预填
+                openMailClient();
+                showOverlay('已为你打开邮件客户端，点击发送即可完成联系', 'Your email app is open — just hit send to reach us');
+            }
         });
     </script>
 

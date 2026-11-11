@@ -263,12 +263,32 @@ body {
 .animate-page-in {
   animation: pageIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
+/* ===== 窄屏：按钮文字与手机整体等比压缩，保持「按钮 1/3、手机 2/3」的版式比例 ===== */
+#phone-frame {
+  transform: scale(var(--phone-scale, 1));
+  transform-origin: center center;
+}
+#phone-container { align-items: center; }
+@media (max-width: 1023px) {
+  .btn-functional { padding: clamp(8px, 1.6vw, 20px); }
+  .btn-functional .font-headline-md {
+    font-size: clamp(13px, 2.2vw, 22px);
+    line-height: 1.25;
+  }
+  .btn-functional p {
+    font-size: clamp(10px, 1.45vw, 14px);
+    line-height: 1.4;
+  }
+  .btn-functional .material-symbols-outlined {
+    font-size: clamp(15px, 2.2vw, 30px);
+  }
+}
 </style>
 </head>
 <body class="text-on-surface overflow-x-hidden font-body-md animate-page-in">
 <nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-on-background/85 backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)]">
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
-<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">nanaland</div>
+<a class="flex items-center gap-2.5 font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim hover:opacity-90 transition-all duration-300" href="index.html"><img src="picture/logo-n-code.svg" alt="nanaland logo" class="w-9 h-9 rounded-[11px] shadow-sm"/>nanaland</a>
 <div class="hidden md:flex gap-8 items-center">
 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="index.html" data-zh="概览" data-en="Overview">Overview</a>
 <a class="text-primary border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg" href="projects.html" data-zh="项目" data-en="Projects">Projects</a>
@@ -300,46 +320,47 @@ body {
 </h1>
 <p class="font-body-lg text-body-lg text-text-muted" data-zh="bai 任务系统，让每一次社区参与都充满乐趣与回报。" data-en="bai Task System — making every community participation fun and rewarding.">bai 任务系统，让每一次社区参与都充满乐趣与回报。</p>
 <div class="flex flex-col gap-3 mt-6">
+<a class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary text-white font-label-lg text-label-lg hover:scale-105 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit mx-auto" href="bai-intro.html" data-zh="详细介绍 &amp; 文档下载" data-en="Full intro &amp; docs">详细介绍 &amp; 文档下载</a>
 <a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit mx-auto" href="projects.html" data-zh="← 返回" data-en="← Back">← 返回</a>
 <a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit mx-auto" href="vote.html" data-zh="下一个产品 →" data-en="Next →">下一个产品 →</a>
 </div>
 </div>
 
-<div class="flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
-<div class="flex flex-col gap-6 w-full md:w-1/3 z-20">
-<button class="btn-functional active glass-card rounded-[24px] py-6 px-8 text-left group" id="btn-social" onclick="switchFeature('social')">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">forum</span>
+<div class="flex flex-row items-center justify-between gap-3 md:gap-12 relative z-10">
+<div class="flex flex-col gap-2 md:gap-6 w-[40%] md:w-1/3 z-20 shrink-0">
+<button class="btn-functional active glass-card rounded-2xl md:rounded-[24px] py-3 px-3 md:py-6 md:px-8 text-left group" id="btn-social" onclick="switchFeature('social')">
+<div class="flex items-center gap-2 md:gap-4">
+<span class="material-symbols-outlined text-xl md:text-3xl text-primary group-hover:text-white transition-colors">forum</span>
 <span class="font-headline-md text-headline-md" data-zh="社区圈互动" data-en="Social Circle">社区圈互动</span>
 </div>
-<p class="mt-2 font-body-md text-body-md opacity-80" data-zh="分享动态，点赞评论，建立社区连接。" data-en="Share updates, like and comment, build community connections.">分享动态，点赞评论，建立社区连接。</p>
+<p class="mt-1 text-[10px] leading-snug font-body-md opacity-80 md:mt-2 md:text-body-md" data-zh="分享动态，点赞评论，建立社区连接。" data-en="Share updates, like and comment, build community connections.">分享动态，点赞评论，建立社区连接。</p>
 </button>
-<button class="btn-functional glass-card rounded-[24px] py-6 px-8 text-left group" id="btn-task" onclick="switchFeature('task')">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">task_alt</span>
+<button class="btn-functional glass-card rounded-2xl md:rounded-[24px] py-3 px-3 md:py-6 md:px-8 text-left group" id="btn-task" onclick="switchFeature('task')">
+<div class="flex items-center gap-2 md:gap-4">
+<span class="material-symbols-outlined text-xl md:text-3xl text-primary group-hover:text-white transition-colors">task_alt</span>
 <span class="font-headline-md text-headline-md" data-zh="任务与审核" data-en="Tasks & Review">任务与审核</span>
 </div>
-<p class="mt-2 font-body-md text-body-md opacity-80" data-zh="领取社区任务，上传凭证，获取积分奖励。" data-en="Claim community tasks, upload proofs, earn point rewards.">领取社区任务，上传凭证，获取积分奖励。</p>
+<p class="mt-1 text-[10px] leading-snug font-body-md opacity-80 md:mt-2 md:text-body-md" data-zh="领取社区任务，上传凭证，获取积分奖励。" data-en="Claim community tasks, upload proofs, earn point rewards.">领取社区任务，上传凭证，获取积分奖励。</p>
 </button>
-<button class="btn-functional glass-card rounded-[24px] py-6 px-8 text-left group" id="btn-calendar" onclick="switchFeature('calendar')">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">calendar_month</span>
+<button class="btn-functional glass-card rounded-2xl md:rounded-[24px] py-3 px-3 md:py-6 md:px-8 text-left group" id="btn-calendar" onclick="switchFeature('calendar')">
+<div class="flex items-center gap-2 md:gap-4">
+<span class="material-symbols-outlined text-xl md:text-3xl text-primary group-hover:text-white transition-colors">calendar_month</span>
 <span class="font-headline-md text-headline-md" data-zh="活动日历" data-en="Event Calendar">活动日历</span>
 </div>
-<p class="mt-2 font-body-md text-body-md opacity-80" data-zh="查看并报名社区活动，不错过精彩瞬间。" data-en="View and sign up for community events, never miss a moment.">查看并报名社区活动，不错过精彩瞬间。</p>
+<p class="mt-1 text-[10px] leading-snug font-body-md opacity-80 md:mt-2 md:text-body-md" data-zh="查看并报名社区活动，不错过精彩瞬间。" data-en="View and sign up for community events, never miss a moment.">查看并报名社区活动，不错过精彩瞬间。</p>
 </button>
-<button class="btn-functional glass-card rounded-[24px] py-6 px-8 text-left group" id="btn-store" onclick="switchFeature('store')">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">storefront</span>
+<button class="btn-functional glass-card rounded-2xl md:rounded-[24px] py-3 px-3 md:py-6 md:px-8 text-left group" id="btn-store" onclick="switchFeature('store')">
+<div class="flex items-center gap-2 md:gap-4">
+<span class="material-symbols-outlined text-xl md:text-3xl text-primary group-hover:text-white transition-colors">storefront</span>
 <span class="font-headline-md text-headline-md" data-zh="积分商城" data-en="Points Store">积分商城</span>
 </div>
-<p class="mt-2 font-body-md text-body-md opacity-80" data-zh="使用积分兑换社区专属商品与权益。" data-en="Use points to redeem community-exclusive goods and perks.">使用积分兑换社区专属商品与权益。</p>
+<p class="mt-1 text-[10px] leading-snug font-body-md opacity-80 md:mt-2 md:text-body-md" data-zh="使用积分兑换社区专属商品与权益。" data-en="Use points to redeem community-exclusive goods and perks.">使用积分兑换社区专属商品与权益。</p>
 </button>
 </div>
 
-<div class="absolute left-1/3 top-1/2 -translate-y-1/2 -translate-x-1/2 z-30 opacity-0 pointer-events-none transition-all duration-500 glass-card p-6 rounded-2xl w-64 transform scale-95" id="dialog-task-progress">
-<h3 class="font-headline-md text-headline-md text-primary mb-4" data-zh="任务进度" data-en="Task Progress">任务进度</h3>
-<div class="flex flex-col font-body-md text-body-md" id="progress-steps">
+<div class="absolute left-[42%] md:left-1/3 top-1/2 -translate-y-1/2 -translate-x-1/2 z-30 opacity-0 pointer-events-none transition-all duration-500 glass-card p-3 md:p-6 rounded-2xl w-36 md:w-64 transform scale-95" id="dialog-task-progress">
+<h3 class="text-xs md:text-headline-md md:font-headline-md font-semibold text-primary mb-2 md:mb-4" data-zh="任务进度" data-en="Task Progress">任务进度</h3>
+<div class="flex flex-col text-[10px] md:text-body-md md:font-body-md" id="progress-steps">
 <div class="flex items-start gap-2" id="step-1">
 <span class="material-symbols-outlined text-sm mt-0.5 step-icon">radio_button_unchecked</span>
 <span class="step-label" data-zh="任务创建" data-en="Task Created">任务创建</span>
@@ -367,7 +388,7 @@ body {
 </div>
 </div>
 
-<div class="w-full md:w-2/3 flex justify-center md:justify-end relative phone-mockup" id="phone-container">
+<div class="flex-1 min-w-0 flex justify-center md:justify-end relative phone-mockup" id="phone-container">
 <div class="relative w-[340px] h-[680px] bg-white rounded-[48px] shadow-[0_24px_64px_rgba(255,107,53,0.15)] border-[8px] border-surface-container-highest overflow-hidden" id="phone-frame">
 <div id="auto-cursor"></div>
 
@@ -412,8 +433,8 @@ body {
 </div>
 <div class="task-card cursor-pointer" onclick="taskGoSub('task-detail')">
 <div class="flex items-center gap-2 mb-2">
-<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-[10px] text-white">蓝莓</div>
-<div><div class="text-[10px] font-bold">野生蓝莓</div><div class="text-[8px] text-text-muted">发布于 20天前</div></div>
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-[10px] text-white">X</div>
+<div><div class="text-[10px] font-bold">xboring</div><div class="text-[8px] text-text-muted">发布于 20天前</div></div>
 </div>
 <div class="font-bold text-sm mb-1 line-clamp-1">开发者社区例会</div>
 <div class="text-[10px] text-text-muted mb-3 line-clamp-2">每周同步开始尝试用meeting开会</div>
@@ -497,13 +518,13 @@ body {
 <span class="material-symbols-outlined text-5xl text-white/60">volunteer_activism</span>
 </div>
 <div class="flex items-center gap-2 mb-3">
-<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold">蓝莓</div>
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-xs font-bold">展</div>
 <div>
-<div class="font-bold text-sm">野生蓝莓</div>
-<div class="text-[10px] text-text-muted">发布于 54天前</div>
+<div class="font-bold text-sm">展</div>
+<div class="text-[10px] text-text-muted">发布于 2天前</div>
 </div>
 </div>
-<h2 class="text-xl font-bold mb-2">开发者社区例会</h2>
+<h2 class="text-xl font-bold mb-2">社区清洁行动</h2>
 <div class="flex items-center gap-2 mb-3">
 <span class="material-symbols-outlined text-secondary text-sm">schedule</span>
 <span class="text-sm text-text-muted">截止时间: 2026/06/15</span>
@@ -513,16 +534,16 @@ body {
 <span class="material-symbols-outlined text-[14px]">group</span> 需要 5 人
 </div>
 <div class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">stars</span> 25 积分
+<span class="material-symbols-outlined text-[14px]">stars</span> 150 积分
 </div>
 </div>
 <div class="bg-surface-container-low p-4 rounded-xl mb-4">
 <h4 class="font-bold text-sm mb-2">任务描述</h4>
-<p class="text-sm text-text-muted leading-relaxed">每周同步开始尝试用meeting开会，讨论社区开发进度与协作方向。</p>
+<p class="text-sm text-text-muted leading-relaxed">组织社区志愿者进行公共区域清洁，保持环境整洁。</p>
 </div>
 <div class="bg-surface-container-low p-4 rounded-xl mb-4">
 <h4 class="font-bold text-sm mb-2">审核要求</h4>
-<p class="text-sm text-text-muted leading-relaxed">上传参会截图凭证，由社区管理员审核确认。</p>
+<p class="text-sm text-text-muted leading-relaxed">上传清洁前后对比照片，由社区管理员审核确认。</p>
 </div>
 <div class="flex items-center gap-2 mb-4 text-text-muted text-xs">
 <span class="material-symbols-outlined text-sm">person</span>
@@ -547,12 +568,12 @@ body {
 <div class="flex-1 overflow-y-auto p-4 pb-24 no-scrollbar">
 <div class="bg-white rounded-2xl p-4 shadow-sm border border-outline-variant/30 mb-4">
 <div class="flex items-center gap-2 mb-3">
-<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold">蓝莓</div>
-<div><div class="font-bold text-sm">开发者社区例会</div><div class="text-[10px] text-secondary font-bold">● 25 积分</div></div>
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-xs font-bold">展</div>
+<div><div class="font-bold text-sm">社区清洁行动</div><div class="text-[10px] text-secondary font-bold">● 150 积分</div></div>
 </div>
 <div class="bg-surface-container-low p-3 rounded-xl text-xs mb-2">
 <div class="font-bold mb-1">审核要求：</div>
-<div class="text-text-muted">上传参会截图凭证，由社区管理员审核确认。</div>
+<div class="text-text-muted">上传清洁前后对比照片，由社区管理员审核确认。</div>
 </div>
 </div>
 <div class="mb-4">
@@ -1222,9 +1243,13 @@ body {
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 
-</div>
-</div>
+<!-- 前往体验 -->
+<div class="mt-8 md:mt-12 flex justify-center">
+<a class="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-secondary text-secondary bg-transparent font-label-lg text-label-lg hover:bg-secondary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md" href="https://bai.ntdao.xyz/" target="_blank" rel="noopener" data-zh="前往体验 →" data-en="Try it live →">前往体验 →</a>
 </div>
 </main>
 
@@ -1256,8 +1281,10 @@ function showCursor(targetEl, callback, delay) {
   autoPlayTimers.push(setTimeout(function() {
     var phoneRect = phoneFrame.getBoundingClientRect();
     var elRect = targetEl.getBoundingClientRect();
-    var cx = elRect.left - phoneRect.left + elRect.width / 2;
-    var cy = elRect.top - phoneRect.top + elRect.height / 2;
+    // 手机在窄屏下被等比缩放，需把屏幕坐标换算回手机内部坐标系
+    var cursorScale = phoneRect.width / phoneFrame.offsetWidth || 1;
+    var cx = (elRect.left - phoneRect.left + elRect.width / 2) / cursorScale;
+    var cy = (elRect.top - phoneRect.top + elRect.height / 2) / cursorScale;
     autoCursor.style.display = 'block';
     autoCursor.style.left = cx + 'px';
     autoCursor.style.top = cy + 'px';
@@ -1270,6 +1297,10 @@ function showCursor(targetEl, callback, delay) {
 
 function typeText(el, text, speed, callback) {
   if (!el) { if (callback) autoPlayTimers.push(setTimeout(callback, 300)); return; }
+  if (typeof phoneTranslate === 'function') {
+    var translated = phoneTranslate(text, getCurrentLang());
+    if (translated) text = translated;
+  }
   el.value = '';
   el.focus();
   var i = 0;
@@ -1887,8 +1918,9 @@ function autoPlayStore() {
                   var nameInput = document.getElementById('input-publish-name');
                   var descInput = document.getElementById('input-publish-desc');
                   var priceInput = document.getElementById('input-publish-price');
-                  typeText(nameInput, '土鸡蛋 30枚', 60, function() {
-                    typeText(descInput, '散养土鸡当日新鲜', 60, function() {
+                  var isEn = getCurrentLang() === 'en';
+                  typeText(nameInput, isEn ? 'Free-range Eggs (30 pcs)' : '土鸡蛋 30枚', 60, function() {
+                    typeText(descInput, isEn ? 'Free-range eggs, fresh today' : '散养土鸡当日新鲜', 60, function() {
                       typeText(priceInput, '150', 60, function() {
                         showCursor(document.getElementById('btn-publish-photo'), function() {
                           showCursor(document.getElementById('btn-do-publish'), function() {
@@ -1933,15 +1965,317 @@ if (mobileMenuBtn && mobileMenu) {
 }
 // Language toggle
 function getCurrentLang() { return localStorage.getItem('nanaland-lang') || 'zh'; }
+
+// 手机模型内的界面文案中英对照（专有名词 / 代币名 / 人名 / 用户名保持原样，不翻译）
+const PHONE_I18N = {
+    '社区': 'Home',
+    '任务': 'Tasks',
+    '活动': 'Events',
+    '我的': 'Me',
+    '切换社区 >': 'Switch community >',
+    '商城': 'Store',
+    '创建任务': 'Create Task',
+    '全部': 'All',
+    '可领取': 'Claimable',
+    '待审核': 'Pending Review',
+    '已完成': 'Completed',
+    '发布于 2天前': 'Posted 2 days ago',
+    '发布于 20天前': 'Posted 20 days ago',
+    '发布于 54天前': 'Posted 54 days ago',
+    '发布于 76天前': 'Posted 76 days ago',
+    '社区清洁行动': 'Community Cleaning Action',
+    '组织社区志愿者进行公共区域清洁，保持环境整洁。': 'Organize community volunteers to clean public areas and keep the environment tidy.',
+    '● 150 积分': '● 150 Points',
+    '开发者社区例会': 'Developer Community Meetup',
+    '每周同步开始尝试用meeting开会': 'Weekly sync — start trying meetings',
+    '● 25 积分': '● 25 Points',
+    '大家新年好': 'Happy New Year, everyone',
+    '新年快乐，抢红包100nt': 'Happy New Year — grab red packets, 100 NT',
+    '● 100 积分': '● 100 Points',
+    '发布任务': 'Publish Task',
+    '任务标题': 'Task Title',
+    '任务描述': 'Task Description',
+    '需要人数': 'People Needed',
+    '奖励积分': 'Point Reward',
+    '截止时间': 'Deadline',
+    '审核要求': 'Review Requirements',
+    '发布成功': 'Published',
+    '任务已发布至社区任务板': 'Task published to the community task board',
+    '返回任务列表': 'Back to Task List',
+    '任务详情': 'Task Details',
+    '截止时间: 2026/06/15': 'Deadline: 2026/06/15',
+    '需要 5 人': '5 people needed',
+    '25 积分': '25 Points',
+    '每周同步开始尝试用meeting开会，讨论社区开发进度与协作方向。': 'Weekly sync — start trying meetings, discussing development progress and collaboration.',
+    '上传参会截图凭证，由社区管理员审核确认。': 'Upload a screenshot of your attendance; a community admin will review and confirm.',
+    '已有 2 人领取': '2 people have claimed',
+    '剩余 3 个名额': '3 spots left',
+    '领取任务': 'Claim Task',
+    '提交凭证': 'Submit Proof',
+    '审核要求：': 'Review Requirements:',
+    '图片凭证': 'Image Proof',
+    '点击上传图片凭证': 'Tap to upload image proof',
+    '文字凭证': 'Text Proof',
+    '点击输入文字凭证': 'Tap to enter text proof',
+    '位置凭证': 'Location Proof',
+    '点击获取当前位置': 'Tap to get current location',
+    '审核完成': 'Review Complete',
+    '凭证已通过审核': 'Your proof passed review',
+    '积分已到账': 'Points Credited',
+    '+150 积分': '+150 Points',
+    '南塘': 'Nantang',
+    '南塘社区': 'Nantang Community',
+    '林小青': 'Lin Xiaoqing',
+    '赵大厨': 'Chef Zhao',
+    '展': 'Zhang',
+    'nana志愿者': 'Nana Pioneer',
+    '清洁前后对比.jpg': 'before-after-cleaning.jpg',
+    '素食提供乡村民宿餐饮，体验乡村生活，感受自然之美。在这里与志同道合的伙伴一起，共建美好社区~': 'Vegetarian country inn dining — experience rural life and the beauty of nature. Join like-minded friends to build a better community together~',
+    '成员': 'Members',
+    '动态': 'Posts',
+    '进入社区圈': 'Enter Community Circle',
+    '社区圈': 'Community Circle',
+    '发动态': 'New Post',
+    '15分钟前': '15 min ago',
+    '1小时前': '1 hour ago',
+    '今天参加了社区花园的种植活动，和邻居们一起种下了好多花苗！看着大家齐心协力把荒地变成花园，真的很感动。社区的力量就是这样，每个人出一点力，就能让生活环境变得更美好。期待花开的那一天！🌸': 'Joined the community garden planting today and planted lots of seedlings with our neighbors! Seeing everyone work together to turn a barren lot into a garden was truly moving. That is the power of community — when everyone contributes a little, life gets better. Looking forward to the day the flowers bloom! 🌸',
+    '今晚社区厨房又开饭啦！新鲜蔬菜全来自自家菜园 🥬': 'Community kitchen is serving again tonight! All fresh veggies straight from our own garden 🥬',
+    '发布动态': 'Create Post',
+    '发布': 'Publish',
+    '分享你的想法...': 'Share your thoughts...',
+    '添加图片': 'Add Image',
+    '添加位置': 'Add Location',
+    '添加标签': 'Add Tag',
+    '标签': 'Tags',
+    '户外活动': 'Outdoors',
+    '晚餐': 'Dinner',
+    '课程': 'Course',
+    '月': 'Month',
+    '周': 'Week',
+    '日': 'Day',
+    '2026年5月': 'May 2026',
+    '2026年5月 第4周': 'May 2026 · Week 4',
+    '2026年5月22日 周五': 'May 22, 2026 · Fri',
+    '田野调查': 'Field Survey',
+    '共创晚餐': 'Co-creation Dinner',
+    '18:00 - 20:00 · 社区厨房': '18:00 - 20:00 · Community Kitchen',
+    '日历': 'Calendar',
+    '列表': 'List',
+    '活动详情': 'Event Details',
+    '社区田野调查': 'Community Field Survey',
+    '时间: 2026/5/21 09:00 - 12:00': 'Time: 2026/5/21 09:00 - 12:00',
+    '时间: 2026/5/22 18:00 - 20:00': 'Time: 2026/5/22 18:00 - 20:00',
+    '查看详情': 'View Details',
+    '户外': 'Outdoors',
+    '深入周边乡村，了解在地文化与生态，为后续的社区建设项目收集第一手资料。需要步行较多，请穿着舒适的鞋子。': 'Explore the surrounding villages to learn about local culture and ecology, gathering first-hand material for upcoming community projects. Involves a lot of walking — please wear comfortable shoes.',
+    '报名信息': 'Registration Info',
+    '姓名：小南': 'Name: Xiaonan',
+    '数字身份：0x123****abcd': 'Digital ID: 0x123****abcd',
+    '报名参与': 'Sign Up',
+    '报名成功': 'Signed Up',
+    '已加入您的日程': 'Added to your schedule',
+    '活动报名已截止': 'Registration closed',
+    '社区厨房共创晚餐，使用自家菜园新鲜食材，一起动手烹饪美味佳肴。欢迎带上你的拿手菜谱，与邻居们共享美好夜晚！': 'A co-creation dinner in the community kitchen using fresh ingredients from our own garden — let us cook a delicious meal together. Bring your signature recipe and share a lovely evening with neighbors!',
+    '✓ 已报名': '✓ Signed Up',
+    '搜索标题、描述、卖家、标签...': 'Search title, description, seller, tags...',
+    '搜索': 'Search',
+    '农产品': 'Produce',
+    '闲置物品': 'Second-hand',
+    '技能服务': 'Skills',
+    '珍藏好物': 'Collectibles',
+    '有机蔬菜礼盒': 'Organic Veggie Box',
+    '5斤装 · 当季时令': '5 kg · Seasonal',
+    '200 积分': '200 Points',
+    '实木书架': 'Solid Wood Bookshelf',
+    '九成新 · 自提': 'Like new · Self pickup',
+    '850 积分': '850 Points',
+    '社区治理代币': 'Community Governance Token',
+    '已卖出': 'Sold',
+    'Vote代码咨询': 'Vote Coding Consult',
+    '全栈开发 · 1次': 'Full-stack · 1 session',
+    '全栈开发 · 1次服务': 'Full-stack · 1 session',
+    '5,000 积分': '5,000 Points',
+    '商品详情': 'Product Details',
+    '5斤装 · 当季时令蔬菜': '5 kg · Seasonal vegetables',
+    '商品描述': 'Description',
+    '社区认证农产品': 'Community-certified Produce',
+    '积分兑换': 'Redeem',
+    '兑换成功': 'Redeemed',
+    '感谢支持，': 'Thanks for your support, ',
+    '共建美好社区 🌱': "let's build a better community together 🌱",
+    '南塘社区自家菜园种植的有机蔬菜，不使用农药化肥，新鲜采摘当日配送。包含时令蔬菜5斤，品种随季节变化。': 'Organic vegetables grown in Nantang Community’s own garden, free of pesticides and chemical fertilizers, freshly picked and delivered the same day. Includes 5 kg of seasonal vegetables, varieties vary by season.',
+    '九成新 · 需自提': 'Like new · Self pickup required',
+    '搬家出闲置实木书架，九成新，尺寸80×30×120cm，承重力好，适合放书和绿植。需自提，南塘社区内可帮忙搬运。': 'Selling a solid wood bookshelf due to moving. Like new, 80×30×120 cm, sturdy, great for books and plants. Self pickup required; we can help move it within Nantang Community.',
+    '南塘DAO社区治理代币，持有者可参与社区决策投票，享受专属权益。': 'Nantang DAO community governance token. Holders can vote on community decisions and enjoy exclusive benefits.',
+    '官方认证商品': 'Officially Certified',
+    '立即购买': 'Buy Now',
+    '资深全栈工程师，帮你从零搭建Vote投票系统。前端后端数据库一条龙，代码规范有注释，包部署上线。（Vote还在开发中，敬请期待~）': 'A senior full-stack engineer will build your Vote voting system from scratch. Frontend, backend and database all in one, clean and commented code, deployment included. (Vote is still in development — stay tuned~)',
+    '买家评价': 'Buyer Reviews',
+    '代码写得超棒！Vote系统跑得很稳，社区投票终于不用纸质了 🎉': 'The code is excellent! The Vote system runs rock solid — community voting finally goes paperless 🎉',
+    '任务进度': 'Task Progress',
+    '任务创建': 'Task Created',
+    '领取任务': 'Claim Task',
+    '上传凭证': 'Upload Proof',
+    '审核通过': 'Review Passed',
+    '已完成社区公共区域清洁任务': 'Completed the community public area cleaning task',
+    '土鸡蛋 30枚': 'Free-range Eggs (30 pcs)',
+    '散养土鸡当日新鲜': 'Free-range eggs, fresh today',
+    '散养土鸡 · 当日新鲜': 'Free-range chicken · fresh today',
+    '150 积分': '150 Points',
+    '刚刚': 'Just now',
+    '继续加油！💪': 'Keep it up! 💪',
+    '上传清洁前后对比照片，由社区管理员审核确认。': 'Upload before/after cleaning photos for admin review.',
+    'nanaland让协作看得见！社区的力量真伟大 ✨': 'nanaland makes collaboration visible! The power of community is amazing ✨',
+    '发布商品': 'Publish Product',
+    '商品名称': 'Product Name',
+    '积分价格': 'Points Price',
+    '输入商品名称': 'Enter product name',
+    '描述你的商品...': 'Describe your product...',
+    '输入积分数量': 'Enter points amount'
+};
+const PHONE_I18N_REV = Object.fromEntries(Object.entries(PHONE_I18N).map(p => [p[1], p[0]]));
+
+// 头像内单字的原文，用于切回中文时还原
+const AVATAR_ORIGIN = new WeakMap();
+// 头像单字对应的英文首字母
+const AVATAR_INITIAL = {
+    '南塘': 'N', '展': 'Z', '林': 'L', '赵': 'Z', '志': 'N',
+    '张': 'Z', '李': 'L', '王': 'W', '陈': 'C', '周': 'Z', '吴': 'W', '郑': 'Z'
+};
+
+// 日历星期表头（单字，需按上下文翻译，避免与「月/周/日」切换标签冲突）
+const WEEKDAY_ZH = ['日', '一', '二', '三', '四', '五', '六'];
+const WEEKDAY_EN = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+
+// 含动态数值的文案：按正则双向转换
+const I18N_RULES = [];
+
+function i18nRoots() {
+    return [document.getElementById('phone-container'), document.getElementById('dialog-task-progress')].filter(Boolean);
+}
+
+let i18nBusy = false;
+function phoneTranslate(text, lang) {
+    if (!text) return undefined;
+    const map = (lang === 'en') ? PHONE_I18N : PHONE_I18N_REV;
+    const ruleIdx = (lang === 'en') ? 0 : 1;
+    const key = text.trim();
+    let out = map[key];
+    if (out === undefined) {
+        for (const rule of I18N_RULES) {
+            const hit = rule[ruleIdx](key);
+            if (hit !== key) { out = hit; break; }
+        }
+    }
+    if (out === undefined || out === key) return undefined;
+    return text.replace(key, out);
+}
+function applyPhoneI18n(lang) {
+    const map = (lang === 'en') ? PHONE_I18N : PHONE_I18N_REV;
+    i18nBusy = true;
+    i18nRoots().forEach(root => {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+        let node;
+        while ((node = walker.nextNode())) {
+            const raw = node.nodeValue;
+            if (!raw || !raw.trim()) continue;
+            const lead = (raw.match(/^\s*/) || [''])[0];
+            const trail = (raw.match(/\s*$/) || [''])[0];
+            const key = raw.trim();
+            // 日历星期表头：单字「日/一/二…」译作 Su/Mo/…（文字节点在单元格 div 内，需检查其父层）
+            const inWeekGrid = (el) => !!(el && el.classList && el.classList.contains('grid-cols-7'));
+            const isWeekHeader = inWeekGrid(node.parentElement) || inWeekGrid(node.parentElement && node.parentElement.parentElement);
+            if (isWeekHeader) {
+                const zi = WEEKDAY_ZH.indexOf(key);
+                const ei = WEEKDAY_EN.indexOf(key);
+                let wk;
+                if (zi > -1) wk = (lang === 'en') ? WEEKDAY_EN[zi] : key;
+                else if (ei > -1) wk = (lang === 'zh') ? WEEKDAY_ZH[ei] : key;
+                if (wk !== undefined && wk !== key) {
+                    node.nodeValue = lead + wk + trail;
+                    continue;
+                }
+            }
+            // 头像里的单字改用英文首字母，避免圆形头像内文字溢出
+            const avatarEl = node.parentElement;
+            const isAvatar = !!(avatarEl && avatarEl.classList && avatarEl.classList.contains('rounded-full')
+                && (avatarEl.classList.contains('w-6') || avatarEl.classList.contains('w-8') || avatarEl.classList.contains('w-9')));
+            if (isAvatar) {
+                const orig = AVATAR_ORIGIN.get(node);
+                if (lang === 'en') {
+                    if (orig === undefined) AVATAR_ORIGIN.set(node, key);
+                    const base = orig === undefined ? key : orig;
+                    const initial = AVATAR_INITIAL[base];
+                    if (initial) {
+                        const next = lead + initial + trail;
+                        if (node.nodeValue !== next) node.nodeValue = next;
+                        continue;
+                    }
+                } else if (orig !== undefined) {
+                    const next = lead + orig + trail;
+                    if (node.nodeValue !== next) node.nodeValue = next;
+                    continue;
+                }
+            }
+            const out = phoneTranslate(key, lang);
+            if (out !== undefined) node.nodeValue = lead + out + trail;
+        }
+        root.querySelectorAll('[placeholder]').forEach(el => {
+            const p = el.getAttribute('placeholder');
+            if (!p || !p.trim()) return;
+            const o = phoneTranslate(p, lang);
+            if (o !== undefined && o !== p) el.setAttribute('placeholder', o);
+        });
+        // 表单里自动演示填入的内容（input/textarea 的 value 不是文字节点，需单独翻译）
+        root.querySelectorAll('input, textarea').forEach(el => {
+            if (el.type === 'date' || el.type === 'number') return;
+            const v = el.value;
+            if (!v) return;
+            const o = phoneTranslate(v, lang);
+            if (o !== undefined && o !== v) el.value = o;
+        });
+    });
+    i18nBusy = false;
+}
 function setLang(lang) {
     localStorage.setItem('nanaland-lang', lang);
     document.querySelectorAll('[data-zh]').forEach(el => {
         el.textContent = el.getAttribute('data-' + lang);
     });
+    document.querySelectorAll('[data-zh-placeholder]').forEach(el => {
+        el.placeholder = el.getAttribute('data-' + lang + '-placeholder');
+    });
     document.querySelectorAll('#lang-toggle, #mobile-lang-toggle').forEach(btn => {
         if (btn) btn.textContent = lang === 'zh' ? 'EN/中' : '中/EN';
     });
+    applyPhoneI18n(lang);
 }
+
+applyPhoneI18n(getCurrentLang());
+// 手机内的动态文案（JS 生成）随时补齐翻译
+const i18nObserver = new MutationObserver(() => {
+    if (i18nBusy) return;
+    applyPhoneI18n(getCurrentLang());
+});
+i18nRoots().forEach(root => i18nObserver.observe(root, { childList: true, subtree: true, characterData: true }));
+
+// 按右栏可用宽度等比缩放整台手机，窄屏时保持「按钮 1/3、手机 2/3」的版式比例
+function updatePhoneScale() {
+    var container = document.getElementById('phone-container');
+    if (!container) return;
+    var BASE_W = 340, BASE_H = 680;
+    var scale = Math.min(1, (container.clientWidth * 0.92) / BASE_W);
+    scale = Math.max(0.35, scale);
+    container.style.setProperty('--phone-scale', scale.toFixed(3));
+    if (scale < 0.995) {
+        container.style.height = Math.round(BASE_H * scale + 16) + 'px';
+    } else {
+        container.style.height = '';
+    }
+}
+updatePhoneScale();
+window.addEventListener('resize', updatePhoneScale);
+
 const initLang = getCurrentLang();
 if (initLang === 'en') setLang('en');
 document.getElementById('lang-toggle')?.addEventListener('click', () => {

@@ -143,9 +143,10 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-on-background/85 backdrop-blur-xl backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] shadow-sm dark:shadow-none">
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
-<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+<a class="flex items-center gap-2.5 font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim hover:opacity-90 transition-all duration-300" href="index.html">
+<img src="picture/logo-n-code.svg" alt="nanaland logo" class="w-9 h-9 rounded-[11px] shadow-sm"/>
                 nanaland
-            </div>
+            </a>
 <div class="hidden md:flex items-center gap-8"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="index.html" data-zh="概览" data-en="Overview">概览</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="projects.html" data-zh="项目" data-en="Projects">项目</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="about.html" data-zh="关于" data-en="About">关于</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 font-label-lg text-label-lg hover:scale-105 hover:opacity-90 cubic-bezier(0.2,0.8,0.2,1)" href="join.html" data-zh="加入" data-en="Join">加入</a></div>
 <div class="flex items-center gap-4">
 <button class="md:hidden material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-2xl" id="mobile-menu-btn">menu</button>
@@ -179,7 +180,7 @@
 <!-- Product 1: SEMI -->
 <div class="flex flex-col md:flex-row items-center gap-16 relative">
 <div class="w-full md:w-1/2 flex justify-center order-2 md:order-1">
-<img alt="" class="w-[300px] h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAysRxuyHNqYq9G70-Pbc7XSih-_w6glaMGVuEnmiJgrrOkSW0mFJkWqCPEGR8mTzOU17_KQDDZYSzd58lGOysjrMXDvJWG6aaSeQXSiv1E6u_vEG7_eqvz1o5ZfZVCG5C3F_hxzgD1q2IpCz8a8EJKJzL_mC4UHiuAPhhRR3fPuPKpvG2KcZUu3wV7K8yZuLVlFgxgE-RgihXP4JZFmZWEqYRThRlB9G7lqNzUheh6TayeP80BnE2bnPY9dYDDuMqoH5fcaLtThD47">
+<img alt="" class="w-[300px] h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500" src="picture/Product-Semi.png">
 </div>
 <div class="w-full md:w-1/2 order-1 md:order-2 glass-card p-12 rounded-[24px]">
 <h2 class="font-headline-lg text-headline-lg text-primary-container mb-4" data-zh="SEMI 数字身份" data-en="SEMI Digital Identity">SEMI 数字身份</h2>
@@ -199,7 +200,7 @@
 <button class="bg-secondary text-white px-8 py-3 rounded-xl font-label-lg text-label-lg shadow-[0_8px_24px_rgba(0,107,92,0.2)] hover:scale-105 transition-transform duration-300" onclick="window.location.href='bai.html'" data-zh="了解详情" data-en="Learn More">了解详情</button>
 </div>
 <div class="w-full md:w-1/2 flex justify-center order-2">
-<img alt="" class="w-full max-w-[500px] h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500 rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAubXRBZ0frduHdU-Z0tz3mQGXmI5urdWbw2qBOZ70HP8QowATn18hQ-qp74jCczyF1NciNTWjZ-KU5fP2a6lYIqFzqlMK9rXx3_CZdAHuPtwqj9cmPo7cYmMOI8iDOFDqIqEEUcs6Kj5ZRMPdlzQ-l4POAj27tz73y4FrsMH2huLLNVLQOp1gAE_W_v8e4KRhpAtwxPTl03b8ffKs6e3pJqSj40ewgM1xsXR_SOgqVDfyMu3bufN-LU073nfquwqNZ-SJHRCYJmufI">
+<img alt="" class="w-full max-w-[500px] h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500 rounded-xl" src="picture/Product-Bai.png">
 </div>
 </div>
 <!-- Product 3: vote -->
@@ -226,18 +227,57 @@
 </div>
 </main>
 <!-- Footer -->
-<footer class="bg-surface-container-lowest dark:bg-inverse-surface w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20">
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20 relative z-20">
 <div class="max-w-[1280px] mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
-<div class="col-span-1 md:col-span-1">
-<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">nanaland</div>
-<p class="font-body-md text-body-md text-on-surface-variant" data-zh="© 2024 nanaland 社区. 保留所有权利." data-en="© 2024 nanaland community. All rights reserved.">© 2024 nanaland 社区. 保留所有权利.</p>
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-2">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">
+                    nanaland
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant max-w-sm" data-zh="将物理社区的有机温度与 Web3 技术的精确性连接起来。" data-en="Bridging the organic warmth of physical communities with the precision of Web3 technology.">
+                    将物理社区的有机温度与 Web3 技术的精确性连接起来。
+                </p>
+<div class="mt-8 font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant">
+                    © 2024 nanaland community. All rights reserved.
+                </div>
 </div>
-<div class="col-span-1 md:col-span-3 flex flex-wrap gap-8 md:justify-end">
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#" data-zh="产品概览" data-en="Product Overview">产品概览</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#" data-zh="关于我们" data-en="About Us">关于我们</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#" data-zh="加入我们" data-en="Join Us">加入我们</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">GitHub</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors dark:hover:text-primary-fixed-dim duration-200" href="#">Twitter</a>
+<!-- Links Column 1 -->
+<div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6" data-zh="生态" data-en="Ecosystem">生态</h4>
+<ul class="space-y-4">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="projects.html" data-zh="产品概览" data-en="Product Overview">产品概览</a></li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="https://semi.ntdao.xyz/" target="_blank" rel="noopener">
+                            SEMI
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="https://bai.ntdao.xyz/" target="_blank" rel="noopener">
+                            BAI
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="join.html" data-zh="加入我们" data-en="Join Us">加入我们</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6" data-zh="连接" data-en="Connect">连接</h4>
+<ul class="space-y-4">
+<li class="">
+<a href="https://github.com/nantang-dao" target="_blank" rel="noopener" class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2">
+                            GitHub
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="#">
+                            Twitter
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+</ul>
 </div>
 </div>
 </footer>

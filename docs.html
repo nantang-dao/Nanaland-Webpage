@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>文档 - nanaland</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="docs.css" rel="stylesheet"/>
+<link href="site-nav.css" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="site-nav">
+    <div class="site-nav-inner">
+        <a class="site-brand" href="index.html"><img src="picture/logo-n-code.svg" alt="nanaland logo"/>nanaland</a>
+        <ul class="site-links">
+            <li><a href="index.html" data-zh="概览" data-en="Overview">概览</a></li>
+            <li><a href="projects.html" data-zh="项目" data-en="Projects">项目</a></li>
+            <li><a href="about.html" data-zh="关于" data-en="About">关于</a></li>
+            <li><a href="join.html" data-zh="加入" data-en="Join">加入</a></li>
+        </ul>
+        <div class="site-actions">
+            <button class="site-lang" id="lang-toggle" type="button">
+                <span class="material-symbols-outlined">language</span>
+                <span data-zh="EN/中" data-en="中/EN">EN/中</span>
+            </button>
+            <a class="site-connect" href="join.html">Connect</a>
+        </div>
+    </div>
+</nav>
+
+<main class="wrap">
+    <!-- 中文 -->
+    <div class="lang-zh">
+        <section class="hero single">
+            <div>
+                <p class="eyebrow">文档中心</p>
+                <h1>了解我们正在做的事</h1>
+                <p class="sub">Semi · Bai</p>
+                <p class="lede">这里可以读到乡建数字身份（Semi）与社区协作助手「白」（Bai）的完整介绍：它们为什么被做出来、现在能做什么、技术上如何实现。中文与 English 的完整 PDF 也都可以直接下载。</p>
+            </div>
+        </section>
+
+        <aside class="download-card wide">
+            <h3>直接下载完整文档</h3>
+            <p>选择需要的语言版本，下载后可离线阅读、转发或打印。</p>
+            <div class="download-actions">
+                <a class="btn primary" download="Semi-中文完整版.pdf" href="docs/semi-zh.pdf">Semi（中文）</a>
+                <a class="btn ghost" download="Semi-English-Full.pdf" href="docs/semi-en.pdf">Semi（English）</a>
+                <a class="btn primary" download="Bai-中文完整版.pdf" href="docs/bai-zh.pdf">Bai（中文）</a>
+                <a class="btn ghost" download="Bai-English-Full.pdf" href="docs/bai-en.pdf">Bai（English）</a>
+            </div>
+        </aside>
+
+        <div class="back center"><a href="index.html">← 返回首页</a></div>
+    </div>
+
+    <!-- English -->
+    <div class="lang-en" hidden>
+        <section class="hero single">
+            <div>
+                <p class="eyebrow">Documentation</p>
+                <h1>What we are building</h1>
+                <p class="sub">Semi · Bai</p>
+                <p class="lede">Read the full introductions to the Rural Digital Identity (Semi) and the community collaboration assistant Bai: why they exist, what they do today, and how they work. The complete Chinese and English PDFs are also available to download right here.</p>
+            </div>
+        </section>
+
+        <aside class="download-card wide">
+            <h3>Download the full documents</h3>
+            <p>Pick the language you need — read offline, share or print.</p>
+            <div class="download-actions">
+                <a class="btn primary" download="Semi-中文完整版.pdf" href="docs/semi-zh.pdf">Semi（中文）</a>
+                <a class="btn ghost" download="Semi-English-Full.pdf" href="docs/semi-en.pdf">Semi（English）</a>
+                <a class="btn primary" download="Bai-中文完整版.pdf" href="docs/bai-zh.pdf">Bai（中文）</a>
+                <a class="btn ghost" download="Bai-English-Full.pdf" href="docs/bai-en.pdf">Bai（English）</a>
+            </div>
+        </aside>
+
+        <div class="back center"><a href="index.html">← Back to home</a></div>
+    </div>
+</main>
+
+<footer>
+    <div class="wrap">
+        <span>© 2026 nanaland community</span>
+        <span><a href="mailto:nantangdao@outlook.com">nantangdao@outlook.com</a> · <a href="https://github.com/nantang-dao" rel="noopener" target="_blank">GitHub</a></span>
+    </div>
+</footer>
+
+<script>
+    function getLang() { return localStorage.getItem('nanaland-lang') || 'zh'; }
+    function setLang(lang) {
+        localStorage.setItem('nanaland-lang', lang);
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        document.querySelectorAll('[data-zh]').forEach(function (el) {
+            el.textContent = el.getAttribute('data-' + lang);
+        });
+        document.querySelectorAll('.lang-zh').forEach(function (el) { el.hidden = lang !== 'zh'; });
+        document.querySelectorAll('.lang-en').forEach(function (el) { el.hidden = lang !== 'en'; });
+        document.title = lang === 'zh' ? '文档 - nanaland' : 'Documentation - nanaland';
+    }
+    document.getElementById('lang-toggle').addEventListener('click', function () {
+        setLang(getLang() === 'zh' ? 'en' : 'zh');
+    });
+    setLang(getLang());
+</script>
+</body>
+</html>

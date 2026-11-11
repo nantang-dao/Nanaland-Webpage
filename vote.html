@@ -209,9 +209,10 @@
 <!-- TopNavBar -->
 <nav class="bg-white/85 dark:bg-on-background/85 backdrop-blur-xl text-primary dark:text-primary-fixed-dim fixed top-0 w-full z-50 shadow-sm dark:shadow-none backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)]">
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20 transition-all duration-300 cubic-bezier(0.2, 0.8, 0.2, 1)">
-<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+<a class="flex items-center gap-2.5 font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim hover:opacity-90 transition-all duration-300" href="index.html">
+<img src="picture/logo-n-code.svg" alt="nanaland logo" class="w-9 h-9 rounded-[11px] shadow-sm"/>
                 nanaland
-            </div>
+            </a>
 <div class="hidden md:flex items-center space-x-8"><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="index.html" data-zh="概览" data-en="Overview">概览</a><a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 transition-all duration-300" href="projects.html" data-zh="项目" data-en="Projects">项目</a><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="about.html" data-zh="关于" data-en="About">关于</a><a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="join.html" data-zh="加入" data-en="Join">加入</a></div>
 <div class="flex items-center space-x-4">
 <button class="font-label-lg text-label-lg text-on-surface-variant cursor-pointer hover:text-primary transition-colors" id="lang-toggle">中/EN</button>
@@ -245,7 +246,7 @@
 <!-- Headlines -->
 <div class="space-y-4">
 <h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface leading-tight">
-                        让每一个社区决策都<span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end" data-zh="清晰可鉴。" data-en="clear and verifiable.">清晰可鉴。</span>
+                        <span data-zh="让每一个社区决策都" data-en="Make every community decision ">让每一个社区决策都</span><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end" data-zh="清晰可鉴。" data-en="clear and verifiable.">清晰可鉴。</span>
 </h1>
 <p class="font-body-lg text-body-lg text-text-muted max-w-md leading-relaxed" data-zh="vote 投票平台 — 让决策上链。白名单治理、灵活提案、结果验证，为社区透明决策量身打造。" data-en="vote — Decisions on-chain. Allowlist governance, flexible proposals, verifiable results, purpose-built for transparent community decision-making.">
                         vote 投票平台 — 让决策上链。白名单治理、灵活提案、结果验证，为社区透明决策量身打造。
@@ -320,22 +321,57 @@
 </div>
 </main>
 <!-- Footer -->
-<footer class="bg-surface-container-lowest dark:bg-inverse-surface w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20">
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20 relative z-20">
 <div class="max-w-[1280px] mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
-<div class="col-span-1 md:col-span-1 flex flex-col">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-2">
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">
                     nanaland
                 </div>
-<p class="font-body-md text-body-md text-text-muted mt-2" data-zh="© 2024 nanaland community. All rights reserved." data-en="© 2024 nanaland community. All rights reserved.">
-                    © 2024 nanaland community. All rights reserved.
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant max-w-sm" data-zh="将物理社区的有机温度与 Web3 技术的精确性连接起来。" data-en="Bridging the organic warmth of physical communities with the precision of Web3 technology.">
+                    将物理社区的有机温度与 Web3 技术的精确性连接起来。
                 </p>
+<div class="mt-8 font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant">
+                    © 2024 nanaland community. All rights reserved.
+                </div>
 </div>
-<div class="col-span-1 md:col-span-3 flex flex-wrap gap-8 md:justify-end items-start mt-8 md:mt-0">
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="产品概览" data-en="Product Overview">产品概览</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="关于我们" data-en="About Us">关于我们</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="加入我们" data-en="Join Us">加入我们</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">GitHub</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Twitter</a>
+<!-- Links Column 1 -->
+<div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6" data-zh="生态" data-en="Ecosystem">生态</h4>
+<ul class="space-y-4">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="projects.html" data-zh="产品概览" data-en="Product Overview">产品概览</a></li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="https://semi.ntdao.xyz/" target="_blank" rel="noopener">
+                            SEMI
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="https://bai.ntdao.xyz/" target="_blank" rel="noopener">
+                            BAI
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="join.html" data-zh="加入我们" data-en="Join Us">加入我们</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6" data-zh="连接" data-en="Connect">连接</h4>
+<ul class="space-y-4">
+<li class="">
+<a href="https://github.com/nantang-dao" target="_blank" rel="noopener" class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2">
+                            GitHub
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="#">
+                            Twitter
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+</ul>
 </div>
 </div>
 </footer>

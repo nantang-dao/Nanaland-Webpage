@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html class="scroll-smooth" lang="zh-CN"><head>
 <meta charset="utf-8"/>
@@ -130,6 +130,8 @@
             background: #fff;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            transform: translateX(var(--shift-x, 0%)) rotateY(var(--shift-y, 0deg)) scale(var(--phone-scale, 1));
+            transform-origin: center center;
         }
         #screen-content {
             -webkit-font-smoothing: antialiased;
@@ -164,15 +166,18 @@
         }
 
         .phone-shift-left {
-            transform: translateX(-15%) rotateY(8deg);
+            --shift-x: -15%;
+            --shift-y: 8deg;
         }
         
         .phone-shift-center {
-            transform: translateX(0) rotateY(0deg);
+            --shift-x: 0%;
+            --shift-y: 0deg;
         }
 
         .phone-shift-right {
-            transform: translateX(15%) rotateY(-8deg);
+            --shift-x: 15%;
+            --shift-y: -8deg;
         }
 
         .bg-pattern {
@@ -306,13 +311,41 @@
         .animate-page-in {
             animation: pageIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
+
+        /* ===== 窄屏：按钮文字与手机整体等比压缩，保持「按钮 1/3、手机 2/3」的版式比例 ===== */
+        @media (max-width: 1023px) {
+            .feature-btn h3 {
+                font-size: clamp(13px, 2.2vw, 22px);
+                line-height: 1.25;
+                margin-bottom: 4px;
+            }
+            .feature-btn p {
+                font-size: clamp(10px, 1.45vw, 14px);
+                line-height: 1.4;
+            }
+            .feature-btn .icon-container {
+                width: clamp(26px, 4.2vw, 44px);
+                height: clamp(26px, 4.2vw, 44px);
+            }
+            .feature-btn .icon-container .material-symbols-outlined {
+                font-size: clamp(15px, 2.2vw, 24px);
+            }
+            .feature-btn {
+                padding: clamp(8px, 1.6vw, 20px);
+            }
+            #phone-stage {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-x-hidden animate-page-in">
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-on-background/85 backdrop-blur-[20px] shadow-[0_8px_24px_rgba(255,107,53,0.12)] transition-all duration-300 cubic-bezier(0.2, 0.8, 0.2, 1)">
 <div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-gutter h-20">
-<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="#">
+<a class="flex items-center gap-2.5 font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="index.html">
+<img src="picture/logo-n-code.svg" alt="nanaland logo" class="w-9 h-9 rounded-[11px] shadow-sm"/>
             nanaland
         </a>
 <div class="hidden md:flex items-center space-x-8">
@@ -348,44 +381,45 @@
             你的通用社区身份。唯一、可追溯、自我掌控的数字身份标识，让积分流转安全又自由。
         </p>
 <div class="flex flex-col gap-3 mt-6">
+<a class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary text-white font-label-lg text-label-lg hover:scale-105 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit" href="semi-intro.html" data-zh="详细介绍 &amp; 文档下载" data-en="Full intro &amp; docs">详细介绍 &amp; 文档下载</a>
 <a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit" href="projects.html" data-zh="← 返回" data-en="← Back">← 返回</a>
 <a class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md w-fit" href="bai.html" data-zh="下一个产品 →" data-en="Next →">下一个产品 →</a>
 </div>
 </div>
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative min-h-[700px]">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-nowrap items-center gap-3 md:gap-8 relative">
 <!-- Left: Feature Navigation -->
-<div class="md:col-span-4 flex flex-col space-y-6 z-20 order-2 md:order-1">
-<button class="feature-btn active group text-left glass-panel p-6 rounded-[24px] cursor-pointer transition-interactive border border-outline-variant/30 flex items-start space-x-4 w-full" onclick="activateFeature(0)">
-<div class="icon-container w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary transition-interactive shrink-0">
+<div class="w-[33%] md:w-1/4 shrink-0 min-w-0 flex flex-col space-y-3 md:space-y-6 z-20 order-1">
+<button class="feature-btn active group text-left glass-panel p-2.5 md:p-6 rounded-2xl md:rounded-[24px] cursor-pointer transition-interactive border border-outline-variant/30 flex items-start space-x-2 md:space-x-4 w-full" onclick="activateFeature(0)">
+<div class="icon-container w-7 h-7 md:w-12 md:h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary transition-interactive shrink-0">
 <span class="material-symbols-outlined" data-weight="fill">send_money</span>
 </div>
 <div>
 <h3 class="font-headline-md text-headline-md text-on-surface mb-2 transition-interactive" data-zh="发送积分" data-en="Send Tokens">发送积分</h3>
-<p class="font-body-md text-body-md text-text-muted transition-interactive" data-zh="快速、安全、可追溯的链上流转。" data-en="Fast, secure, and traceable on-chain token flow.">快速、安全、可追溯的链上流转。</p>
+<p class="text-[10px] leading-snug md:font-body-md md:text-body-md text-text-muted transition-interactive" data-zh="快速、安全、可追溯的链上流转。" data-en="Fast, secure, and traceable on-chain token flow.">快速、安全、可追溯的链上流转。</p>
 </div>
 </button>
-<button class="feature-btn group text-left glass-panel p-6 rounded-[24px] cursor-pointer transition-interactive border border-outline-variant/30 flex items-start space-x-4 w-full opacity-60 scale-95" onclick="activateFeature(1)">
-<div class="icon-container w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary transition-interactive shrink-0">
+<button class="feature-btn group text-left glass-panel p-2.5 md:p-6 rounded-2xl md:rounded-[24px] cursor-pointer transition-interactive border border-outline-variant/30 flex items-start space-x-2 md:space-x-4 w-full opacity-60 scale-95" onclick="activateFeature(1)">
+<div class="icon-container w-7 h-7 md:w-12 md:h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary transition-interactive shrink-0">
 <span class="material-symbols-outlined">group</span>
 </div>
 <div>
 <h3 class="font-headline-md text-headline-md text-on-surface mb-2 transition-interactive" data-zh="多签管理" data-en="Multi-sig Management">多签管理</h3>
-<p class="font-body-md text-body-md text-text-muted transition-interactive" data-zh="集体信任编码，多人共管资产。" data-en="Encode collective trust, co-manage assets with multiple signers.">集体信任编码，多人共管资产。</p>
+<p class="text-[10px] leading-snug md:font-body-md md:text-body-md text-text-muted transition-interactive" data-zh="集体信任编码，多人共管资产。" data-en="Encode collective trust, co-manage assets with multiple signers.">集体信任编码，多人共管资产。</p>
 </div>
 </button>
-<button class="feature-btn group text-left glass-panel p-6 rounded-[24px] cursor-pointer transition-interactive border border-outline-variant/30 flex items-start space-x-4 w-full opacity-60 scale-95" onclick="activateFeature(2)">
-<div class="icon-container w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary transition-interactive shrink-0">
+<button class="feature-btn group text-left glass-panel p-2.5 md:p-6 rounded-2xl md:rounded-[24px] cursor-pointer transition-interactive border border-outline-variant/30 flex items-start space-x-2 md:space-x-4 w-full opacity-60 scale-95" onclick="activateFeature(2)">
+<div class="icon-container w-7 h-7 md:w-12 md:h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary transition-interactive shrink-0">
 <span class="material-symbols-outlined">workspace_premium</span>
 </div>
 <div>
 <h3 class="font-headline-md text-headline-md text-on-surface mb-2 transition-interactive" data-zh="NFT徽章" data-en="NFT Badges">NFT徽章</h3>
-<p class="font-body-md text-body-md text-text-muted transition-interactive" data-zh="记录每一次贡献，点亮社区荣誉。" data-en="Record every contribution, light up community honors.">记录每一次贡献，点亮社区荣誉。</p>
+<p class="text-[10px] leading-snug md:font-body-md md:text-body-md text-text-muted transition-interactive" data-zh="记录每一次贡献，点亮社区荣誉。" data-en="Record every contribution, light up community honors.">记录每一次贡献，点亮社区荣誉。</p>
 </div>
 </button>
 </div>
 <!-- Right: 3D Phone Mockup -->
-<div class="md:col-span-8 flex justify-center items-center phone-mockup-container z-10 order-1 md:order-2 h-full py-12 md:py-0 relative">
-<div class="absolute top-20 right-4 glass-panel p-4 rounded-2xl hidden items-center space-x-3 shadow-xl z-30 transition-all duration-500 opacity-0 translate-y-4 floating-dialog" id="multisig-dialog">
+<div class="flex-1 min-w-0 flex justify-center items-center phone-mockup-container z-10 order-2 py-6 md:py-0 relative" id="phone-stage">
+<div class="absolute top-2 right-0 md:top-20 md:right-4 glass-panel p-2 md:p-4 rounded-2xl hidden items-center space-x-2 md:space-x-3 shadow-xl z-30 transition-all duration-500 opacity-0 translate-y-4 floating-dialog" id="multisig-dialog">
 <div class="flex flex-col">
 <span class="font-label-lg text-label-lg text-primary mb-1">链上签名中</span>
 <div class="flex items-center space-x-2">
@@ -713,8 +747,8 @@
 <h2 class="font-bold text-gray-800 text-lg">徽章和NFT</h2>
 <span class="material-symbols-outlined text-gray-600 text-[22px] cursor-pointer" onclick="clearAutoPlay()">add_circle</span>
 </div>
-<div class="ui-card bg-gradient-to-b from-emerald-700 to-emerald-500 text-white mb-5 min-h-[120px] p-0 overflow-hidden">
-<div class="flex h-full">
+<div class="ui-card bg-gradient-to-b from-emerald-700 to-emerald-500 text-white mb-5 min-h-[120px] p-0 overflow-hidden flex">
+<div class="flex w-full">
 <div class="flex-1 cursor-pointer transition-opacity flex flex-col items-center justify-center" id="card-tab-badge" onclick="switchBadgeTab('badge')">
 <h3 class="text-xl font-bold mb-1" id="card-badge-title">徽章</h3>
 <p class="text-[10px] opacity-70">接收与查看徽章</p>
@@ -925,22 +959,62 @@
 </div>
 </div>
 </div>
+<!-- 前往体验 -->
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter mt-8 md:mt-12 flex justify-center">
+<a class="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-secondary text-secondary bg-transparent font-label-lg text-label-lg hover:bg-secondary hover:text-white transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1) shadow-sm hover:shadow-md" href="https://semi.ntdao.xyz/" target="_blank" rel="noopener" data-zh="前往体验 →" data-en="Try it live →">前往体验 →</a>
+</div>
 </main>
-<!-- Footer -->
-<footer class="w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20 bg-surface-container-lowest dark:bg-inverse-surface">
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface w-full py-16 mt-section-gap border-t border-outline-variant/30 dark:border-outline/20 relative z-20">
 <div class="max-w-[1280px] mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
-<div class="md:col-span-1">
-<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">nanaland</div>
-<p class="font-body-md text-body-md text-text-muted" data-zh="© 2024 nanaland 社区. 保留所有权利." data-en="© 2024 nanaland community. All rights reserved.">© 2024 nanaland 社区. 保留所有权利.</p>
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-2">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4">
+                    nanaland
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant max-w-sm" data-zh="将物理社区的有机温度与 Web3 技术的精确性连接起来。" data-en="Bridging the organic warmth of physical communities with the precision of Web3 technology.">
+                    将物理社区的有机温度与 Web3 技术的精确性连接起来。
+                </p>
+<div class="mt-8 font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant">
+                    © 2024 nanaland community. All rights reserved.
+                </div>
 </div>
-<div class="flex flex-col space-y-3">
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="产品概览" data-en="Product Overview">产品概览</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="关于我们" data-en="About Us">关于我们</a>
+<!-- Links Column 1 -->
+<div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6" data-zh="生态" data-en="Ecosystem">生态</h4>
+<ul class="space-y-4">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="projects.html" data-zh="产品概览" data-en="Product Overview">产品概览</a></li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="https://semi.ntdao.xyz/" target="_blank" rel="noopener">
+                            SEMI
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="https://bai.ntdao.xyz/" target="_blank" rel="noopener">
+                            BAI
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="join.html" data-zh="加入我们" data-en="Join Us">加入我们</a></li>
+</ul>
 </div>
-<div class="flex flex-col space-y-3">
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="加入我们" data-en="Join Us">加入我们</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="GitHub" data-en="GitHub">GitHub</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#" data-zh="Twitter" data-en="Twitter">Twitter</a>
+<!-- Links Column 2 -->
+<div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface mb-6" data-zh="连接" data-en="Connect">连接</h4>
+<ul class="space-y-4">
+<li class="">
+<a href="https://github.com/nantang-dao" target="_blank" rel="noopener" class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2">
+                            GitHub
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+<li class="">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 flex items-center gap-2" href="#">
+                            Twitter
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</li>
+</ul>
 </div>
 </div>
 </footer>
@@ -969,8 +1043,10 @@
         autoPlayTimers.push(setTimeout(function() {
             var phoneRect = phoneContainer.getBoundingClientRect();
             var elRect = targetEl.getBoundingClientRect();
-            var cx = elRect.left - phoneRect.left + elRect.width / 2;
-            var cy = elRect.top - phoneRect.top + elRect.height / 2;
+            // 手机在窄屏下被等比缩放，需把屏幕坐标换算回手机内部坐标系
+            var cursorScale = phoneRect.width / phoneContainer.offsetWidth || 1;
+            var cx = (elRect.left - phoneRect.left + elRect.width / 2) / cursorScale;
+            var cy = (elRect.top - phoneRect.top + elRect.height / 2) / cursorScale;
             autoCursor.style.display = 'block';
             autoCursor.style.left = cx + 'px';
             autoCursor.style.top = cy + 'px';
@@ -983,6 +1059,12 @@
 
     function typeText(el, text, speed, callback) {
         if (!el) { if (callback) autoPlayTimers.push(setTimeout(callback, 300)); return; }
+        if (typeof phoneTranslate === 'function') {
+            try {
+                var tr = phoneTranslate(text, getCurrentLang());
+                if (tr !== undefined) text = tr;
+            } catch (e) {}
+        }
         el.value = '';
         el.focus();
         var i = 0;
@@ -1278,7 +1360,7 @@
         });
 
         next(function(r) {
-            typeText(document.getElementById('input-memo'), '社区活动赞助', 60, r);
+            typeText(document.getElementById('input-memo'), getCurrentLang() === 'en' ? 'Community Event Sponsorship' : '社区活动赞助', 60, r);
         });
 
         next(function(r) {
@@ -1613,7 +1695,24 @@
     }
 
     activateFeature(0);
-    
+
+    // 按右栏可用宽度等比缩放整台手机，窄屏时保持「按钮 1/3、手机 2/3」的版式比例
+    function updatePhoneScale() {
+        var stage = document.getElementById('phone-stage');
+        if (!stage) return;
+        var BASE_W = 340, BASE_H = 700;
+        var scale = Math.min(1, (stage.clientWidth * 0.92) / BASE_W);
+        scale = Math.max(0.35, scale);
+        stage.style.setProperty('--phone-scale', scale.toFixed(3));
+        if (scale < 0.995) {
+            stage.style.height = Math.round(BASE_H * scale + 16) + 'px';
+        } else {
+            stage.style.height = '';
+        }
+    }
+    updatePhoneScale();
+    window.addEventListener('resize', updatePhoneScale);
+
     window.addEventListener('scroll', () => {
         const nav = document.querySelector('nav');
         if (window.scrollY > 80) {
@@ -1639,15 +1738,170 @@ if (mobileMenuBtn && mobileMenu) {
 }
 // Language toggle
 function getCurrentLang() { return localStorage.getItem('nanaland-lang') || 'zh'; }
+
+// 手机模型内的界面文案中英对照（专有名词 / 代币名 / 人名保持原样，不翻译）
+const PHONE_I18N = {
+    '总资产': 'Total Balance',
+    '接收': 'Receive',
+    '发送': 'Send',
+    '活动': 'Activity',
+    '徽章': 'Badge',
+    '资产': 'Assets',
+    '发送积分': 'Send Tokens',
+    '代币': 'Token',
+    '最大': 'MAX',
+    '收款地址': 'Recipient Address',
+    '金额': 'Amount',
+    '备注': 'Note',
+    '(可选·上链)': '(optional · on-chain)',
+    '确认发送': 'Confirm & Send',
+    '发送代币': 'Send Token',
+    '请输入6位密码': 'Enter your 6-digit passcode',
+    '剩余免手续费交易次数：': 'Free transactions remaining:',
+    '上一步': 'Back',
+    '确定': 'Confirm',
+    '发送成功': 'Sent successfully',
+    '扫描二维码获取地址': 'Scan the QR code to get the address',
+    '分享': 'Share',
+    '详情': 'Details',
+    '多签钱包': 'Multi-sig Wallet',
+    '资金金库': 'Treasury Vault',
+    '待处理交易': 'Pending Transactions',
+    '项目拨款': 'Project Funding',
+    '市场推广拨款': 'Marketing Grant',
+    '收款方：开发团队': 'To: Dev Team',
+    '收款方：社区团队': 'To: Comm Team',
+    '签名': 'Signatures',
+    '2/3 策略': '2/3 Policy',
+    '审核并签名': 'Review & Sign',
+    '需要 2 个中的 1 个': '1 of 2 required',
+    '需要 2 个中的 2 个': '2 of 2 required',
+    '等待签名 (1/2)...': 'Waiting for signature (1/2)...',
+    '用户 A 已签名 (1/2)': 'User A signed (1/2)',
+    '用户 B 已签名 (2/2)': 'User B signed (2/2)',
+    '已执行 (2/2)': 'Executed (2/2)',
+    '链上已确认！': 'Confirmed on-chain!',
+    '徽章和NFT': 'Badges & NFTs',
+    '接收与查看徽章': 'Receive & view badges',
+    '您收集到的NFT': "NFTs you've collected",
+    '已拥有': 'Owned',
+    '已创建': 'Created',
+    '待接受': 'Pending',
+    'nanaland 早期支持者徽章': 'nanaland early supporter badge',
+    '社区共建者': 'Community Co-builder',
+    '参与社区治理与共建': 'Participate in governance & co-building',
+    '技术贡献者': 'Tech Contributor',
+    '为 nanaland 贡献代码': 'Contributes code to nanaland',
+    '没有徽章': 'No badges',
+    '社区共创宣言': 'Community Co-creation Manifesto',
+    '南塘共居共创': 'Nantang Co-living & Co-creation',
+    '社区之声': 'Community Voice',
+    '爱心传递者': 'Kindness Messenger',
+    '徽章详情': 'Badge Details',
+    'nanaland 社区早期支持者，见证了社区从零到一的每一个里程碑。': 'A nanaland early supporter who witnessed every milestone from zero to one.',
+    '交易哈希': 'Transaction Hash',
+    '发布时间': 'Issued At',
+    '拥有者': 'Owner',
+    '已接受': 'Accepted',
+    'NFT详情': 'NFT Details',
+    'nanaland 社区成员共同签署的共创宣言，记录社区初心与愿景。': "A co-creation manifesto jointly signed by nanaland members, recording the community's vision.",
+    '合约地址': 'Contract Address',
+    '代币ID': 'Token ID',
+    '代币标准': 'Token Standard',
+    '合集': 'Collection',
+    'nanaland 社区': 'nanaland Community',
+    '属性': 'Properties',
+    '时间': 'Time',
+    '类型': 'Type',
+    '宣言文档': 'Manifesto Document',
+    '来源': 'Source',
+    '关闭': 'Close',
+    '链上签名中': 'Signing on-chain',
+    '等待确认...': 'Awaiting confirmation...',
+    '输入或粘贴钱包地址': 'Enter or paste wallet address',
+    '添加备注...': 'Add a note...',
+    '社区活动赞助': 'Community Event Sponsorship'
+};
+const PHONE_I18N_REV = Object.fromEntries(Object.entries(PHONE_I18N).map(p => [p[1], p[0]]));
+
+// 含动态数值的文案：按正则双向转换
+const I18N_RULES = [
+    [(s => s.replace(/^可用:\s*/, 'Available: ')), (s => s.replace(/^Available:\s*/, '可用: '))],
+    [(s => s.replace(/^(.+?)\s+NT\s+已发送$/, '$1 NT sent')), (s => s.replace(/^(.+?)\s+NT\s+sent$/, '$1 NT 已发送'))]
+];
+
+function i18nRoots() {
+    return [document.getElementById('phone-container'), document.getElementById('multisig-dialog')].filter(Boolean);
+}
+
+let i18nBusy = false;
+function phoneTranslate(text, lang) {
+    if (!text) return undefined;
+    const map = (lang === 'en') ? PHONE_I18N : PHONE_I18N_REV;
+    const ruleIdx = (lang === 'en') ? 0 : 1;
+    const key = text.trim();
+    let out = map[key];
+    if (out === undefined) {
+        for (const rule of I18N_RULES) {
+            const hit = rule[ruleIdx](key);
+            if (hit !== key) { out = hit; break; }
+        }
+    }
+    if (out === undefined || out === key) return undefined;
+    return text.replace(key, out);
+}
+function applyPhoneI18n(lang) {
+    i18nBusy = true;
+    i18nRoots().forEach(root => {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+        let node;
+        while ((node = walker.nextNode())) {
+            const raw = node.nodeValue;
+            if (!raw || !raw.trim()) continue;
+            const lead = (raw.match(/^\s*/) || [''])[0];
+            const trail = (raw.match(/\s*$/) || [''])[0];
+            const out = phoneTranslate(raw.trim(), lang);
+            if (out !== undefined) node.nodeValue = lead + out + trail;
+        }
+        root.querySelectorAll('[placeholder]').forEach(el => {
+            const p = el.getAttribute('placeholder');
+            if (!p || !p.trim()) return;
+            const o = phoneTranslate(p, lang);
+            if (o !== undefined && o !== p) el.setAttribute('placeholder', o);
+        });
+        // 表单里自动演示填入的内容（input/textarea 的 value 不是文字节点，需单独翻译）
+        root.querySelectorAll('input, textarea').forEach(el => {
+            if (el.type === 'number') return;
+            const v = el.value;
+            if (!v) return;
+            const o = phoneTranslate(v, lang);
+            if (o !== undefined && o !== v) el.value = o;
+        });
+    });
+    i18nBusy = false;
+}
 function setLang(lang) {
     localStorage.setItem('nanaland-lang', lang);
     document.querySelectorAll('[data-zh]').forEach(el => {
         el.textContent = el.getAttribute('data-' + lang);
     });
+    document.querySelectorAll('[data-zh-placeholder]').forEach(el => {
+        el.placeholder = el.getAttribute('data-' + lang + '-placeholder');
+    });
     document.querySelectorAll('#lang-toggle, #mobile-lang-toggle').forEach(btn => {
         if (btn) btn.textContent = lang === 'zh' ? 'EN/中' : '中/EN';
     });
+    applyPhoneI18n(lang);
 }
+
+applyPhoneI18n(getCurrentLang());
+// 手机内的动态文案（JS 生成）随时补齐翻译
+const i18nObserver = new MutationObserver(() => {
+    if (i18nBusy) return;
+    applyPhoneI18n(getCurrentLang());
+});
+i18nRoots().forEach(root => i18nObserver.observe(root, { childList: true, subtree: true, characterData: true }));
+
 const initLang = getCurrentLang();
 if (initLang === 'en') setLang('en');
 document.getElementById('lang-toggle')?.addEventListener('click', () => {

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="nanaland code N logo">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#121c42"/>
+      <stop offset="0.5" stop-color="#0a1128"/>
+      <stop offset="1" stop-color="#170b2f"/>
+    </linearGradient>
+    <linearGradient id="codeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8bf7ff"/>
+      <stop offset="0.3" stop-color="#4ade80"/>
+      <stop offset="0.55" stop-color="#fde047"/>
+      <stop offset="0.78" stop-color="#fb923c"/>
+      <stop offset="1" stop-color="#e879f9"/>
+    </linearGradient>
+    <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8bf7ff"/>
+      <stop offset="0.5" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#ff6b35"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#5eead4" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <mask id="codeMask" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512">
+      <path d="M172 348 L172 164 L340 348 L340 164" fill="none" stroke="#ffffff" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+
+  <rect width="512" height="512" rx="116" fill="url(#bgGrad)"/>
+  <circle cx="256" cy="256" r="216" fill="url(#halo)"/>
+
+  <!-- 外圈流光圆弧 -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="url(#arcGrad)" stroke-width="6"
+          stroke-linecap="round" stroke-dasharray="940 240" transform="rotate(-55 256 256)" opacity="0.95"/>
+  <circle cx="256" cy="256" r="182" fill="none" stroke="#8bf7ff" stroke-opacity="0.12" stroke-width="1.5"/>
+  <circle cx="256" cy="56" r="5.5" fill="#8bf7ff" opacity="0.95"/>
+  <circle cx="66" cy="330" r="4" fill="#ff6b35" opacity="0.9"/>
+
+  <!-- N 的笔画完全由代码行拼成 -->
+  <g mask="url(#codeMask)">
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13"
+       letter-spacing="0.6" fill="url(#codeGrad)" filter="url(#softGlow)">
+      <text x="118" y="150">const n = 0x4e; N() { return 10 }</text>
+      <text x="118" y="164.3">01 0x9f 11 00 10 =&gt; 0x4e 0110 { }</text>
+      <text x="118" y="178.6">{ 0b11 01 N() 0x2a 10 11 00 } 0x4e</text>
+      <text x="118" y="192.9">10 01 0x4e 11 00 N() =&gt; 0x7a 1101 01</text>
+      <text x="118" y="207.2">0x5c 00 11 01 10 0b1 0x4e 1101 { } 10</text>
+      <text x="118" y="221.5">11 00 10 01 0x9f { } N() 0x2a 110 0b1</text>
+      <text x="118" y="235.8">0b1 0x4e 10 01 00 11 =&gt; 7a 0110 10 01</text>
+      <text x="118" y="250.1">01 10 { } 11 00 0x4e N() 0b1 1010 0x2a</text>
+      <text x="118" y="264.4">0x2a 11 01 10 00 N() 0x9f 10 1100 { } 11</text>
+      <text x="118" y="278.7">10 00 01 0b1 11 0x4e {} 01 =&gt; 10 0x7a 11</text>
+      <text x="118" y="293">N() 0x7a 10 11 01 00 0b1 0x9f 10 01 1101</text>
+      <text x="118" y="307.3">11 01 0x4e { } 00 10 110 N() 0x2a 0b1 01</text>
+      <text x="118" y="321.6">00 10 11 0b1 01 0x9f =&gt; 0x4e 110 10 01 11</text>
+      <text x="118" y="335.9">0x4e 01 N() 10 11 00 {} 0b1 0101 0x9f 10</text>
+      <text x="118" y="350.2">10 11 00 01 0x2a 0x4e 110 N() 01 0b1 1100</text>
+      <text x="118" y="364.5">{ } 0b1 0x9f 11 10 01 00 =&gt; 0x7a 110 1</text>
+      <text x="118" y="378.8">01 00 10 11 0x4e {} N() 0b1 1001 0x2a 110</text>
+    </g>
+    <!-- 高亮代码点，制造流动颗粒感 -->
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13"
+       letter-spacing="0.6" fill="#ffffff" opacity="0.72">
+      <text x="176" y="192.9">N()</text>
+      <text x="240" y="250.1">0x4e</text>
+      <text x="304" y="221.5">11</text>
+      <text x="176" y="335.9">0b1</text>
+      <text x="304" y="350.2">01</text>
+      <text x="356" y="278.7">=&gt;</text>
+    </g>
+  </g>
+
+  <!-- 极细渐变描边，勾勒 N 边缘 -->
+  <path d="M172 348 L172 164 L340 348 L340 164" fill="none" stroke="url(#codeGrad)" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+</svg>
