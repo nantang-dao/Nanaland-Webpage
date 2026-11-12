@@ -283,6 +283,111 @@ body {
     font-size: clamp(15px, 2.2vw, 30px);
   }
 }
+/* ===== 手机竖屏：手机居中在上，功能按钮平铺在下方（不滑动，小字两行） ===== */
+@media (max-width: 639px) {
+  .bai-layout {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  .bai-phone {
+    order: 1 !important;
+    flex: none !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .bai-features {
+    order: 2 !important;
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+  .bai-features > .btn-functional {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 8px 5px !important;
+    border-radius: 14px !important;
+    transform: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .bai-features > .btn-functional.active { transform: none !important; }
+  .bai-features > .btn-functional > div {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 3px !important;
+  }
+  .bai-features .btn-functional .material-symbols-outlined {
+    font-size: 16px !important;
+    line-height: 1 !important;
+  }
+  .bai-features .btn-functional .font-headline-md {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+  .bai-features .btn-functional p {
+    margin-top: 3px !important;
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+/* ===== 手机竖屏：任务进度浮窗靠右停靠，避免遮住手机主体内容 ===== */
+@media (max-width: 639px) {
+  #dialog-task-progress {
+    left: auto !important;
+    right: -6px !important;
+    top: 50% !important;
+    width: 112px !important;
+    padding: 8px !important;
+    transform: translateY(-50%) !important;
+  }
+  #dialog-task-progress h3 {
+    font-size: 10px !important;
+    margin-bottom: 6px !important;
+  }
+  #dialog-task-progress .step-label {
+    font-size: 9px !important;
+    line-height: 1.2 !important;
+  }
+  #dialog-task-progress .material-symbols-outlined {
+    font-size: 11px !important;
+  }
+  #dialog-task-progress .progress-line-wrap {
+    height: 10px !important;
+  }
+}
+/* ===== 日期框占位：系统日期控件固定显示浏览器语言的「年/月/日」，空值时改用自绘占位 ===== */
+.date-field {
+  position: relative;
+}
+.date-field .date-ph {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  line-height: 1;
+  color: #9ca3af;
+  pointer-events: none;
+  display: none;
+}
+.date-field.is-empty .date-ph {
+  display: block;
+}
+/* 空值且未聚焦时隐藏系统自带日期占位，避免中文「年/月/日」出现在英文界面 */
+.date-field.is-empty:not(:focus-within) input[type="date"]::-webkit-datetime-edit {
+  color: transparent;
+}
+.date-field.is-empty:focus-within .date-ph {
+  display: none;
+}
 </style>
 </head>
 <body class="text-on-surface overflow-x-hidden font-body-md animate-page-in">
@@ -326,8 +431,8 @@ body {
 </div>
 </div>
 
-<div class="flex flex-row items-center justify-between gap-3 md:gap-12 relative z-10">
-<div class="flex flex-col gap-2 md:gap-6 w-[40%] md:w-1/3 z-20 shrink-0">
+<div class="flex flex-row items-center justify-between gap-3 md:gap-12 relative z-10 bai-layout">
+<div class="flex flex-col gap-2 md:gap-6 w-[40%] md:w-1/3 z-20 shrink-0 bai-features">
 <button class="btn-functional active glass-card rounded-2xl md:rounded-[24px] py-3 px-3 md:py-6 md:px-8 text-left group" id="btn-social" onclick="switchFeature('social')">
 <div class="flex items-center gap-2 md:gap-4">
 <span class="material-symbols-outlined text-xl md:text-3xl text-primary group-hover:text-white transition-colors">forum</span>
@@ -388,7 +493,7 @@ body {
 </div>
 </div>
 
-<div class="flex-1 min-w-0 flex justify-center md:justify-end relative phone-mockup" id="phone-container">
+<div class="flex-1 min-w-0 flex justify-center md:justify-end relative phone-mockup bai-phone" id="phone-container">
 <div class="relative w-[340px] h-[680px] bg-white rounded-[48px] shadow-[0_24px_64px_rgba(255,107,53,0.15)] border-[8px] border-surface-container-highest overflow-hidden" id="phone-frame">
 <div id="auto-cursor"></div>
 
@@ -491,7 +596,10 @@ body {
 </div>
 <div class="mb-4">
 <label class="text-xs text-text-muted mb-1 block">截止时间</label>
+<div class="date-field">
 <input type="date" class="w-full border border-outline-variant/50 rounded-xl px-3 py-2 text-sm bg-surface-container-low focus:outline-none focus:border-primary" id="input-task-deadline" value="" />
+<span class="date-ph" data-zh="年/月/日" data-en="YYYY/MM/DD">年/月/日</span>
+</div>
 </div>
 <div class="mb-4">
 <label class="text-xs text-text-muted mb-1 block">审核要求</label>
@@ -1278,21 +1386,39 @@ function clearAutoPlay() {
 
 function showCursor(targetEl, callback, delay) {
   if (!targetEl) { if (callback) autoPlayTimers.push(setTimeout(callback, delay || 500)); return; }
-  autoPlayTimers.push(setTimeout(function() {
-    var phoneRect = phoneFrame.getBoundingClientRect();
-    var elRect = targetEl.getBoundingClientRect();
-    // 手机在窄屏下被等比缩放，需把屏幕坐标换算回手机内部坐标系
-    var cursorScale = phoneRect.width / phoneFrame.offsetWidth || 1;
-    var cx = (elRect.left - phoneRect.left + elRect.width / 2) / cursorScale;
-    var cy = (elRect.top - phoneRect.top + elRect.height / 2) / cursorScale;
-    autoCursor.style.display = 'block';
-    autoCursor.style.left = cx + 'px';
-    autoCursor.style.top = cy + 'px';
+  // 目标在手机内的滚动区域下方时，先把手机屏幕滚动到能看见它的位置，再移动光标点击
+  bringTargetIntoView(targetEl, function() {
     autoPlayTimers.push(setTimeout(function() {
-      autoCursor.style.display = 'none';
-      if (callback) callback();
-    }, delay || 1200));
-  }, 200));
+      var phoneRect = phoneFrame.getBoundingClientRect();
+      var elRect = targetEl.getBoundingClientRect();
+      // 手机在窄屏下被等比缩放，需把屏幕坐标换算回手机内部坐标系
+      var cursorScale = phoneRect.width / phoneFrame.offsetWidth || 1;
+      var cx = (elRect.left - phoneRect.left + elRect.width / 2) / cursorScale;
+      var cy = (elRect.top - phoneRect.top + elRect.height / 2) / cursorScale;
+      autoCursor.style.display = 'block';
+      autoCursor.style.left = cx + 'px';
+      autoCursor.style.top = cy + 'px';
+      autoPlayTimers.push(setTimeout(function() {
+        autoCursor.style.display = 'none';
+        if (callback) callback();
+      }, delay || 1200));
+    }, 200));
+  });
+}
+
+function bringTargetIntoView(targetEl, done) {
+  var scroller = targetEl.closest('.overflow-y-auto');
+  if (!scroller) { done(); return; }
+  var phoneRect = phoneFrame.getBoundingClientRect();
+  var cursorScale = phoneRect.width / phoneFrame.offsetWidth || 1;
+  var scRect = scroller.getBoundingClientRect();
+  var elRect = targetEl.getBoundingClientRect();
+  var margin = 16;
+  if (elRect.top >= scRect.top + margin && elRect.bottom <= scRect.bottom - margin) { done(); return; }
+  // 视口坐标换成滚动区内部坐标（手机可能被缩放）
+  var delta = ((elRect.top - scRect.top) / cursorScale) - ((scRect.height - elRect.height) / cursorScale) / 2;
+  scroller.scrollTo({ top: scroller.scrollTop + delta, behavior: 'smooth' });
+  autoPlayTimers.push(setTimeout(done, 700));
 }
 
 function typeText(el, text, speed, callback) {
@@ -1323,6 +1449,9 @@ function clearTaskForms() {
     var el = document.getElementById(id);
     if (el) el.value = '';
   });
+  // 清空后同步日期框占位状态，避免英文界面回退成系统中文占位
+  var dl = document.getElementById('input-task-deadline');
+  if (dl) dl.dispatchEvent(new Event('input', { bubbles: true }));
   var imgArea = document.getElementById('evidence-image-area');
   if (imgArea) {
     imgArea.innerHTML = '<span class="material-symbols-outlined text-xl mb-0.5">cloud_upload</span><span class="text-sm font-bold" id="evidence-image-text">点击上传图片凭证</span>';
@@ -1761,6 +1890,7 @@ function autoPlayTask() {
   next(function(r) {
     var el = document.getElementById('input-task-deadline');
     el.value = '2026-06-15';
+    el.dispatchEvent(new Event('input', { bubbles: true }));
     autoPlayTimers.push(setTimeout(r, 500));
   });
   next(function(r) {
@@ -2259,12 +2389,20 @@ const i18nObserver = new MutationObserver(() => {
 });
 i18nRoots().forEach(root => i18nObserver.observe(root, { childList: true, subtree: true, characterData: true }));
 
-// 按右栏可用宽度等比缩放整台手机，窄屏时保持「按钮 1/3、手机 2/3」的版式比例
+// 按右栏可用宽度等比缩放整台手机；窄屏时按可视高度预算缩放，保证手机+按钮同屏可见
 function updatePhoneScale() {
     var container = document.getElementById('phone-container');
     if (!container) return;
     var BASE_W = 340, BASE_H = 680;
-    var scale = Math.min(1, (container.clientWidth * 0.92) / BASE_W);
+    var narrow = window.innerWidth < 640;
+    var availW = narrow ? Math.min(window.innerWidth * 0.78, 300) : container.clientWidth * 0.92;
+    var scale = Math.min(1, availW / BASE_W);
+    if (narrow) {
+        var feat = document.querySelector('.bai-features');
+        var featH = feat ? feat.offsetHeight : 0;
+        var budget = window.innerHeight - 110 - featH;
+        if (budget > 0) scale = Math.min(scale, budget / BASE_H);
+    }
     scale = Math.max(0.35, scale);
     container.style.setProperty('--phone-scale', scale.toFixed(3));
     if (scale < 0.995) {
@@ -2275,6 +2413,16 @@ function updatePhoneScale() {
 }
 updatePhoneScale();
 window.addEventListener('resize', updatePhoneScale);
+
+// 任务发布表单的日期框：空值时同步自绘占位状态（占位文案随中英文切换）
+(function initTaskDateField() {
+    var wrap = document.querySelector('.date-field');
+    var input = document.getElementById('input-task-deadline');
+    if (!wrap || !input) return;
+    var sync = function () { wrap.classList.toggle('is-empty', !input.value); };
+    ['input', 'change', 'blur'].forEach(function (evt) { input.addEventListener(evt, sync); });
+    sync();
+})();
 
 const initLang = getCurrentLang();
 if (initLang === 'en') setLang('en');
