@@ -138,6 +138,7 @@
             animation: pageIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
     </style>
+
 </head>
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden min-h-screen flex flex-col bg-gradient-soft animate-page-in">
 <!-- TopNavBar -->
@@ -151,7 +152,7 @@
 <div class="flex items-center gap-4">
 <button class="md:hidden material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-2xl" id="mobile-menu-btn">menu</button>
 <button class="text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-colors" id="lang-toggle">中/EN</button>
-<a class="gradient-btn text-white px-6 py-2 rounded-xl font-label-lg text-label-lg" href="join.html">Connect</a>
+<a class="gradient-btn text-white px-6 py-2 rounded-xl font-label-lg text-label-lg hidden md:block" href="join.html" data-zh="联系我们" data-en="Connect">联系我们</a>
 </div>
 </div>
 <!-- Mobile Menu -->
@@ -162,7 +163,7 @@
     <a class="font-label-lg text-label-lg text-on-surface-variant" href="join.html" data-zh="加入" data-en="Join">加入</a>
     <div class="flex items-center gap-4 pt-2">
         <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary" id="mobile-lang-toggle">中/EN</button>
-        <a class="gradient-btn text-white font-label-lg text-label-lg px-6 py-2 rounded-xl" href="join.html">Connect</a>
+        <a class="gradient-btn text-white font-label-lg text-label-lg px-6 py-2 rounded-xl" href="join.html" data-zh="联系我们" data-en="Connect">联系我们</a>
     </div>
 </div>
 </nav>

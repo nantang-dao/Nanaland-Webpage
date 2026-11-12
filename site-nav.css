@@ -108,3 +108,8 @@
     .site-brand img { width: 32px; height: 32px; border-radius: 10px; }
     .site-connect { padding: 8px 16px; font-size: 13px; }
 }
+
+/* Mobile header: hide Connect so the brand and language toggle stay clear */
+@media (max-width: 767px) {
+    .site-connect { display: none; }
+}

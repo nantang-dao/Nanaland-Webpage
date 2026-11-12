@@ -198,6 +198,7 @@
           }
         }
       </script>
+
 </head>
 <body class="bg-background text-on-background antialiased overflow-x-hidden min-h-screen flex flex-col animate-page-in">
 <!-- TopNavBar -->
@@ -211,12 +212,10 @@
 <!-- Navigation Links (Desktop) -->
 <div class="hidden md:flex items-center space-x-8 font-label-lg text-label-lg"><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="index.html" data-zh="概览" data-en="Overview">概览</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="projects.html" data-zh="项目" data-en="Projects">项目</a><a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 hover:scale-105 hover:opacity-90 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="about.html" data-zh="关于" data-en="About">关于</a><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 hover:scale-105 hover:opacity-90" href="join.html" data-zh="加入" data-en="Join">加入</a></div>
 <!-- Actions -->
-<div class="flex items-center space-x-6">
-<button class="md:hidden material-symbols-outlined text-on-surface hover:text-primary transition-colors duration-300" id="mobile-menu-btn" style="font-size:28px;">menu</button>
+<div class="flex items-center gap-4">
+<button class="md:hidden material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors duration-300 text-2xl" id="mobile-menu-btn">menu</button>
 <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300" id="lang-toggle">EN/中</button>
-<a class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white font-label-lg text-label-lg px-6 py-2 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] hover:scale-105 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="join.html">
-                    Connect
-                </a>
+<a class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white font-label-lg text-label-lg px-6 py-2 rounded-xl shadow-[0_8px_24px_rgba(255,107,53,0.12)] hover:shadow-[0_12px_32px_rgba(255,107,53,0.18)] hidden md:block hover:scale-105 transition-all duration-300 cubic-bezier(0.2,0.8,0.2,1)" href="join.html" data-zh="联系我们" data-en="Connect">联系我们</a>
 </div>
 </div>
 <!-- Mobile Menu -->
@@ -227,7 +226,7 @@
     <a class="font-label-lg text-label-lg text-on-surface-variant" href="join.html" data-zh="加入" data-en="Join">加入</a>
     <div class="flex items-center gap-4 pt-2">
         <button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary" id="mobile-lang-toggle">EN/中</button>
-        <a class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white font-label-lg text-label-lg px-6 py-2 rounded-xl" href="join.html">Connect</a>
+        <a class="bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white font-label-lg text-label-lg px-6 py-2 rounded-xl" href="join.html" data-zh="联系我们" data-en="Connect">联系我们</a>
     </div>
 </div>
 </nav>
